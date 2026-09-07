@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pey Me Money App Studios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@500;700;800&amp;family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet" />
+  <script src="image-slot.js"></script>
+  <style>
+    :root {
+      --paper: #FAF4E7;
+      --card: #FFFDF6;
+      --ink: #221B10;
+      --money: #187A4B;
+      --cone: #E8722C;
+      --sun: #F5C543;
+      --wobble: 1;
+    }
+    html { background: var(--paper); }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'Instrument Sans', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: var(--money); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+    a:hover { color: var(--cone); }
+    ::selection { background: var(--sun); color: var(--ink); }
+    @keyframes pmm-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  </style>
+</helmet>
+
+<div style="min-width: 320px">
+
+  <!-- ══════════ STOCK TICKER ══════════ -->
+  <div data-screen-label="Ticker" style="background: var(--ink); color: #F6EFDF; height: 42px; display: flex; align-items: center; overflow: hidden; font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.04em">
+    {{ tickerTrack }}
+  </div>
+
+  <!-- ══════════ TOP STRIP ══════════ -->
+  <header style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; max-width: 1180px; margin: 0 auto; padding: 18px 32px 0 32px; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase">
+    <div style="display: flex; align-items: center; gap: 10px">
+      <div style="width: 26px; height: 26px; border-radius: 50%; border: 2.5px solid var(--ink); background: var(--sun); display: grid; place-items: center; font-weight: 700; font-size: 13px">$</div>
+      <span style="font-weight: 700">Pey Me Money App Studios</span>
+      <span style="opacity: 0.55">· official website</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px">
+      <span style="opacity: 0.55">revenue to date:</span>
+      <span style="font-weight: 700; color: var(--money)">$0.00</span>
+      <span style="color: var(--money)">▲</span>
+    </div>
+  </header>
+
+  <!-- ══════════ HERO ══════════ -->
+  <section data-screen-label="Hero" style="position: relative; max-width: 1180px; margin: 0 auto; padding: 72px 32px 84px 32px; text-align: center">
+
+    <!-- floating coins (simple circles only) -->
+    <div aria-hidden="true" style="position: absolute; left: 4%; top: 60px; width: 74px; height: 74px; border-radius: 50%; border: 3px solid var(--ink); background: var(--sun); box-shadow: 4px 5px 0 var(--ink); display: grid; place-items: center; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 20px; transform: rotate(calc(-12deg * var(--wobble)))">$0</div>
+    <div aria-hidden="true" style="position: absolute; right: 6%; top: 130px; width: 54px; height: 54px; border-radius: 50%; border: 3px solid var(--ink); background: var(--card); box-shadow: 3px 4px 0 var(--ink); display: grid; place-items: center; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 15px; transform: rotate(calc(10deg * var(--wobble)))">$0</div>
+    <div aria-hidden="true" style="position: absolute; right: 13%; bottom: 40px; width: 38px; height: 38px; border-radius: 50%; border: 2.5px solid var(--ink); background: var(--sun); display: grid; place-items: center; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 12px; transform: rotate(calc(-8deg * var(--wobble)))">$0</div>
+
+    <div style="display: inline-block; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border: 2px solid var(--ink); border-radius: 999px; padding: 6px 16px; background: var(--card); box-shadow: 3px 3px 0 var(--ink); transform: rotate(calc(-1deg * var(--wobble)))">Catalog № 001 — Summer 2026</div>
+
+    <h1 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: clamp(58px, 9.5vw, 132px); line-height: 0.98; margin: 28px 0 0 0; letter-spacing: -0.01em">
+      <span style="display: block; transform: rotate(calc(-1.2deg * var(--wobble)))">Pey Me</span>
+      <span style="display: block; color: var(--money); -webkit-text-stroke: 2px var(--ink); text-shadow: 5px 6px 0 var(--ink); transform: rotate(calc(0.8deg * var(--wobble)))">Money</span>
+    </h1>
+
+    <div style="display: inline-block; margin-top: 18px; background: var(--ink); color: var(--paper); font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: clamp(16px, 2.2vw, 24px); padding: 8px 26px; border-radius: 8px; transform: rotate(calc(-0.8deg * var(--wobble)))">App Studios, LLC<span style="opacity: 0.6; font-size: 0.7em"> (paperwork pending)</span></div>
+
+    <p style="max-width: 620px; margin: 30px auto 0 auto; font-size: 18px; line-height: 1.6; text-wrap: pretty">
+      A one-guy app studio making software for people who like cars, cones,
+      and keeping the family posted. The name is a business plan.
+      The apps are free — for now. <em>One day, you will pey.</em>
+    </p>
+
+    <!-- stat stamps -->
+    <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 36px">
+      <div style="border: 2.5px solid var(--ink); background: var(--card); border-radius: 12px; padding: 10px 18px; box-shadow: 4px 4px 0 var(--ink); transform: rotate(calc(-1.5deg * var(--wobble)))"><div style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 26px">5</div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase">apps</div></div>
+      <div style="border: 2.5px solid var(--ink); background: var(--card); border-radius: 12px; padding: 10px 18px; box-shadow: 4px 4px 0 var(--ink); transform: rotate(calc(1deg * var(--wobble)))"><div style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 26px; color: var(--money)">100%</div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase">bootstrapped</div></div>
+      <div style="border: 2.5px solid var(--ink); background: var(--card); border-radius: 12px; padding: 10px 18px; box-shadow: 4px 4px 0 var(--ink); transform: rotate(calc(-0.7deg * var(--wobble)))"><div style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 26px">1</div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase">employee*</div></div>
+      <div style="border: 2.5px solid var(--ink); background: var(--sun); border-radius: 12px; padding: 10px 18px; box-shadow: 4px 4px 0 var(--ink); transform: rotate(calc(1.4deg * var(--wobble)))"><div style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 26px; color: var(--cone)">∞</div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase">cones</div></div>
+    </div>
+    <div style="margin-top: 14px; font-family: 'Space Mono', monospace; font-size: 11px; opacity: 0.6">*also the CEO, the CFO, and the guy who hits the cones.</div>
+  </section>
+
+  <!-- checkered divider -->
+  <div aria-hidden="true" style="height: 28px; border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink); background: repeating-conic-gradient(var(--ink) 0% 25%, var(--paper) 0% 50%); background-size: 28px 28px"></div>
+
+  <!-- ══════════ DIVISION 01 — RACING ══════════ -->
+  <section data-screen-label="Racing Division" style="max-width: 1180px; margin: 0 auto; padding: 72px 32px 40px 32px">
+    <div style="display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap">
+      <div style="font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cone); font-weight: 700">Division № 01</div>
+      <div style="font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.55">sorted fastest → slowest</div>
+    </div>
+    <h2 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: clamp(38px, 5vw, 58px); margin: 6px 0 4px 0">Goes Fast</h2>
+    <p style="margin: 0 0 40px 0; font-size: 17px; opacity: 0.75; font-style: italic">The reason the LLC exists.</p>
+
+    <!-- ─── SpeedStream (flagship) ─── -->
+    <article style="transform: rotate(calc(-0.4deg * var(--wobble)))">
+      <div style="border: 3px solid var(--ink); border-radius: 22px; background: var(--card); box-shadow: 7px 8px 0 var(--ink); padding: 40px; display: flex; gap: 44px; flex-wrap: wrap; align-items: center; transition: translate 0.18s ease, box-shadow 0.18s ease" style-hover="translate: -3px -3px; box-shadow: 11px 12px 0 var(--ink)">
+        <div style="flex: 1 1 420px; min-width: 300px">
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center">
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">Flagship · iOS</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--money); color: #FFFDF6; padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(-2deg * var(--wobble)))">On TestFlight</span>
+          </div>
+          <h3 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 44px; margin: 18px 0 12px 0">SpeedStream</h3>
+          <p style="font-size: 18px; line-height: 1.6; margin: 0; text-wrap: pretty">
+            Autocross telemetry with an AI driving coach. It records every run with
+            your phone locked in your pocket, maps it on satellite, then explains —
+            politely, with evidence — exactly why you were slow.
+          </p>
+          <ul style="list-style: none; padding: 0; margin: 22px 0 0 0; display: grid; gap: 10px; font-size: 15.5px">
+            <li style="display: flex; gap: 10px"><span style="color: var(--cone); font-weight: 700">▸</span><span>Arm it once at the venue. It catches every run — and never the drive home.</span></li>
+            <li style="display: flex; gap: 10px"><span style="color: var(--cone); font-weight: 700">▸</span><span>RaceBox, OBD, GoPro all optional. Your phone works day one.</span></li>
+            <li style="display: flex; gap: 10px"><span style="color: var(--cone); font-weight: 700">▸</span><span>The coach cites its sources and refuses to invent numbers. Unlike everyone in grid.</span></li>
+          </ul>
+          <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 28px">
+            <a href="#" style="display: inline-block; font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 17px; color: var(--ink); text-decoration: none; background: var(--sun); border: 3px solid var(--ink); border-radius: 12px; padding: 12px 22px; box-shadow: 4px 5px 0 var(--ink); transition: translate 0.15s ease, box-shadow 0.15s ease" style-hover="translate: -2px -2px; box-shadow: 6px 7px 0 var(--ink); color: var(--ink)">Join the TestFlight →</a>
+            <span style="font-family: 'Space Mono', monospace; font-size: 12px; border: 2px dashed var(--ink); border-radius: 8px; padding: 7px 12px; transform: rotate(calc(2deg * var(--wobble)))">$0.00 · introductory price</span>
+          </div>
+          <div style="margin-top: 20px; font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6">Coaching runs ~$0.004 per lecture. We eat the cost. Peyonics.</div>
+        </div>
+        <div style="flex: 0 0 auto; margin: 0 auto">
+          <div style="width: 272px; border: 3px solid var(--ink); border-radius: 44px; background: #FFFFFF; padding: 10px; box-shadow: 6px 7px 0 var(--ink); transform: rotate(calc(1.2deg * var(--wobble)))">
+            <div style="width: 54px; height: 6px; border-radius: 999px; background: var(--ink); opacity: 0.25; margin: 4px auto 8px auto"></div>
+            <image-slot id="ss-phone" shape="rounded" radius="30" placeholder="Drop a SpeedStream screenshot (ideally one where the coach is being mean)" style="width: 100%; height: 520px"></image-slot>
+          </div>
+          <div style="text-align: center; font-family: 'Space Mono', monospace; font-size: 11px; opacity: 0.55; margin-top: 12px">actual app · simulated modesty</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ─── ConeCanvas + AC Autocross Maker ─── -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 32px; margin-top: 44px">
+
+      <article style="transform: rotate(calc(0.5deg * var(--wobble)))">
+        <div style="height: 100%; box-sizing: border-box; border: 3px solid var(--ink); border-radius: 22px; background: var(--card); box-shadow: 6px 7px 0 var(--ink); padding: 32px; display: flex; flex-direction: column; gap: 16px; transition: translate 0.18s ease, box-shadow 0.18s ease" style-hover="translate: -3px -3px; box-shadow: 9px 10px 0 var(--ink)">
+          <div style="display: flex; gap: 10px; flex-wrap: wrap">
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">macOS + iPhone</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--cone); color: #FFFDF6; padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(2deg * var(--wobble)))">In the lab</span>
+          </div>
+          <h3 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 34px; margin: 0">ConeCanvas</h3>
+          <p style="font-size: 16.5px; line-height: 1.6; margin: 0; text-wrap: pretty">
+            Autocross course design minus the Illustrator subscription. Trace your lot
+            to scale from satellite, drag on real slaloms and sweepers, and it counts
+            the cones for the setup crew — live, while you draw.
+          </p>
+          <div style="border: 3px solid var(--ink); border-radius: 14px; overflow: hidden; background: #FFFFFF">
+            <div style="display: flex; gap: 6px; align-items: center; padding: 8px 12px; border-bottom: 3px solid var(--ink); background: var(--paper)">
+              <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--cone); border: 1.5px solid var(--ink)"></span>
+              <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--sun); border: 1.5px solid var(--ink)"></span>
+              <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--money); border: 1.5px solid var(--ink)"></span>
+              <span style="font-family: 'Space Mono', monospace; font-size: 10px; margin-left: 8px; opacity: 0.5">untitled-course-final-FINAL-v2.acx</span>
+            </div>
+            <image-slot id="cc-shot" shape="rect" placeholder="Drop a ConeCanvas screenshot (the one with all the cones)" style="width: 100%; height: 280px"></image-slot>
+          </div>
+          <div style="font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6; margin-top: auto">Knows what a slalom is. 256 tests agree. "Is it iPad yet?" — soon.</div>
+        </div>
+      </article>
+
+      <article style="transform: rotate(calc(-0.5deg * var(--wobble)))">
+        <div style="height: 100%; box-sizing: border-box; border: 3px solid var(--ink); border-radius: 22px; background: var(--card); box-shadow: 6px 7px 0 var(--ink); padding: 32px; display: flex; flex-direction: column; gap: 16px; transition: translate 0.18s ease, box-shadow 0.18s ease" style-hover="translate: -3px -3px; box-shadow: 9px 10px 0 var(--ink)">
+          <div style="display: flex; gap: 10px; flex-wrap: wrap">
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">Sim racing pipeline</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--money); color: #FFFDF6; padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(-2deg * var(--wobble)))">v1.1 · drivable</span>
+          </div>
+          <h3 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 34px; margin: 0">AC Autocross Maker</h3>
+          <p style="font-size: 16.5px; line-height: 1.6; margin: 0; text-wrap: pretty">
+            Takes the club's official course-map PDF and turns it into a drivable
+            Assetto Corsa track — every cone placed to within 0.6 meters. Everyone
+            else walks the course Sunday morning. You drove it Wednesday, in socks.
+          </p>
+          <div style="border: 3px solid var(--ink); border-radius: 14px; overflow: hidden; background: #FFFFFF">
+            <image-slot id="ac-shot" shape="rect" placeholder="Drop an in-game screenshot (cones upright, please)" style="width: 100%; height: 321px"></image-slot>
+          </div>
+          <div style="font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6; margin-top: auto">v1.0 patch notes: cones no longer lie down on the job. (13.54° — we measured.)</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ══════════ DIVISION 02 — FAMILY ══════════ -->
+  <section data-screen-label="Family Division" style="max-width: 1180px; margin: 0 auto; padding: 56px 32px 80px 32px">
+    <div style="font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--money); font-weight: 700">Division № 02</div>
+    <h2 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: clamp(38px, 5vw, 58px); margin: 6px 0 4px 0">Keeps the Family Posted</h2>
+    <p style="margin: 0 0 40px 0; font-size: 17px; opacity: 0.75; font-style: italic">The reason we're allowed to keep Division № 01.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 32px">
+
+      <article style="transform: rotate(calc(0.4deg * var(--wobble)))">
+        <div style="height: 100%; box-sizing: border-box; border: 3px solid var(--ink); border-radius: 22px; background: var(--card); box-shadow: 6px 7px 0 var(--ink); padding: 32px; display: flex; gap: 26px; flex-wrap: wrap; transition: translate 0.18s ease, box-shadow 0.18s ease" style-hover="translate: -3px -3px; box-shadow: 9px 10px 0 var(--ink)">
+          <div style="flex: 1 1 240px; min-width: 220px; display: flex; flex-direction: column; gap: 14px">
+            <div style="display: flex; gap: 10px; flex-wrap: wrap">
+              <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">iOS · family fleet</span>
+            </div>
+            <h3 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 34px; margin: 0">Glovebox</h3>
+            <p style="font-size: 16px; line-height: 1.6; margin: 0; text-wrap: pretty">
+              A logbook for every car the family drives. Ten-second fill-up logging
+              at the pump, MPG math you can't lie to, and a cost ledger that found
+              out the sports car costs <strong>$19.84 a mile</strong> and simply
+              will not let it go.
+            </p>
+            <div style="font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6; margin-top: auto">Replaces one spreadsheet and several Apple Notes of shame. Knows the Costco habit saves $0.95/gal. Respects the hustle.</div>
+          </div>
+          <div style="flex: 0 0 auto; margin: 0 auto">
+            <div style="width: 216px; border: 3px solid var(--ink); border-radius: 38px; background: #FFFFFF; padding: 8px; box-shadow: 5px 6px 0 var(--ink); transform: rotate(calc(-1.4deg * var(--wobble)))">
+              <div style="width: 44px; height: 5px; border-radius: 999px; background: var(--ink); opacity: 0.25; margin: 4px auto 7px auto"></div>
+              <image-slot id="gb-phone" shape="rounded" radius="26" placeholder="Drop a Glovebox screenshot" style="width: 100%; height: 416px"></image-slot>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article style="transform: rotate(calc(-0.4deg * var(--wobble)))">
+        <div style="height: 100%; box-sizing: border-box; border: 3px solid var(--ink); border-radius: 22px; background: var(--card); box-shadow: 6px 7px 0 var(--ink); padding: 32px; display: flex; gap: 26px; flex-wrap: wrap; transition: translate 0.18s ease, box-shadow 0.18s ease" style-hover="translate: -3px -3px; box-shadow: 9px 10px 0 var(--ink)">
+          <div style="flex: 1 1 240px; min-width: 220px; display: flex; flex-direction: column; gap: 14px">
+            <div style="display: flex; gap: 10px; flex-wrap: wrap">
+              <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">iOS · travel</span>
+              <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--sun); color: var(--ink); padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(2deg * var(--wobble)))">Workshopping</span>
+            </div>
+            <h3 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 34px; margin: 0">Altrove</h3>
+            <p style="font-size: 16px; line-height: 1.6; margin: 0; text-wrap: pretty">
+              Like a flight tracker, but for the whole trip. Log where the family has
+              been, follow each other's trips live, and plan where you're all going
+              next — in one shared place instead of four group chats.
+            </p>
+            <div style="font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6; margin-top: auto">Named after the Italian for "elsewhere," which is where we'd all rather be.</div>
+          </div>
+          <div style="flex: 0 0 auto; margin: 0 auto">
+            <div style="width: 216px; border: 3px solid var(--ink); border-radius: 38px; background: #FFFFFF; padding: 8px; box-shadow: 5px 6px 0 var(--ink); transform: rotate(calc(1.4deg * var(--wobble)))">
+              <div style="width: 44px; height: 5px; border-radius: 999px; background: var(--ink); opacity: 0.25; margin: 4px auto 7px auto"></div>
+              <image-slot id="al-phone" shape="rounded" radius="26" placeholder="Drop an Altrove screenshot (or a napkin sketch, we're workshopping)" style="width: 100%; height: 416px"></image-slot>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ══════════ THE BACK ROOM ══════════ -->
+  <sc-if value="{{ showBackRoom }}" hint-placeholder-val="{{ true }}">
+    <section data-screen-label="Back Room" style="background: var(--ink); color: #F6EFDF; border-top: 3px solid var(--ink)">
+      <div style="max-width: 1180px; margin: 0 auto; padding: 64px 32px 72px 32px">
+        <div style="font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sun)">The Back Room</div>
+        <h2 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: clamp(30px, 4vw, 44px); margin: 6px 0 6px 0; color: #F6EFDF">Things we built and refuse to sell you</h2>
+        <p style="margin: 0 0 36px 0; font-size: 16px; opacity: 0.7; font-style: italic">Not everything gets a card with a drop shadow.</p>
+
+        <div style="display: grid; gap: 14px">
+          <div style="display: flex; gap: 18px; align-items: baseline; flex-wrap: wrap; border: 2px dashed rgba(246, 239, 223, 0.35); border-radius: 14px; padding: 18px 22px">
+            <span style="font-family: 'Space Mono', monospace; font-weight: 700; font-size: 15px">flights-monitor</span>
+            <span style="font-size: 15px; opacity: 0.85; flex: 1 1 340px">A <span style="background: #F6EFDF; color: transparent; border-radius: 3px; user-select: none">watcher of some</span> that <span style="background: #F6EFDF; color: transparent; border-radius: 3px; user-select: none">absolutely nobody else</span> may use. Personal. Forever. Do not ask.</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sun); border: 2px solid var(--sun); border-radius: 999px; padding: 4px 12px; transform: rotate(calc(-2deg * var(--wobble)))">Not for sale</span>
+          </div>
+          <div style="display: flex; gap: 18px; align-items: baseline; flex-wrap: wrap; border: 2px dashed rgba(246, 239, 223, 0.35); border-radius: 14px; padding: 18px 22px">
+            <span style="font-family: 'Space Mono', monospace; font-weight: 700; font-size: 15px">plop</span>
+            <span style="font-size: 15px; opacity: 0.85; flex: 1 1 340px">Our most disciplined release. Seven bytes. Zero features. Zero bugs. Five-star average across zero reviews.</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.6; border: 2px solid rgba(246, 239, 223, 0.4); border-radius: 999px; padding: 4px 12px">Feature-complete</span>
+          </div>
+          <div style="display: flex; gap: 18px; align-items: baseline; flex-wrap: wrap; border: 2px dashed rgba(246, 239, 223, 0.35); border-radius: 14px; padding: 18px 22px">
+            <span style="font-family: 'Space Mono', monospace; font-weight: 700; font-size: 15px">RaceBoxTest</span>
+            <span style="font-size: 15px; opacity: 0.85; flex: 1 1 340px">The science-fair project that grew up to be SpeedStream. Kept around for sentimental reasons, like a first trophy, or a dent.</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.6; border: 2px solid rgba(246, 239, 223, 0.4); border-radius: 999px; padding: 4px 12px">Retired № 1</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- checkered divider -->
+  <div aria-hidden="true" style="height: 28px; border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink); background: repeating-conic-gradient(var(--ink) 0% 25%, var(--paper) 0% 50%); background-size: 28px 28px"></div>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer data-screen-label="Footer" style="max-width: 1180px; margin: 0 auto; padding: 56px 32px 72px 32px; text-align: center">
+    <div style="display: inline-grid; place-items: center; width: 58px; height: 58px; border-radius: 50%; border: 3px solid var(--ink); background: var(--sun); box-shadow: 4px 5px 0 var(--ink); font-family: 'Space Mono', monospace; font-weight: 700; font-size: 18px; transform: rotate(calc(8deg * var(--wobble)))">$0</div>
+    <p style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 22px; margin: 20px auto 8px auto; max-width: 560px">Every app: $0.00. The studio name is doing all the heavy lifting.</p>
+    <p style="font-family: 'Space Mono', monospace; font-size: 12px; line-height: 2; opacity: 0.6; max-width: 640px; margin: 0 auto">
+      © 2026 Pey Me Money App Studios, LLC (formation status: aspirational).
+      Not a bank. Not fintech. Not financial advice. It is one guy.<br />
+      Please do not mail us actual money. (Unless?)<br />
+      No cones were permanently harmed in the making of these apps.
+    </p>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;wobble&quot;: {&quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 1, &quot;min&quot;: 0, &quot;max&quot;: 2, &quot;step&quot;: 0.25, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Vibe&quot;, &quot;description&quot;: &quot;How crooked everything sits. 0 = investor meeting, 2 = paddock at 2pm.&quot;},
+  &quot;moneyColor&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#187A4B&quot;, &quot;options&quot;: [&quot;#187A4B&quot;, &quot;#2A5FB0&quot;, &quot;#8A4BA8&quot;, &quot;#B03A3A&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Vibe&quot;, &quot;description&quot;: &quot;The color of money (results may vary).&quot;},
+  &quot;showBackRoom&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Content&quot;, &quot;description&quot;: &quot;Show the redacted / joke section.&quot;}
+}">
+class Component extends DCLogic {
+  applyVars() {
+    const root = document.documentElement.style;
+    root.setProperty('--wobble', String(this.props.wobble ?? 1));
+    root.setProperty('--money', this.props.moneyColor ?? '#187A4B');
+  }
+  componentDidMount() { this.applyVars(); }
+  componentDidUpdate() { this.applyVars(); }
+  renderVals() {
+    const text = 'PMM ▼ $0.00 (−0.00%)  ★  LIFETIME REVENUE: $0.00  ★  APPS SHIPPED: 5  ★  HEADCOUNT: 1 (THE GUY)  ★  CONES HARMED YTD: [SEALED BY LEGAL]  ★  COSTCO GAS EDGE: $0.95/GAL  ★  AI COACH BUDGET: $0.004/LECTURE  ★  SPYDER RUNNING COST: DO NOT ASK  ★  ';
+    const seg = (key) => React.createElement('span', { key, style: { whiteSpace: 'pre' } }, text);
+    const tickerTrack = React.createElement(
+      'div',
+      { style: { display: 'flex', width: 'max-content', animation: 'pmm-marquee 32s linear infinite' } },
+      seg('a'), seg('b')
+    );
+    return {
+      showBackRoom: this.props.showBackRoom ?? true,
+      tickerTrack
+    };
+  }
+}
+</script>
+</body>
+</html>

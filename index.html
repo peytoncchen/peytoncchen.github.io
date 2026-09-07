@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pey Me Money App Studios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@500;700;800&amp;family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet" />
+  <script src="image-slot.js"></script>
+  <style>
+    :root {
+      --paper: #FAF4E7;
+      --card: #FFFDF6;
+      --ink: #221B10;
+      --money: #187A4B;
+      --cone: #E8722C;
+      --sun: #F5C543;
+      --wobble: 1;
+      --tab-cat-bg: #221B10;
+      --tab-cat-fg: #FAF4E7;
+      --tab-guy-bg: transparent;
+      --tab-guy-fg: #221B10;
+      --tab-plop-bg: transparent;
+      --tab-plop-fg: #221B10;
+    }
+    html { background: var(--paper); }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'Instrument Sans', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; transition: background 0.35s ease, color 0.35s ease; }
+    a { color: var(--money); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+    a:hover { color: var(--cone); }
+    ::selection { background: var(--sun); color: #221B10; }
+    @keyframes pmm-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @keyframes pmm-shake { 0%, 100% { transform: translateX(0) rotate(0deg); } 20% { transform: translateX(-9px) rotate(-1deg); } 40% { transform: translateX(8px) rotate(1deg); } 60% { transform: translateX(-6px) rotate(-0.6deg); } 80% { transform: translateX(5px) rotate(0.6deg); } }
+    @keyframes pmm-flicker { from { transform: scale(1) rotate(-3deg); } to { transform: scale(1.14) rotate(4deg); } }
+  </style>
+</helmet>
+
+<div style="min-width: 320px">
+
+  <!-- ══════════ STOCK TICKER ══════════ -->
+  <div data-screen-label="Ticker" style="background: var(--ink); color: var(--paper); height: 42px; display: flex; align-items: center; overflow: hidden; font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.04em; transition: background 0.35s ease, color 0.35s ease">
+    {{ tickerTrack }}
+  </div>
+
+  <!-- ══════════ TOP STRIP ══════════ -->
+  <header style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; max-width: 1180px; margin: 0 auto; padding: 18px 32px 0 32px; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase">
+    <a href="#" style="display: flex; align-items: center; gap: 10px; color: inherit; text-decoration: none">
+      <span style="width: 26px; height: 26px; border-radius: 50%; border: 2.5px solid var(--ink); background: var(--sun); display: grid; place-items: center; font-weight: 700; font-size: 13px; color: #221B10">$</span>
+      <span style="font-weight: 700">Pey Me Money App Studios</span>
+      <span style="opacity: 0.55">· official website</span>
+    </a>
+    <div style="display: flex; align-items: center; gap: 8px">
+      <span style="opacity: 0.55">est. 2026 ·</span>
+      <span style="font-weight: 700; color: var(--money)">money: TBD</span>
+      <span>💸</span>
+    </div>
+  </header>
+
+  <!-- ══════════ TABS ══════════ -->
+  <nav data-screen-label="Tabs" style="max-width: 1180px; margin: 0 auto; padding: 18px 32px 0 32px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase">
+    <a href="#" style="text-decoration: none; border: 2px solid var(--ink); border-radius: 999px; padding: 8px 18px; background: var(--tab-cat-bg); color: var(--tab-cat-fg); box-shadow: 3px 3px 0 var(--ink); transition: translate 0.15s ease" style-hover="translate: -2px -2px; color: var(--tab-cat-fg)">The Catalog</a>
+    <a href="#about" style="text-decoration: none; border: 2px solid var(--ink); border-radius: 999px; padding: 8px 18px; background: var(--tab-guy-bg); color: var(--tab-guy-fg); box-shadow: 3px 3px 0 var(--ink); transition: translate 0.15s ease" style-hover="translate: -2px -2px; color: var(--tab-guy-fg)">The Guy</a>
+    <a href="#plop" style="text-decoration: none; border: 2px solid var(--ink); border-radius: 999px; padding: 8px 18px; background: var(--tab-plop-bg); color: var(--tab-plop-fg); box-shadow: 3px 3px 0 var(--ink); transition: translate 0.15s ease" style-hover="translate: -2px -2px; color: var(--tab-plop-fg)"><span>{{ plopTabLock }}</span>The Plop Pavilion</a>
+  </nav>
+
+  <!-- ════════════════════════ HOME ════════════════════════ -->
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+
+    <!-- ══════════ HERO ══════════ -->
+    <section data-screen-label="Hero" style="position: relative; max-width: 1180px; margin: 0 auto; padding: 72px 32px 84px 32px; text-align: center">
+
+      <div aria-hidden="true" style="position: absolute; left: 4%; top: 60px; width: 74px; height: 74px; border-radius: 50%; border: 3px solid var(--ink); background: var(--sun); box-shadow: 4px 5px 0 var(--ink); display: grid; place-items: center; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 30px; transform: rotate(calc(-12deg * var(--wobble)))">💸</div>
+      <div aria-hidden="true" style="position: absolute; right: 6%; top: 118px; transform: rotate(calc(10deg * var(--wobble)))"><span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 64px"><sc-for list="{{ pm.rich }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></div>
+      <div aria-hidden="true" style="position: absolute; right: 13%; bottom: 40px; width: 38px; height: 38px; border-radius: 50%; border: 2.5px solid var(--ink); background: var(--sun); display: grid; place-items: center; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 12px; color: #221B10; transform: rotate(calc(-8deg * var(--wobble)))">$0</div>
+      <div aria-hidden="true" style="position: absolute; left: 9%; bottom: 74px; font-size: 36px; transform: rotate(calc(-10deg * var(--wobble)))">🪙</div>
+      <div aria-hidden="true" style="position: absolute; right: 3%; top: 44px; font-size: 26px; transform: rotate(calc(14deg * var(--wobble)))">🤑</div>
+
+      <div style="display: inline-block; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border: 2px solid var(--ink); border-radius: 999px; padding: 6px 16px; background: var(--card); box-shadow: 3px 3px 0 var(--ink); transform: rotate(calc(-1deg * var(--wobble)))">Catalog № 001 — Summer 2026</div>
+
+      <h1 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: clamp(58px, 9.5vw, 132px); line-height: 0.98; margin: 28px 0 0 0; letter-spacing: -0.01em">
+        <span style="display: block; transform: rotate(calc(-1.2deg * var(--wobble)))">Pey Me</span>
+        <span style="display: block; color: var(--money); -webkit-text-stroke: 2px var(--ink); text-shadow: 5px 6px 0 var(--ink); transform: rotate(calc(0.8deg * var(--wobble)))">M<span aria-hidden="true" style="display: inline-block; position: relative; width: 0.72em; height: 0.72em; margin: 0 0.015em; vertical-align: -0.05em; transform: rotate(calc(10deg * var(--wobble)))"><span style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; border-radius: 50%; background: linear-gradient(145deg, #FFD966, #E8A93A 60%, #C8862A); box-shadow: inset 0 0 0 0.045em var(--ink), 0.04em 0.05em 0 var(--ink)"></span><span style="position: absolute; left: 50%; top: 50%; width: 72%; height: 72%; transform: translate(-50%, -50%); border-radius: 50%; box-shadow: inset 0 0 0 0.018em rgba(140, 90, 20, 0.55)"></span><span style="position: absolute; left: 20%; top: 16%; width: 0.16em; height: 0.09em; border-radius: 50%; background: rgba(255, 255, 255, 0.72); transform: rotate(-32deg)"></span><span style="position: absolute; left: 33%; top: 38%; width: 0.09em; height: 0.11em; border-radius: 50%; background: var(--ink)"></span><span style="position: absolute; left: 67%; top: 38%; width: 0.09em; height: 0.11em; border-radius: 50%; background: var(--ink); transform: translateX(-100%)"></span><span style="position: absolute; left: 50%; top: 56%; width: 0.3em; height: 0.15em; border-radius: 0.02em 0.02em 1em 1em; background: var(--ink); transform: translateX(-50%)"></span></span>ney</span>
+      </h1>
+
+      <div style="display: inline-block; margin-top: 18px; background: var(--ink); color: var(--paper); font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: clamp(16px, 2.2vw, 24px); padding: 8px 26px; border-radius: 8px; transform: rotate(calc(-0.8deg * var(--wobble)))">App Studios, LLC<span style="opacity: 0.6; font-size: 0.7em"> (paperwork pending)</span></div>
+
+      <p style="max-width: 620px; margin: 30px auto 0 auto; font-size: 18px; line-height: 1.6; text-wrap: pretty">
+        A one-guy app studio making software for people who like cars, cones,
+        and keeping the family posted. The name is a business plan.
+        The apps are free — for now. <em>One day, you will pey.</em>
+      </p>
+
+      <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 36px">
+        <div style="border: 2.5px solid var(--ink); background: var(--card); border-radius: 12px; padding: 10px 18px; box-shadow: 4px 4px 0 var(--ink); transform: rotate(calc(-1.5deg * var(--wobble)))"><div style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 26px">5</div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase">apps</div></div>
+        <div style="border: 2.5px solid var(--ink); background: var(--card); border-radius: 12px; padding: 10px 18px; box-shadow: 4px 4px 0 var(--ink); transform: rotate(calc(1deg * var(--wobble)))"><div style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 26px; color: var(--money)">100%</div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase">bootstrapped</div></div>
+        <div style="border: 2.5px solid var(--ink); background: var(--card); border-radius: 12px; padding: 10px 18px; box-shadow: 4px 4px 0 var(--ink); transform: rotate(calc(-0.7deg * var(--wobble)))"><div style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 26px">1</div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase">employee*</div></div>
+        <div style="border: 2.5px solid var(--ink); background: var(--sun); border-radius: 12px; padding: 10px 18px; box-shadow: 4px 4px 0 var(--ink); transform: rotate(calc(1.4deg * var(--wobble)))"><div style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 26px; color: var(--cone)">∞</div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #221B10">cones</div></div>
+      </div>
+      <div style="margin-top: 14px; font-family: 'Space Mono', monospace; font-size: 11px; opacity: 0.6">*also the CEO, the CFO, and the guy who hits the cones.</div>
+    </section>
+
+    <div aria-hidden="true" style="height: 28px; border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink); background: repeating-conic-gradient(var(--ink) 0% 25%, var(--paper) 0% 50%); background-size: 28px 28px"></div>
+
+    <!-- ══════════ DIVISION 01 — RACING ══════════ -->
+    <section data-screen-label="Racing Division" style="max-width: 1180px; margin: 0 auto; padding: 72px 32px 40px 32px">
+      <div style="display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap">
+        <div style="font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cone); font-weight: 700">Division № 01</div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.55">sorted fastest → slowest</div>
+      </div>
+      <h2 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: clamp(38px, 5vw, 58px); margin: 6px 0 4px 0">Goes Fast <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 0.7em; vertical-align: -0.1em; transform: rotate(calc(8deg * var(--wobble)))"><sc-for list="{{ pm.burn }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></h2>
+      <p style="margin: 0 0 40px 0; font-size: 17px; opacity: 0.75; font-style: italic">The reason the LLC exists.</p>
+
+      <!-- ─── SpeedStream (flagship) ─── -->
+      <article style="transform: rotate(calc(-0.4deg * var(--wobble)))">
+        <div style="border: 3px solid var(--ink); border-radius: 22px; background: var(--card); box-shadow: 7px 8px 0 var(--ink); padding: 40px; display: flex; gap: 44px; flex-wrap: wrap; align-items: center; transition: translate 0.18s ease, box-shadow 0.18s ease" style-hover="translate: -3px -3px; box-shadow: 11px 12px 0 var(--ink)">
+          <div style="flex: 1 1 420px; min-width: 300px">
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center">
+              <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">Flagship · iOS</span>
+              <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--money); color: var(--paper); padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(-2deg * var(--wobble)))">On TestFlight</span>
+            </div>
+            <h3 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 44px; margin: 18px 0 12px 0"><a href="#speedstream" style="color: inherit; text-decoration: none" style-hover="color: var(--money)">SpeedStream</a> <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 0.82em; vertical-align: -0.12em; transform: rotate(calc(7deg * var(--wobble)))"><sc-for list="{{ pm.volatile }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></h3>
+            <p style="font-size: 18px; line-height: 1.6; margin: 0; text-wrap: pretty">
+              Autocross telemetry with an AI driving coach. Your phone rides along
+              locked in a pocket, records every run at 25 Hz, draws your line on a
+              satellite map, and splits it corner by corner so run 4 can be compared —
+              unfavorably — to run 7. Then the coach explains, politely and with
+              evidence, exactly why you were slow. It has diagnosed its own developer
+              as “late on throttle” at every event this season. He built it. It's still right.
+            </p>
+            <ul style="list-style: none; padding: 0; margin: 22px 0 0 0; display: grid; gap: 10px; font-size: 15.5px">
+              <li style="display: flex; gap: 10px"><span style="color: var(--cone); font-weight: 700">▸</span><span>Arm it once at the venue. It catches every run — and never the drive home.</span></li>
+              <li style="display: flex; gap: 10px"><span style="color: var(--cone); font-weight: 700">▸</span><span>RaceBox, OBD, GoPro all optional. Your phone works day one.</span></li>
+              <li style="display: flex; gap: 10px"><span style="color: var(--cone); font-weight: 700">▸</span><span>The coach cites its sources and refuses to invent numbers. Unlike everyone in grid.</span></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 28px">
+              <a href="#speedstream" style="display: inline-block; font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 17px; color: #221B10; text-decoration: none; background: var(--sun); border: 3px solid var(--ink); border-radius: 12px; padding: 12px 22px; box-shadow: 4px 5px 0 var(--ink); transition: translate 0.15s ease, box-shadow 0.15s ease" style-hover="translate: -2px -2px; box-shadow: 6px 7px 0 var(--ink); color: #221B10">Inspect the flagship →</a>
+              <span style="font-family: 'Space Mono', monospace; font-size: 12px; border: 2px dashed var(--ink); border-radius: 8px; padding: 7px 12px; transform: rotate(calc(2deg * var(--wobble)))">$0.00 · introductory price</span>
+            </div>
+            <div style="margin-top: 20px; font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6">TestFlight: apply by form, reviewed case-by-case by a committee of one. Coaching billed at cost — $0.004 a lecture.</div>
+          </div>
+          <div style="flex: 0 0 auto; margin: 0 auto">
+            <div style="width: 272px; border: 3px solid var(--ink); border-radius: 44px; background: #FFFFFF; padding: 10px; box-shadow: 6px 7px 0 var(--ink); transform: rotate(calc(1.2deg * var(--wobble)))">
+              <div style="width: 54px; height: 6px; border-radius: 999px; background: #221B10; opacity: 0.25; margin: 4px auto 8px auto"></div>
+              <image-slot id="ss-phone" shape="rounded" radius="30" placeholder="Drop a SpeedStream screenshot (ideally one where the coach is being mean)" style="width: 100%; height: 520px"></image-slot>
+            </div>
+            <div style="text-align: center; font-family: 'Space Mono', monospace; font-size: 11px; opacity: 0.55; margin-top: 12px">actual app · simulated modesty</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ─── ConeCanvas + AC Autocross Maker ─── -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 32px; margin-top: 44px">
+
+        <article style="transform: rotate(calc(0.5deg * var(--wobble)))">
+          <div style="height: 100%; box-sizing: border-box; border: 3px solid var(--ink); border-radius: 22px; background: var(--card); box-shadow: 6px 7px 0 var(--ink); padding: 32px; display: flex; flex-direction: column; gap: 16px; transition: translate 0.18s ease, box-shadow 0.18s ease" style-hover="translate: -3px -3px; box-shadow: 9px 10px 0 var(--ink)">
+            <div style="display: flex; gap: 10px; flex-wrap: wrap">
+              <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">macOS + iPhone</span>
+              <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--cone); color: var(--paper); padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(2deg * var(--wobble)))">In the lab</span>
+            </div>
+            <h3 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 34px; margin: 0"><a href="#conecanvas" style="color: inherit; text-decoration: none" style-hover="color: var(--cone)">ConeCanvas</a> <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 0.82em; vertical-align: -0.12em; transform: rotate(calc(-6deg * var(--wobble)))"><sc-for list="{{ pm.mint }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></h3>
+            <p style="font-size: 16.5px; line-height: 1.6; margin: 0; text-wrap: pretty">
+              Autocross course design without booting actual AutoCAD. Trace your
+              lot to scale from satellite, drag on slaloms, sweepers, and Chicago
+              boxes that know the rulebook, and watch it count cones and course-feet
+              live while you draw — then print a setup map the crew can read at 7 a.m.
+              Replaces roughly $500 of professional CAD — nobody has been brave enough
+              to confirm the number — that never knew what a slalom was.
+            </p>
+            <div style="border: 3px solid var(--ink); border-radius: 14px; overflow: hidden; background: #FFFFFF">
+              <div style="display: flex; gap: 6px; align-items: center; padding: 8px 12px; border-bottom: 3px solid var(--ink); background: var(--paper)">
+                <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--cone); border: 1.5px solid var(--ink)"></span>
+                <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--sun); border: 1.5px solid var(--ink)"></span>
+                <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--money); border: 1.5px solid var(--ink)"></span>
+                <span style="font-family: 'Space Mono', monospace; font-size: 10px; margin-left: 8px; opacity: 0.5">untitled-course-final-FINAL-v2.acx</span>
+              </div>
+              <image-slot id="cc-shot" shape="rect" placeholder="Drop a ConeCanvas screenshot (the one with all the cones)" style="width: 100%; height: 280px"></image-slot>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-top: auto">
+              <span style="font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6">Knows what a slalom is. 256 tests agree.</span>
+              <a href="#conecanvas" style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700">Inspect →</a>
+            </div>
+          </div>
+        </article>
+
+        <article style="transform: rotate(calc(-0.5deg * var(--wobble)))">
+          <div style="height: 100%; box-sizing: border-box; border: 3px solid var(--ink); border-radius: 22px; background: var(--card); box-shadow: 6px 7px 0 var(--ink); padding: 32px; display: flex; flex-direction: column; gap: 16px; transition: translate 0.18s ease, box-shadow 0.18s ease" style-hover="translate: -3px -3px; box-shadow: 9px 10px 0 var(--ink)">
+            <div style="display: flex; gap: 10px; flex-wrap: wrap">
+              <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">Sim racing pipeline</span>
+              <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--money); color: var(--paper); padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(-2deg * var(--wobble)))">v1.1 · drivable</span>
+            </div>
+            <h3 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 34px; margin: 0"><a href="#ac-maker" style="color: inherit; text-decoration: none" style-hover="color: var(--money)">AC Autocross Maker</a> <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 0.82em; vertical-align: -0.12em; transform: rotate(calc(6deg * var(--wobble)))"><sc-for list="{{ pm.passive }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></h3>
+            <p style="font-size: 16.5px; line-height: 1.6; margin: 0; text-wrap: pretty">
+              Feed it the club's course-map PDF and it builds the whole thing in
+              Assetto Corsa: reads the drawing, fits it onto the real venue, and stands
+              every cone up within 0.6 meters of where it'll be on Sunday — timing
+              lights included. Everyone else walks the course Sunday morning. You drove
+              it Wednesday, in socks. Has yet to make anyone here measurably faster;
+              see the flagship app for the receipts.
+            </p>
+            <div style="border: 3px solid var(--ink); border-radius: 14px; overflow: hidden; background: #FFFFFF">
+              <image-slot id="ac-shot" shape="rect" placeholder="Drop an in-game screenshot (cones upright, please)" style="width: 100%; height: 321px"></image-slot>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-top: auto">
+              <span style="font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6">v1.0 patch notes: cones no longer lie down on the job.</span>
+              <a href="#ac-maker" style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700">Inspect →</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ══════════ DIVISION 02 — FAMILY ══════════ -->
+    <section data-screen-label="Family Division" style="max-width: 1180px; margin: 0 auto; padding: 56px 32px 80px 32px">
+      <div style="display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap">
+        <div style="font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--money); font-weight: 700">Division № 02</div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.55">sorted by miles from home</div>
+      </div>
+      <h2 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: clamp(38px, 5vw, 58px); margin: 6px 0 4px 0">Goes Further <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 0.7em; vertical-align: -0.1em; transform: rotate(calc(-7deg * var(--wobble)))"><sc-for list="{{ pm.compound }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></h2>
+      <p style="margin: 0 0 40px 0; font-size: 17px; opacity: 0.75; font-style: italic">(and is a giant nerd about the data). Also the reason we're allowed to keep Division № 01.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 32px">
+
+        <article style="transform: rotate(calc(0.4deg * var(--wobble)))">
+          <div style="height: 100%; box-sizing: border-box; border: 3px solid var(--ink); border-radius: 22px; background: var(--card); box-shadow: 6px 7px 0 var(--ink); padding: 32px; display: flex; gap: 26px; flex-wrap: wrap; transition: translate 0.18s ease, box-shadow 0.18s ease" style-hover="translate: -3px -3px; box-shadow: 9px 10px 0 var(--ink)">
+            <div style="flex: 1 1 240px; min-width: 220px; display: flex; flex-direction: column; gap: 14px">
+              <div style="display: flex; gap: 10px; flex-wrap: wrap">
+                <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">iOS · family fleet</span>
+              </div>
+              <h3 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 34px; margin: 0"><a href="#glovebox" style="color: inherit; text-decoration: none" style-hover="color: var(--money)">Glovebox</a> <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 0.82em; vertical-align: -0.12em; transform: rotate(calc(-7deg * var(--wobble)))"><sc-for list="{{ pm.invoice }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></h3>
+              <p style="font-size: 16px; line-height: 1.6; margin: 0; text-wrap: pretty">
+                A logbook for every car the family drives. Ten-second fill-up logging
+                at the pump, MPG math you can't lie to, service reminders you'll ignore
+                exactly twice, and a shared cost ledger for the whole fleet — gas, EV
+                charging, insurance, regret. Commissioned to prove the sports car was a
+                sensible purchase; it calculated <strong>$19.84 a mile</strong> and
+                simply will not let it go.
+              </p>
+              <div style="font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6">Replaces one spreadsheet and several Apple Notes of shame.</div>
+              <a href="#glovebox" style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; margin-top: auto">Inspect →</a>
+            </div>
+            <div style="flex: 0 0 auto; margin: 0 auto">
+              <div style="width: 216px; border: 3px solid var(--ink); border-radius: 38px; background: #FFFFFF; padding: 8px; box-shadow: 5px 6px 0 var(--ink); transform: rotate(calc(-1.4deg * var(--wobble)))">
+                <div style="width: 44px; height: 5px; border-radius: 999px; background: #221B10; opacity: 0.25; margin: 4px auto 7px auto"></div>
+                <image-slot id="gb-phone" shape="rounded" radius="26" placeholder="Drop a Glovebox screenshot" style="width: 100%; height: 416px"></image-slot>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article style="transform: rotate(calc(-0.4deg * var(--wobble)))">
+          <div style="height: 100%; box-sizing: border-box; border: 3px solid var(--ink); border-radius: 22px; background: var(--card); box-shadow: 6px 7px 0 var(--ink); padding: 32px; display: flex; gap: 26px; flex-wrap: wrap; transition: translate 0.18s ease, box-shadow 0.18s ease" style-hover="translate: -3px -3px; box-shadow: 9px 10px 0 var(--ink)">
+            <div style="flex: 1 1 240px; min-width: 220px; display: flex; flex-direction: column; gap: 14px">
+              <div style="display: flex; gap: 10px; flex-wrap: wrap">
+                <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">iOS · travel</span>
+                <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--sun); color: #221B10; padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(2deg * var(--wobble)))">Workshopping</span>
+              </div>
+              <h3 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 34px; margin: 0"><a href="#altrove" style="color: inherit; text-decoration: none" style-hover="color: var(--money)">Altrove</a> <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 0.82em; vertical-align: -0.12em; transform: rotate(calc(7deg * var(--wobble)))"><sc-for list="{{ pm.flight }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></h3>
+              <p style="font-size: 16px; line-height: 1.6; margin: 0; text-wrap: pretty">
+                Like a flight tracker, but for the whole trip: a shared map of
+                everywhere the family has been, live legs so nobody has to text
+                “landed?”, and a board for planning wherever we're all going next —
+                one place instead of four group chats. Currently in the
+                confident-sketches phase, which is studio-speak for “not built yet.”
+              </p>
+              <div style="font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6">Named after the Italian for "elsewhere," which is where we'd all rather be.</div>
+              <a href="#altrove" style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; margin-top: auto">Inspect →</a>
+            </div>
+            <div style="flex: 0 0 auto; margin: 0 auto">
+              <div style="width: 216px; border: 3px solid var(--ink); border-radius: 38px; background: #FFFFFF; padding: 8px; box-shadow: 5px 6px 0 var(--ink); transform: rotate(calc(1.4deg * var(--wobble)))">
+                <div style="width: 44px; height: 5px; border-radius: 999px; background: #221B10; opacity: 0.25; margin: 4px auto 7px auto"></div>
+                <image-slot id="al-phone" shape="rounded" radius="26" placeholder="Drop an Altrove screenshot (or a napkin sketch, we're workshopping)" style="width: 100%; height: 416px"></image-slot>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ══════════ THE PEYMOJI SUITE ══════════ -->
+    <section data-screen-label="Peymoji Suite" style="max-width: 1180px; margin: 0 auto; padding: 0 32px 72px 32px">
+      <div style="font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cone); font-weight: 700">Official studio currency</div>
+      <h2 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: clamp(30px, 4vw, 44px); margin: 6px 0 4px 0">The Peymoji™ Suite</h2>
+      <p style="margin: 0 0 28px 0; font-size: 16px; opacity: 0.75; font-style: italic">A studio named Pey Me Money mints its own emoji. Twenty-eight denominations, legal tender nowhere. Now featuring the 2026 mint.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: 16px">
+        <sc-for list="{{ peymojis }}" as="pm" hint-placeholder-count="7">
+          <div style="position: relative; border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); box-shadow: 4px 4px 0 var(--ink); padding: 20px 12px 14px 12px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; transition: translate 0.15s ease, box-shadow 0.15s ease" style-hover="translate: -2px -2px; box-shadow: 6px 6px 0 var(--ink)">
+            <sc-if value="{{ pm.isNew }}" hint-placeholder-val="{{ false }}"><span style="position: absolute; top: -11px; right: -9px; font-family: 'Space Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; background: var(--cone); color: var(--paper); border: 2px solid var(--ink); border-radius: 999px; padding: 3px 8px; transform: rotate(8deg); box-shadow: 2px 2px 0 var(--ink)">NEW</span></sc-if>
+            <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 58px"><sc-for list="{{ pm.parts }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span>
+            <span style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 14.5px; line-height: 1.2">{{ pm.label }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6; margin-top: 18px">Free to screenshot. Free to react with. Free, in general. 💸</div>
+    </section>
+
+    <!-- ══════════ THE BULLETIN ══════════ -->
+    <section data-screen-label="Bulletin" style="max-width: 1180px; margin: 0 auto; padding: 0 32px 72px 32px">
+      <div style="font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cone); font-weight: 700">The Bulletin</div>
+      <h2 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: clamp(30px, 4vw, 44px); margin: 6px 0 4px 0">Latest updates, freshly stapled</h2>
+      <p style="margin: 0 0 28px 0; font-size: 16px; opacity: 0.75; font-style: italic">One line per app. The changelog, on a diet.</p>
+      <div style="border: 3px solid var(--ink); border-radius: 18px; background: var(--card); box-shadow: 6px 7px 0 var(--ink); padding: 8px 26px; transform: rotate(calc(-0.3deg * var(--wobble)))">
+        <div style="display: flex; gap: 8px 18px; align-items: baseline; flex-wrap: wrap; padding: 15px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 22%, transparent)">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; opacity: 0.55; min-width: 84px">JUL 2026</span>
+          <a href="#speedstream" style="font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; min-width: 170px">SpeedStream</a>
+          <span style="font-size: 15px; flex: 1 1 320px">TestFlight applications are open — reviewed case-by-case by a committee of one.</span>
+        </div>
+        <div style="display: flex; gap: 8px 18px; align-items: baseline; flex-wrap: wrap; padding: 15px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 22%, transparent)">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; opacity: 0.55; min-width: 84px">JUL 2026</span>
+          <a href="#conecanvas" style="font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; min-width: 170px">ConeCanvas</a>
+          <span style="font-size: 15px; flex: 1 1 320px">Design workshop wrapped: 13 documents, 2 prototypes, 1 strong opinion about AutoCAD.</span>
+        </div>
+        <div style="display: flex; gap: 8px 18px; align-items: baseline; flex-wrap: wrap; padding: 15px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 22%, transparent)">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; opacity: 0.55; min-width: 84px">JUL 2026</span>
+          <a href="#ac-maker" style="font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; min-width: 170px">AC Autocross Maker</a>
+          <span style="font-size: 15px; flex: 1 1 320px">v1.1: removed a 147-meter row of canopies that was parked on the racing line.</span>
+        </div>
+        <div style="display: flex; gap: 8px 18px; align-items: baseline; flex-wrap: wrap; padding: 15px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 22%, transparent)">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; opacity: 0.55; min-width: 84px">JUN 2026</span>
+          <a href="#glovebox" style="font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; min-width: 170px">Glovebox</a>
+          <span style="font-size: 15px; flex: 1 1 320px">The importer now survives a year of pasted Apple Notes, including the one that just says "23.5ish".</span>
+        </div>
+        <div style="display: flex; gap: 8px 18px; align-items: baseline; flex-wrap: wrap; padding: 15px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 22%, transparent)">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; opacity: 0.55; min-width: 84px">JUL 2026</span>
+          <a href="#altrove" style="font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; min-width: 170px">Altrove</a>
+          <span style="font-size: 15px; flex: 1 1 320px">The Mode Wing was ratified, decisions #31–#37. The family was not consulted.</span>
+        </div>
+        <div style="display: flex; gap: 8px 18px; align-items: baseline; flex-wrap: wrap; padding: 15px 2px">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; opacity: 0.55; min-width: 84px">JUL 2026</span>
+          <a href="#plop" style="font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; min-width: 170px">plop</a>
+          <span style="font-size: 15px; flex: 1 1 320px">Exhibit replaced: it's an app now. The public repo stays 7 bytes of misdirection.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ FAQ ══════════ -->
+    <section data-screen-label="FAQ" style="max-width: 860px; margin: 0 auto; padding: 0 32px 72px 32px">
+      <div style="font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--money); font-weight: 700">FAQ</div>
+      <h2 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: clamp(30px, 4vw, 44px); margin: 6px 0 24px 0">Questions, answered reluctantly</h2>
+      <div style="display: grid; gap: 14px">
+        <details style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); box-shadow: 4px 4px 0 var(--ink); padding: 18px 22px">
+          <summary style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; cursor: pointer">How do I get on the SpeedStream TestFlight?</summary>
+          <p style="font-size: 15px; line-height: 1.65; margin: 12px 0 0 0; opacity: 0.85">You fill out <a href="#testflight-form" title="swap in the real form link">the application form</a>. Every application is reviewed case-by-case by the admissions committee, which is one guy. Fair warning: while on the TestFlight, your AI coaching usage is billed to you at cost — about $0.004 a lecture. The studio has a name to live up to.</p>
+        </details>
+        <details style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); box-shadow: 4px 4px 0 var(--ink); padding: 18px 22px">
+          <summary style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; cursor: pointer">Is everything really $0.00?</summary>
+          <p style="font-size: 15px; line-height: 1.65; margin: 12px 0 0 0; opacity: 0.85">It's an introductory price we've held since founding. Charging money is on the roadmap. So is finishing the roadmap.</p>
+        </details>
+        <details style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); box-shadow: 4px 4px 0 var(--ink); padding: 18px 22px">
+          <summary style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; cursor: pointer">Why is it called Pey Me Money?</summary>
+          <p style="font-size: 15px; line-height: 1.65; margin: 12px 0 0 0; opacity: 0.85">The founder is named Peyton. The rest is manifestation.</p>
+        </details>
+        <details style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); box-shadow: 4px 4px 0 var(--ink); padding: 18px 22px">
+          <summary style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; cursor: pointer">Android?</summary>
+          <p style="font-size: 15px; line-height: 1.65; margin: 12px 0 0 0; opacity: 0.85">The studio owns one (1) development machine, and it is a Mac. We'll revisit after the first pey-ment clears.</p>
+        </details>
+        <details style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); box-shadow: 4px 4px 0 var(--ink); padding: 18px 22px">
+          <summary style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; cursor: pointer">Can I trust the AI coach?</summary>
+          <p style="font-size: 15px; line-height: 1.65; margin: 12px 0 0 0; opacity: 0.85">It cites your own telemetry and is contractually forbidden from inventing numbers. It is, statistically, more honest than your co-driver.</p>
+        </details>
+        <details style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); box-shadow: 4px 4px 0 var(--ink); padding: 18px 22px">
+          <summary style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; cursor: pointer">What is plop?</summary>
+          <p style="font-size: 15px; line-height: 1.65; margin: 12px 0 0 0; opacity: 0.85">A social app for number two — the studio's worst-kept secret, in active development. <a href="#plop">The pavilion</a> has the full exhibit. Admission free, obviously.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ══════════ PLOP TEASER ══════════ -->
+    <section data-screen-label="Plop Teaser" style="max-width: 1180px; margin: 0 auto; padding: 0 32px 88px 32px; text-align: center">
+      <div style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0.5">* plop *</div>
+      <h2 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: clamp(30px, 4.4vw, 48px); margin: 16px auto 8px auto; max-width: 640px">You hear something drop in the east wing.</h2>
+      <div aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: #2A6FDB; margin: 18px auto 26px auto"></div>
+      <a href="#plop" style="display: inline-block; font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 17px; color: #221B10; text-decoration: none; background: var(--sun); border: 3px solid var(--ink); border-radius: 12px; padding: 12px 24px; box-shadow: 4px 5px 0 var(--ink); transition: translate 0.15s ease, box-shadow 0.15s ease" style-hover="translate: -2px -2px; box-shadow: 6px 7px 0 var(--ink); color: #221B10">Investigate the sound →</a>
+      <div style="font-family: 'Space Mono', monospace; font-size: 11px; opacity: 0.5; margin-top: 14px">(it's the pavilion. it's always the pavilion.)</div>
+    </section>
+
+    <div aria-hidden="true" style="height: 28px; border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink); background: repeating-conic-gradient(var(--ink) 0% 25%, var(--paper) 0% 50%); background-size: 28px 28px"></div>
+
+    <!-- ══════════ FOOTER ══════════ -->
+    <footer data-screen-label="Footer" style="max-width: 1180px; margin: 0 auto; padding: 56px 32px 72px 32px; text-align: center">
+      <div style="display: inline-block; transform: rotate(calc(8deg * var(--wobble)))"><span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 64px"><sc-for list="{{ pm.nonprofit }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></div>
+      <p style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 22px; margin: 20px auto 8px auto; max-width: 560px">Every app: $0.00 — an introductory price we have proudly held since founding.</p>
+      <div style="display: flex; justify-content: center; gap: 8px 22px; flex-wrap: wrap; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; margin: 18px 0 26px 0">
+        <a href="#speedstream">SpeedStream</a>
+        <a href="#conecanvas">ConeCanvas</a>
+        <a href="#ac-maker">AC Autocross Maker</a>
+        <a href="#glovebox">Glovebox</a>
+        <a href="#altrove">Altrove</a>
+        <a href="#about">The Guy</a>
+        <a href="#plop" style="opacity: 0.7">plop.</a>
+      </div>
+      <p style="font-family: 'Space Mono', monospace; font-size: 12px; line-height: 2; opacity: 0.6; max-width: 640px; margin: 0 auto">
+        © 2026 Pey Me Money App Studios, LLC (formation status: aspirational).
+        100% bootstrapped. The business model is patience.<br />
+        Not a bank. Not fintech. Not financial advice. It is one guy.<br />
+        Please do not mail us actual money. (Yet.)
+        No cones were permanently harmed in the making of these apps.
+      </p>
+    </footer>
+
+    <!-- plop pavilion corner sticker -->
+    <sc-if value="{{ showPlopCorner }}" hint-placeholder-val="{{ true }}">
+      <a href="#plop" title="the plop pavilion" style="position: fixed; right: 26px; bottom: 26px; width: 86px; height: 86px; border-radius: 50%; border: 3px solid var(--ink); background: var(--card); box-shadow: 5px 6px 0 var(--ink); display: grid; place-items: center; text-align: center; text-decoration: none; color: var(--ink); transform: rotate(calc(9deg * var(--wobble))); transition: translate 0.15s ease, box-shadow 0.15s ease; z-index: 50" style-hover="translate: -2px -2px; box-shadow: 7px 8px 0 var(--ink); color: var(--ink)">
+        <span><span style="display: block; font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 20px; line-height: 1">plop</span><span style="display: block; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.55; margin-top: 3px">pavilion →</span></span>
+      </a>
+    </sc-if>
+  </sc-if>
+
+  <!-- ════════════════════════ SPEEDSTREAM ════════════════════════ -->
+  <sc-if value="{{ isSS }}" hint-placeholder-val="{{ false }}">
+    <section data-screen-label="SpeedStream Page" style="max-width: 1180px; margin: 0 auto; padding: 36px 32px 90px 32px">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap">
+        <a href="#" style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 2px solid var(--ink); border-radius: 999px; padding: 8px 16px; background: var(--card); box-shadow: 3px 3px 0 var(--ink); transition: translate 0.15s ease" style-hover="translate: -2px -2px; color: var(--ink)">← Back to the catalog</a>
+        <span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--money); font-weight: 700">Division № 01 · Flagship</span>
+      </div>
+
+      <div style="display: flex; gap: 48px; flex-wrap: wrap; align-items: center; margin-top: 48px">
+        <div style="flex: 1 1 460px; min-width: 300px">
+          <div style="display: flex; gap: 10px; flex-wrap: wrap">
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">iOS 18 · portrait · dark</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--money); color: var(--paper); padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(-2deg * var(--wobble)))">On TestFlight</span>
+          </div>
+          <h1 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: clamp(52px, 7vw, 92px); line-height: 1; margin: 20px 0 14px 0">SpeedStream <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 0.55em; vertical-align: -0.06em; transform: rotate(calc(8deg * var(--wobble)))"><sc-for list="{{ pm.volatile }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></h1>
+          <p style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: clamp(20px, 2.6vw, 27px); color: var(--money); margin: 0 0 18px 0; transform: rotate(calc(-0.5deg * var(--wobble)))">The coach fits in your pocket. The excuses don't.</p>
+          <p style="font-size: 17.5px; line-height: 1.65; margin: 0; max-width: 560px; text-wrap: pretty">
+            Arm it once at the venue and put the phone away. SpeedStream catches every
+            run — never the drive home — then lays your speed-colored line over
+            satellite, syncs GPS, G-forces, and video to one scrubber, and hands you a
+            debrief from an AI coach that cites your own data back at you. Its most
+            consistent finding to date: the developer brakes too early. Every corner.
+            Every event.
+          </p>
+          <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 26px">
+            <a href="#testflight-form" title="swap in the real form link" style="display: inline-block; font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 17px; color: #221B10; text-decoration: none; background: var(--sun); border: 3px solid var(--ink); border-radius: 12px; padding: 12px 22px; box-shadow: 4px 5px 0 var(--ink); transition: translate 0.15s ease, box-shadow 0.15s ease" style-hover="translate: -2px -2px; box-shadow: 6px 7px 0 var(--ink); color: #221B10">Apply for the TestFlight →</a>
+            <span style="font-family: 'Space Mono', monospace; font-size: 12px; border: 2px dashed var(--ink); border-radius: 8px; padding: 7px 12px; transform: rotate(calc(2deg * var(--wobble)))">$0.00 · introductory price</span>
+          </div>
+          <div style="margin-top: 16px; font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6">Applications reviewed case-by-case by a committee of one. AI coaching usage billed to you, at cost.</div>
+        </div>
+        <div style="flex: 0 0 auto; margin: 0 auto">
+          <div style="width: 272px; border: 3px solid var(--ink); border-radius: 44px; background: #0B0A07; padding: 10px; box-shadow: 6px 7px 0 var(--ink); transform: rotate(calc(1.2deg * var(--wobble)))">
+            <div style="width: 54px; height: 6px; border-radius: 999px; background: var(--ink); opacity: 0.35; margin: 4px auto 8px auto"></div>
+            <image-slot id="ss-phone" shape="rounded" radius="30" placeholder="Drop a SpeedStream screenshot (ideally one where the coach is being mean)" style="width: 100%; height: 520px"></image-slot>
+          </div>
+          <div style="text-align: center; font-family: 'Space Mono', monospace; font-size: 11px; opacity: 0.55; margin-top: 12px">run analysis · portrait-primary · dark, obviously</div>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; gap: 12px 28px; flex-wrap: wrap; border: 3px solid var(--ink); border-radius: 14px; background: var(--card); box-shadow: 5px 6px 0 var(--ink); padding: 14px 24px; margin-top: 54px; font-family: 'Space Mono', monospace; font-size: 13px">
+        <span style="font-weight: 700; color: var(--money)">● REC</span>
+        <span>RUN 07 — 44.12s</span>
+        <span style="color: var(--money); font-weight: 700">Δ −0.42 · PB</span>
+        <span>CONES: 2 (allegedly)</span>
+        <span style="opacity: 0.6">phone: locked, recording anyway</span>
+      </div>
+
+      <h2 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 34px; margin: 60px 0 22px 0">What it does between your runs</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px">
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Arm &amp; forget</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Runs auto-trigger on launch and auto-close on a stop. Biased to never miss a run, even in your pocket, even on a weak GPS fix.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Satellite replay</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Speed-colored line on satellite, traction circle, speed / G / Δt traces under one scrubber. Scrub your run like game film.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">An honest coach</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Per-run debriefs you can talk back to. Every claim comes with tap-to-see-it evidence from your telemetry. It never invents a number.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Hardware optional</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Phone GPS works day one. Pair a RaceBox Mini for 25 Hz, an OBD dongle for RPM and throttle, a GoPro for synced video. All optional.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Your data, your iCloud</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Everything syncs through your own private iCloud database. Share a course to friends by link or QR — their runs stay theirs.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Video Studio</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Auto-anchors your clips to the telemetry timeline and exports burned-in overlays — speed, Δ, Gs — so your claims become verifiable.</div></div>
+      </div>
+
+      <div style="border: 3px solid var(--ink); border-radius: 14px; overflow: hidden; background: #0B0A07; margin-top: 40px">
+        <image-slot id="ss-run" shape="rect" placeholder="Drop a Run Analysis screenshot — satellite map, traces, the works" style="width: 100%; height: 380px"></image-slot>
+      </div>
+
+      <div style="display: flex; gap: 28px; flex-wrap: wrap; margin-top: 48px">
+        <div style="flex: 1 1 400px; border: 3px solid var(--ink); border-radius: 18px; background: var(--card); box-shadow: 5px 6px 0 var(--ink); padding: 26px 28px">
+          <div style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6; margin-bottom: 14px">Spec sheet</div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Missed runs</span><span style="font-weight: 700">0, by design</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">GPS rate w/ RaceBox</span><span style="font-weight: 700">25 Hz</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Coach rate per lecture</span><span style="font-weight: 700">$0.004, billed at cost</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Fabricated numbers</span><span style="font-weight: 700">0 (validator enforced)</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Paywall</span><span style="font-weight: 700; color: var(--money)">none found</span></div>
+        </div>
+        <div style="flex: 1 1 280px; border: 3px solid var(--ink); border-radius: 18px; background: var(--card); box-shadow: 5px 6px 0 var(--ink); padding: 26px 28px; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 6px">
+          <div style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 46px; color: var(--money)">$0.00</div>
+          <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6">introductory price</div>
+          <div style="font-size: 14px; font-style: italic; opacity: 0.8">"One day, you will pey."</div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 52px; font-family: 'Space Mono', monospace; font-size: 13px">
+        <a href="#conecanvas">Next in the catalog: ConeCanvas →</a>
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- ════════════════════════ CONECANVAS ════════════════════════ -->
+  <sc-if value="{{ isCC }}" hint-placeholder-val="{{ false }}">
+    <section data-screen-label="ConeCanvas Page" style="background-image: linear-gradient(color-mix(in srgb, var(--ink) 6%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--ink) 6%, transparent) 1px, transparent 1px); background-size: 28px 28px">
+      <div style="max-width: 1180px; margin: 0 auto; padding: 36px 32px 90px 32px">
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap">
+          <a href="#" style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 2px solid var(--ink); border-radius: 999px; padding: 8px 16px; background: var(--card); box-shadow: 3px 3px 0 var(--ink); transition: translate 0.15s ease" style-hover="translate: -2px -2px; color: var(--ink)">← Back to the catalog</a>
+          <span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--money); font-weight: 700">Division № 01 · Design tool</span>
+        </div>
+
+        <div style="margin-top: 48px; max-width: 720px">
+          <div style="display: flex; gap: 10px; flex-wrap: wrap">
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">macOS + iPhone · iPad next</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--money); color: var(--paper); padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(2deg * var(--wobble)))">In the lab · 256 tests green</span>
+          </div>
+          <h1 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: clamp(52px, 7vw, 92px); line-height: 1; margin: 20px 0 14px 0">ConeCanvas <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 0.55em; vertical-align: -0.06em; transform: rotate(calc(-7deg * var(--wobble)))"><sc-for list="{{ pm.mint }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></h1>
+          <p style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: clamp(20px, 2.6vw, 27px); color: var(--money); margin: 0 0 18px 0; transform: rotate(calc(-0.5deg * var(--wobble)))">Draw the course. It counts the cones.</p>
+          <p style="font-size: 17.5px; line-height: 1.65; margin: 0; text-wrap: pretty">
+            Before this, course design meant CorelDRAW or honest-to-goodness AutoCAD —
+            somewhere north of $500 of professional CAD, we've been afraid to check —
+            aimed at a parking lot. None of it knows what a slalom is. ConeCanvas does:
+            trace your lot to scale from satellite, snap on parametric slaloms,
+            sweepers, and gates, let the 42-check Course Doctor nag you about escape
+            routes, and print both maps while it keeps the cone count honest.
+          </p>
+        </div>
+
+        <div style="border: 3px solid var(--ink); border-radius: 16px; overflow: hidden; background: #FFFFFF; box-shadow: 7px 8px 0 var(--ink); margin-top: 44px; transform: rotate(calc(-0.3deg * var(--wobble)))">
+          <div style="display: flex; gap: 6px; align-items: center; padding: 10px 14px; border-bottom: 3px solid var(--ink); background: var(--card)">
+            <span style="width: 11px; height: 11px; border-radius: 50%; background: var(--money); border: 1.5px solid var(--ink)"></span>
+            <span style="width: 11px; height: 11px; border-radius: 50%; background: var(--sun); border: 1.5px solid var(--ink)"></span>
+            <span style="width: 11px; height: 11px; border-radius: 50%; background: var(--cone); border: 1.5px solid var(--ink)"></span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; margin-left: 10px; opacity: 0.55">sunday-course-final-FINAL-v2.acx — 214 cones</span>
+          </div>
+          <image-slot id="cc-shot" shape="rect" placeholder="Drop the big ConeCanvas editor screenshot here" style="width: 100%; height: 460px"></image-slot>
+        </div>
+
+        <h2 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 34px; margin: 60px 0 22px 0">For the designer, and the crew stuck setting it up</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px">
+          <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">To-scale satellite tracing</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Calibrate the lot from a satellite view instead of eyeballing parking spaces. Save the venue once, design there forever.</div></div>
+          <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Elements that know themselves</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Slaloms, sweepers, gates, Chicago boxes — parametric, draggable, and aware of the rulebook. Not twelve anonymous circles.</div></div>
+          <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Live cone count</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">The setup crew knows exactly how many cones to load before you've finished drawing. They will still forget the timing lights.</div></div>
+          <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Course Doctor</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">42 checks against SCCA rules and design guidance — speeds, spacing, escape routes — so tech inspection is pleasantly boring.</div></div>
+          <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Print-ready PDF, twice</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">One map for the drivers' meeting, one for the crew with counts and measurements. No CAD, no subscriptions, no eyeballing.</div></div>
+          <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Plays with the family</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Exports to SpeedStream for timing and to Assetto Corsa for pre-driving. The three racing products are, in fact, one scheme.</div></div>
+        </div>
+
+        <div style="display: flex; gap: 28px; flex-wrap: wrap; margin-top: 48px; align-items: stretch">
+          <div style="flex: 1 1 400px; border: 3px solid var(--ink); border-radius: 18px; background: var(--card); box-shadow: 5px 6px 0 var(--ink); padding: 26px 28px">
+            <div style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6; margin-bottom: 14px">Spec sheet</div>
+            <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Engine tests green</span><span style="font-weight: 700">256</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Doctor checks</span><span style="font-weight: 700">42</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">CAD required</span><span style="font-weight: 700">none</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Cones counted</span><span style="font-weight: 700">all of them, live</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">"Is it iPad yet?"</span><span style="font-weight: 700; color: var(--money)">soon.</span></div>
+          </div>
+          <div style="flex: 1 1 280px; border: 3px solid var(--ink); border-radius: 18px; background: var(--card); box-shadow: 5px 6px 0 var(--ink); padding: 26px 28px; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 6px">
+            <div style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 46px; color: var(--money)">$0.00</div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6">introductory price</div>
+            <div style="font-size: 14px; font-style: italic; opacity: 0.8">Cheaper than AutoCAD by $500, give or take. We refuse to look up the real number.</div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 52px; font-family: 'Space Mono', monospace; font-size: 13px">
+          <a href="#ac-maker">Next in the catalog: AC Autocross Maker →</a>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- ════════════════════════ AC AUTOCROSS MAKER ════════════════════════ -->
+  <sc-if value="{{ isAC }}" hint-placeholder-val="{{ false }}">
+    <section data-screen-label="AC Maker Page" style="max-width: 1180px; margin: 0 auto; padding: 36px 32px 90px 32px">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap">
+        <a href="#" style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 2px solid var(--ink); border-radius: 999px; padding: 8px 16px; background: var(--card); box-shadow: 3px 3px 0 var(--ink); transition: translate 0.15s ease" style-hover="translate: -2px -2px; color: var(--ink)">← Back to the catalog</a>
+        <span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--money); font-weight: 700">Division № 01 · Sim pipeline</span>
+      </div>
+
+      <div aria-hidden="true" style="height: 20px; border: 3px solid var(--ink); border-radius: 8px; background: repeating-conic-gradient(var(--ink) 0% 25%, var(--paper) 0% 50%); background-size: 20px 20px; margin-top: 40px"></div>
+
+      <div style="margin-top: 36px; max-width: 720px">
+        <div style="display: flex; gap: 10px; flex-wrap: wrap">
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">Assetto Corsa · CSP</span>
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--money); color: var(--paper); padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(-2deg * var(--wobble)))">v1.1 · drivable</span>
+        </div>
+        <h1 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: clamp(44px, 6.4vw, 84px); line-height: 1; margin: 20px 0 14px 0">AC Autocross Maker <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 0.55em; vertical-align: -0.06em; transform: rotate(calc(6deg * var(--wobble)))"><sc-for list="{{ pm.passive }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></h1>
+        <p style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: clamp(20px, 2.6vw, 27px); color: var(--money); margin: 0 0 18px 0; transform: rotate(calc(-0.5deg * var(--wobble)))">Walk the course Sunday. Drive it Wednesday.</p>
+        <p style="font-size: 17.5px; line-height: 1.65; margin: 0; text-wrap: pretty">
+          A pipeline that reads the club's official course-map PDF and rebuilds the
+          event inside Assetto Corsa — real venue, real layout, 523 knockable cones,
+          every one within 0.6 meters of where the chalk says. By the time everyone
+          else gets their course walk, you've had thirty runs. Results so far: perfect
+          knowledge of the course, same mid-pack finish. The bottleneck has been
+          identified. It drives.
+        </p>
+      </div>
+
+      <div style="border: 3px solid var(--ink); border-radius: 16px; overflow: hidden; background: #0E0F11; box-shadow: 7px 8px 0 var(--ink); margin-top: 44px; transform: rotate(calc(0.3deg * var(--wobble)))">
+        <image-slot id="ac-shot" shape="rect" placeholder="Drop the in-game screenshot — golden hour at Crows Landing, cones upright" style="width: 100%; height: 460px"></image-slot>
+      </div>
+      <div style="text-align: center; font-family: 'Space Mono', monospace; font-size: 11px; opacity: 0.55; margin-top: 12px">NASA Crows Landing · via Content Manager · socks optional but traditional</div>
+
+      <h2 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 34px; margin: 60px 0 22px 0">PDF in. Track out.</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px">
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Reads the official map</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Vector cone data extracted straight from the event PDF, fitted to the venue with 0.60 m median error. No tracing, no guessing.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">No Blender required</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">A pure-Python kn5 writer places every cone directly into the game's format. One editable course.json is the whole source of truth.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Knockable cones</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">All 523 of them, physically movable, emotionally significant. Point-to-point timing gates, just like the real Sunday.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Hard-won physics</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Pointer cones rest at exactly 13.54° — we measured 68 real ones to get it right. Yes, there was a version where they all fell over.</div></div>
+      </div>
+
+      <div style="display: flex; gap: 28px; flex-wrap: wrap; margin-top: 48px; align-items: stretch">
+        <div style="flex: 1 1 400px; border: 3px solid var(--ink); border-radius: 18px; background: var(--card); box-shadow: 5px 6px 0 var(--ink); padding: 26px 28px">
+          <div style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6; margin-bottom: 14px">Patch history, abridged</div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">v0.8</span><span style="font-weight: 700">cars no longer fall through the earth</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">v1.0</span><span style="font-weight: 700">cones stopped lying down on the job</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">v1.1</span><span style="font-weight: 700">removed a 147 m row of canopies</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">gravity</span><span style="font-weight: 700; color: var(--money)">respected since v0.8</span></div>
+        </div>
+        <div style="flex: 1 1 280px; border: 3px solid var(--ink); border-radius: 18px; background: var(--card); box-shadow: 5px 6px 0 var(--ink); padding: 26px 28px; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 6px">
+          <div style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 46px; color: var(--money)">$0.00</div>
+          <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6">introductory price</div>
+          <div style="font-size: 14px; font-style: italic; opacity: 0.8">Cheaper than a set of tires. Saves several.</div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 52px; font-family: 'Space Mono', monospace; font-size: 13px">
+        <a href="#glovebox">Next in the catalog: Glovebox →</a>
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- ════════════════════════ GLOVEBOX ════════════════════════ -->
+  <sc-if value="{{ isGB }}" hint-placeholder-val="{{ false }}">
+    <section data-screen-label="Glovebox Page" style="max-width: 1180px; margin: 0 auto; padding: 36px 32px 90px 32px">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap">
+        <a href="#" style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 2px solid var(--ink); border-radius: 999px; padding: 8px 16px; background: var(--card); box-shadow: 3px 3px 0 var(--ink); transition: translate 0.15s ease" style-hover="translate: -2px -2px; color: var(--ink)">← Back to the catalog</a>
+        <span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--money); font-weight: 700">Division № 02 · Fleet ledger</span>
+      </div>
+
+      <div style="display: flex; gap: 48px; flex-wrap: wrap; align-items: center; margin-top: 48px">
+        <div style="flex: 1 1 460px; min-width: 300px">
+          <div style="display: flex; gap: 10px; flex-wrap: wrap">
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">iOS · offline-first</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--money); color: var(--paper); padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(-2deg * var(--wobble)))">Replaces a spreadsheet</span>
+          </div>
+          <h1 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: clamp(52px, 7vw, 92px); line-height: 1; margin: 20px 0 14px 0">Glovebox <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 0.55em; vertical-align: -0.06em; transform: rotate(calc(-6deg * var(--wobble)))"><sc-for list="{{ pm.invoice }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></h1>
+          <p style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: clamp(20px, 2.6vw, 27px); color: var(--money); margin: 0 0 18px 0; transform: rotate(calc(-0.5deg * var(--wobble)))">Every fill-up. Every dollar. Every regret.</p>
+          <p style="font-size: 17.5px; line-height: 1.65; margin: 0; max-width: 560px; text-wrap: pretty">
+            A logbook for every car the family drives — owned, loaned, or rented.
+            Logging a fill-up takes ten seconds at the pump, works offline, and syncs
+            to the whole household; charge sessions, repairs, and insurance go in the
+            same ledger. Then the insights engine does the math you were avoiding.
+            It was commissioned to defend the sports car. It is now the prosecution's
+            best witness.
+          </p>
+          <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 26px">
+            <span style="font-family: 'Space Mono', monospace; font-size: 12px; border: 2px dashed var(--ink); border-radius: 8px; padding: 7px 12px; transform: rotate(calc(2deg * var(--wobble)))">$0.00 · introductory price</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6">household plan: also $0.00</span>
+          </div>
+        </div>
+        <div style="flex: 0 0 auto; margin: 0 auto">
+          <div style="width: 272px; border: 3px solid var(--ink); border-radius: 44px; background: #FFFFFF; padding: 10px; box-shadow: 6px 7px 0 var(--ink); transform: rotate(calc(-1.2deg * var(--wobble)))">
+            <div style="width: 54px; height: 6px; border-radius: 999px; background: #221B10; opacity: 0.25; margin: 4px auto 8px auto"></div>
+            <image-slot id="gb-phone" shape="rounded" radius="30" placeholder="Drop a Glovebox screenshot (quick-add at the pump)" style="width: 100%; height: 520px"></image-slot>
+          </div>
+          <div style="text-align: center; font-family: 'Space Mono', monospace; font-size: 11px; opacity: 0.55; margin-top: 12px">ten seconds, gloves optional</div>
+        </div>
+      </div>
+
+      <h2 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 34px; margin: 60px 0 22px 0">Accounting, but make it honest</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px">
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">MPG you can't lie to</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Full-fill-to-full-fill windows only. A partial fill extends the window instead of inventing a heroic 43 MPG tank.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Gas and electrons</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Fuel logs and charge sessions side by side — $/mile for the Spyder vs the EV, settled with data instead of vibes.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Tag your shame</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Tag entries track, road trip, canyon — and stats segment by them. The racing tank stops being an outlier once it's labeled.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">The ownership ledger</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Money in, minus money out, divided by miles owned. The only equation that matters at exit, kept current while you hold.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">The whole fleet</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Owned, loaners, rentals — rentals spin up for a trip and roll into family totals without polluting any car's stats.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Own your data</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">CSV in, CSV out, losslessly. It replaces your spreadsheet without holding it hostage. Paste a year of Apple Notes; it copes.</div></div>
+      </div>
+
+      <div style="display: flex; gap: 28px; flex-wrap: wrap; margin-top: 48px; align-items: stretch">
+        <div style="flex: 1 1 400px; border: 3px dashed var(--ink); border-radius: 6px; background: var(--card); padding: 26px 28px">
+          <div style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6; margin-bottom: 14px">Receipt · the Spyder, audited</div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Lifetime MPG</span><span style="font-weight: 700">16.3 (it's the driving)</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Fuel only</span><span style="font-weight: 700">$0.29/mi</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Costco edge</span><span style="font-weight: 700">$0.95/gal, respected</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65; font-weight: 700">TOTAL, ALL-IN</span><span style="font-weight: 700; color: var(--cone)">$19.84/mi — do not ask</span></div>
+        </div>
+        <div style="flex: 1 1 280px; border: 3px solid var(--ink); border-radius: 18px; background: var(--card); box-shadow: 5px 6px 0 var(--ink); padding: 26px 28px; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 6px">
+          <div style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 46px; color: var(--money)">$0.00</div>
+          <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6">introductory price</div>
+          <div style="font-size: 14px; font-style: italic; opacity: 0.8">That's $19.84/mi cheaper than the Spyder.</div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 52px; font-family: 'Space Mono', monospace; font-size: 13px">
+        <a href="#altrove">Next in the catalog: Altrove →</a>
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- ════════════════════════ ALTROVE ════════════════════════ -->
+  <sc-if value="{{ isAL }}" hint-placeholder-val="{{ false }}">
+    <section data-screen-label="Altrove Page" style="max-width: 1180px; margin: 0 auto; padding: 36px 32px 90px 32px">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap">
+        <a href="#" style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 2px solid var(--ink); border-radius: 999px; padding: 8px 16px; background: var(--card); box-shadow: 3px 3px 0 var(--ink); transition: translate 0.15s ease" style-hover="translate: -2px -2px; color: var(--ink)">← Back to the catalog</a>
+        <span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--money); font-weight: 700">Division № 02 · Travel</span>
+      </div>
+
+      <div style="display: flex; gap: 48px; flex-wrap: wrap; align-items: center; margin-top: 48px">
+        <div style="flex: 1 1 460px; min-width: 300px">
+          <div style="display: flex; gap: 10px; flex-wrap: wrap">
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">iOS · family shared</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--sun); color: #221B10; padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(2deg * var(--wobble)))">Workshopping</span>
+          </div>
+          <h1 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: clamp(52px, 7vw, 92px); line-height: 1; margin: 20px 0 14px 0">Altrove <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 0.55em; vertical-align: -0.06em; transform: rotate(calc(7deg * var(--wobble)))"><sc-for list="{{ pm.flight }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></h1>
+          <p style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: clamp(20px, 2.6vw, 27px); color: var(--money); margin: 0 0 18px 0; transform: rotate(calc(-0.5deg * var(--wobble)))">The family map of everywhere.</p>
+          <p style="font-size: 17.5px; line-height: 1.65; margin: 0; max-width: 560px; text-wrap: pretty">
+            Like a flight tracker, but for the whole trip — hotels, drives, days out,
+            not just the takeoffs. Log where the family has been, follow trips live so
+            nobody has to text “landed?”, and plan the next one together, in one place
+            instead of four group chats and a shared album nobody opens. Currently
+            being designed by everyone at the dinner table, which explains the pace.
+          </p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px">
+            <span style="font-family: 'Space Mono', monospace; font-size: 12px; border: 2.5px solid var(--money); color: var(--money); border-radius: 10px; padding: 8px 14px; font-weight: 700; letter-spacing: 0.06em; transform: rotate(calc(-3deg * var(--wobble)))">BEEN ✓</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 12px; border: 2.5px solid var(--cone); color: var(--cone); border-radius: 10px; padding: 8px 14px; font-weight: 700; letter-spacing: 0.06em; transform: rotate(calc(2deg * var(--wobble)))">SFO → NRT</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 12px; border: 2.5px solid var(--ink); border-radius: 10px; padding: 8px 14px; font-weight: 700; letter-spacing: 0.06em; transform: rotate(calc(-1deg * var(--wobble)))">NEXT: ELSEWHERE</span>
+          </div>
+        </div>
+        <div style="flex: 0 0 auto; margin: 0 auto">
+          <div style="width: 272px; border: 3px solid var(--ink); border-radius: 44px; background: #FFFFFF; padding: 10px; box-shadow: 6px 7px 0 var(--ink); transform: rotate(calc(1.2deg * var(--wobble)))">
+            <div style="width: 54px; height: 6px; border-radius: 999px; background: #221B10; opacity: 0.25; margin: 4px auto 8px auto"></div>
+            <image-slot id="al-phone" shape="rounded" radius="30" placeholder="Drop an Altrove screenshot (or the napkin sketch — we're workshopping)" style="width: 100%; height: 520px"></image-slot>
+          </div>
+          <div style="text-align: center; font-family: 'Space Mono', monospace; font-size: 11px; opacity: 0.55; margin-top: 12px">design subject to family vote</div>
+        </div>
+      </div>
+
+      <h2 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 34px; margin: 60px 0 22px 0">One trip, every layer of it</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px">
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Whole trips, not flights</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">The full itinerary in one timeline — flights, hotels, drives, that one museum day. The flight is an event, not the story.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Follow along live</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">See the family's trip as it unfolds, without sending "landed?" into the void. The void never answered anyway.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">The been-map</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Every place you've all been, filling in slowly over the years. Objectively useless. Deeply satisfying.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Plan the next one</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">An AI guide proposes; the family disposes. Currently in the workshop, where all family decisions are made.</div></div>
+      </div>
+
+      <div style="display: flex; gap: 28px; flex-wrap: wrap; margin-top: 48px; align-items: stretch">
+        <div style="flex: 1 1 400px; border: 3px solid var(--ink); border-radius: 18px; background: var(--card); box-shadow: 5px 6px 0 var(--ink); padding: 26px 28px">
+          <div style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6; margin-bottom: 14px">Boarding pass</div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Status</span><span style="font-weight: 700">workshopping, happily</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Group chats replaced</span><span style="font-weight: 700">4</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">"Landed?" texts</span><span style="font-weight: 700">0, finally</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Etymology</span><span style="font-weight: 700; color: var(--money)">Italian for "elsewhere"</span></div>
+        </div>
+        <div style="flex: 1 1 280px; border: 3px solid var(--ink); border-radius: 18px; background: var(--card); box-shadow: 5px 6px 0 var(--ink); padding: 26px 28px; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 6px">
+          <div style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 46px; color: var(--money)">$0.00</div>
+          <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6">introductory price</div>
+          <div style="font-size: 14px; font-style: italic; opacity: 0.8">Checked bags: also free. It's an app.</div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 52px; font-family: 'Space Mono', monospace; font-size: 13px">
+        <a href="#plop">Next in the catalog: the Plop Pavilion →</a>
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- ════════════════════════ THE GUY (ABOUT) ════════════════════════ -->
+  <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+    <section data-screen-label="About Page" style="max-width: 1180px; margin: 0 auto; padding: 36px 32px 90px 32px">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap">
+        <a href="#" style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 2px solid var(--ink); border-radius: 999px; padding: 8px 16px; background: var(--card); box-shadow: 3px 3px 0 var(--ink); transition: translate 0.15s ease" style-hover="translate: -2px -2px; color: var(--ink)">← Back to the catalog</a>
+        <span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.5">Studio directory · headcount: 1</span>
+      </div>
+
+      <div style="margin-top: 48px; max-width: 720px">
+        <div style="font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--money); font-weight: 700">The Studio 💼</div>
+        <h1 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: clamp(52px, 7vw, 92px); line-height: 1; margin: 14px 0 14px 0">The Guy <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 0.55em; vertical-align: -0.06em; transform: rotate(calc(8deg * var(--wobble)))"><sc-for list="{{ pm.founder }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></h1>
+        <p style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: clamp(20px, 2.6vw, 27px); color: var(--money); margin: 0 0 18px 0; transform: rotate(calc(-0.5deg * var(--wobble)))">Founder. CEO. CFO. Setup crew.</p>
+        <p style="font-size: 17.5px; line-height: 1.65; margin: 0; text-wrap: pretty">
+          Peyton — the entire staff of Pey Me Money App Studios. Computer-science
+          degree, garage full of cones, family full of beta testers. Every product
+          on this site exists because something finally gave out: a spreadsheet, an
+          Adobe subscription, a group chat. Races on Sundays. Ships on Wednesdays.
+          Invoices no one.
+        </p>
+      </div>
+
+      <div style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6; margin: 54px 0 20px 0">Exhibits</div>
+      <div style="display: flex; gap: 34px; flex-wrap: wrap; align-items: flex-end">
+        <figure style="margin: 0; text-align: center">
+          <div style="width: 226px; height: 226px; border: 3px solid var(--ink); border-radius: 50%; background: #FFFFFF; padding: 8px; box-sizing: border-box; box-shadow: 5px 6px 0 var(--ink); transform: rotate(calc(-2deg * var(--wobble)))">
+            <image-slot id="guy-face" shape="circle" placeholder="Drop a headshot (helmet optional)" style="width: 100%; height: 100%"></image-slot>
+          </div>
+          <figcaption style="font-family: 'Space Mono', monospace; font-size: 11px; opacity: 0.55; margin-top: 14px">fig. 1 — the guy</figcaption>
+        </figure>
+        <figure style="margin: 0; flex: 1 1 380px; min-width: 320px; text-align: center">
+          <div style="border: 3px solid var(--ink); background: #FFFFFF; padding: 10px; box-shadow: 6px 7px 0 var(--ink); transform: rotate(calc(0.6deg * var(--wobble)))">
+            <image-slot id="guy-machine" shape="rect" placeholder="Drop the car (or the EV, no judgment)" style="width: 100%; height: 280px"></image-slot>
+          </div>
+          <figcaption style="font-family: 'Space Mono', monospace; font-size: 11px; opacity: 0.55; margin-top: 14px">fig. 2 — the machine · 16.3 MPG lifetime · worth it</figcaption>
+        </figure>
+        <figure style="margin: 0; text-align: center">
+          <div style="width: 270px; border: 3px solid var(--ink); background: #FFFFFF; padding: 10px; box-sizing: border-box; box-shadow: 5px 6px 0 var(--ink); transform: rotate(calc(-1deg * var(--wobble)))">
+            <image-slot id="guy-office" shape="rect" placeholder="Drop a paddock or trip photo" style="width: 100%; height: 250px"></image-slot>
+          </div>
+          <figcaption style="font-family: 'Space Mono', monospace; font-size: 11px; opacity: 0.55; margin-top: 14px">fig. 3 — the field office</figcaption>
+        </figure>
+      </div>
+
+      <div style="display: flex; gap: 28px; flex-wrap: wrap; margin-top: 54px; align-items: stretch">
+        <div style="flex: 1 1 400px; border: 3px solid var(--ink); border-radius: 18px; background: var(--card); box-shadow: 5px 6px 0 var(--ink); padding: 26px 28px">
+          <div style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6; margin-bottom: 14px">Org chart</div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Founder &amp; CEO</span><span style="font-weight: 700">him</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Engineering</span><span style="font-weight: 700">him</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Design</span><span style="font-weight: 700">him, under protest</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">QA</span><span style="font-weight: 700">the family (unpaid, thorough)</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Setup crew</span><span style="font-weight: 700">also him (see: cones)</span></div>
+        </div>
+        <div style="flex: 1 1 280px; border: 3px solid var(--ink); border-radius: 18px; background: var(--card); box-shadow: 5px 6px 0 var(--ink); padding: 26px 28px; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 8px">
+          <div><span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 56px"><sc-for list="{{ pm.fundraise }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></div>
+          <div style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 26px">Want to pey us money?</div>
+          <div style="font-size: 14.5px; line-height: 1.6; opacity: 0.85">You currently can't. This is a known issue, and a fix is planned for a future release.</div>
+          <a href="#" style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; margin-top: 6px">Browse the catalog →</a>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 52px; font-family: 'Space Mono', monospace; font-size: 13px">
+        <a href="#plop">Continue the tour: the Plop Pavilion →</a>
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- ════════════════════════ THE PLOP PAVILION ════════════════════════ -->
+  <!-- ════════════════════════ PLOP GATE (sealed) ════════════════════════ -->
+  <sc-if value="{{ plopGate }}" hint-placeholder-val="{{ false }}">
+    <section data-screen-label="Plop Gate" style="max-width: 1180px; margin: 0 auto; padding: 36px 32px 90px 32px">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap">
+        <a href="#" style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 2px solid var(--ink); border-radius: 999px; padding: 8px 16px; background: var(--card); box-shadow: 3px 3px 0 var(--ink); transition: translate 0.15s ease" style-hover="translate: -2px -2px; color: var(--ink)">← Back to the catalog</a>
+        <span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cone); font-weight: 700">🔒 Sealed exhibit · authorized ploppers only</span>
+      </div>
+
+      <div style="text-align: center; margin-top: 40px">
+        <div style="display: inline-block; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border: 2px solid var(--ink); border-radius: 10px; padding: 8px 18px; background: #8E5C31; color: #F5E9D0; box-shadow: 3px 3px 0 var(--ink); transform: rotate(calc(-1.5deg * var(--wobble)))">The Plop Pavilion — east wing</div>
+        <h1 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: clamp(40px, 6vw, 72px); line-height: 1.02; margin: 22px 0 10px 0">The pavilion is sealed.</h1>
+        <p style="font-size: 17px; line-height: 1.6; margin: 0 auto; max-width: 480px; text-wrap: pretty">Behind this door: the studio's most classified exhibit. Speak the password and enter. You already know it. Everyone already knows it.</p>
+
+        <div style="display: flex; justify-content: center; align-items: flex-end; gap: 30px; margin-top: 42px; animation: {{ gateAnim }}">
+          <div aria-hidden="true" style="display: flex; flex-direction: column; align-items: center; margin-bottom: 150px">
+            <span style="font-size: 34px; line-height: 1; display: inline-block; transform-origin: 50% 100%; animation: pmm-flicker 0.85s ease-in-out infinite alternate; filter: drop-shadow(0 0 9px rgba(240,160,60,0.8))">🔥</span>
+            <span style="width: 13px; height: 32px; background: #8E5C31; border: 2.5px solid var(--ink); border-radius: 3px 3px 7px 7px; margin-top: -3px"></span>
+          </div>
+
+          <div style="position: relative; background: #C4B296; border: 3px solid var(--ink); border-radius: 190px 190px 16px 16px; padding: 14px; box-shadow: 6px 7px 0 var(--ink)">
+            <div aria-hidden="true" style="position: absolute; left: -14px; top: 46%; width: 30px; height: 17px; background: #B4A184; border: 2.5px solid var(--ink); border-radius: 6px"></div>
+            <div aria-hidden="true" style="position: absolute; right: -12px; top: 30%; width: 26px; height: 15px; background: #B4A184; border: 2.5px solid var(--ink); border-radius: 6px; transform: rotate(4deg)"></div>
+            <div aria-hidden="true" style="position: absolute; right: 24%; top: -13px; width: 28px; height: 16px; background: #B4A184; border: 2.5px solid var(--ink); border-radius: 6px; transform: rotate(-24deg)"></div>
+            <div style="position: relative; width: min(310px, 58vw); height: 340px; border-radius: 165px 165px 6px 6px; background: #241209; border: 3px solid var(--ink); overflow: hidden; perspective: 900px">
+              <div style="position: absolute; inset: 0; display: grid; place-items: center">
+                <div>
+                  <div style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 44px; color: var(--sun); text-shadow: 0 0 22px rgba(232,163,61,0.6)">plop.</div>
+                  <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #C9B695; margin-top: 6px">welcome, plopper</div>
+                </div>
+              </div>
+              <div style="position: absolute; top: 0; bottom: 0; left: 0; width: 50%; transform-origin: left center; transform: {{ doorL }}; transition: transform 1.1s cubic-bezier(0.6, 0, 0.7, 0.4) 0.3s; background: repeating-linear-gradient(90deg, #A5713F 0px, #A5713F 28px, #8E5C31 28px, #8E5C31 33px); border-right: 2px solid var(--ink); border-radius: 162px 0 0 0; box-shadow: inset -4px 0 0 rgba(70,41,26,0.4)">
+                <span style="position: absolute; left: 10px; top: 34%; width: 26px; height: 9px; background: #5A5A64; border: 2px solid var(--ink); border-radius: 4px"></span>
+                <span style="position: absolute; left: 10px; top: 68%; width: 26px; height: 9px; background: #5A5A64; border: 2px solid var(--ink); border-radius: 4px"></span>
+              </div>
+              <div style="position: absolute; top: 0; bottom: 0; right: 0; width: 50%; transform-origin: right center; transform: {{ doorR }}; transition: transform 1.1s cubic-bezier(0.6, 0, 0.7, 0.4) 0.3s; background: repeating-linear-gradient(90deg, #9A6839 0px, #9A6839 28px, #855527 28px, #855527 33px); border-left: 2px solid var(--ink); border-radius: 0 162px 0 0; box-shadow: inset 4px 0 0 rgba(70,41,26,0.4)">
+                <span style="position: absolute; right: 10px; top: 34%; width: 26px; height: 9px; background: #5A5A64; border: 2px solid var(--ink); border-radius: 4px"></span>
+                <span style="position: absolute; right: 10px; top: 68%; width: 26px; height: 9px; background: #5A5A64; border: 2px solid var(--ink); border-radius: 4px"></span>
+              </div>
+              <div style="position: absolute; left: 50%; top: 50%; z-index: 3; transform: {{ lockTr }}; opacity: {{ lockOp }}; transition: transform 0.7s ease-in, opacity 0.55s ease">
+                <div style="width: 88px; height: 22px; background: #5A5A64; border: 2.5px solid var(--ink); border-radius: 6px; margin: 0 auto"></div>
+                <div style="width: 40px; height: 30px; border: 7px solid #8B8B93; border-bottom: none; border-radius: 22px 22px 0 0; margin: 6px auto -4px auto"></div>
+                <div style="position: relative; width: 74px; height: 60px; background: linear-gradient(145deg, #FFD966, #E8A93A); border: 3px solid var(--ink); border-radius: 14px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 3px 3px 0 rgba(34,27,16,0.35)">
+                  <div style="width: 13px; height: 13px; background: var(--ink); border-radius: 50%"></div>
+                  <div style="width: 7px; height: 13px; background: var(--ink); border-radius: 0 0 3px 3px; margin-top: -3px"></div>
+                </div>
+              </div>
+            </div>
+            <div aria-hidden="true" style="position: absolute; right: -30px; bottom: -8px; transform: rotate(10deg)"><span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 44px"><sc-for list="{{ plops.classic }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></div>
+          </div>
+
+          <div aria-hidden="true" style="display: flex; flex-direction: column; align-items: center; margin-bottom: 150px">
+            <span style="font-size: 34px; line-height: 1; display: inline-block; transform-origin: 50% 100%; animation: pmm-flicker 0.85s ease-in-out infinite alternate reverse; filter: drop-shadow(0 0 9px rgba(240,160,60,0.8))">🔥</span>
+            <span style="width: 13px; height: 32px; background: #8E5C31; border: 2.5px solid var(--ink); border-radius: 3px 3px 7px 7px; margin-top: -3px"></span>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 36px">
+          <input value="{{ plopPw }}" onChange="{{ onPwChange }}" onKeyDown="{{ onPwKey }}" placeholder="speak the password…" aria-label="password" style="font-family: 'Space Mono', monospace; font-size: 15px; letter-spacing: 0.08em; padding: 13px 18px; border: 2.5px solid var(--ink); border-radius: 12px; background: var(--card); color: var(--ink); box-shadow: 3px 3px 0 var(--ink); outline: none; width: min(250px, 60vw); text-align: center" />
+          <button onClick="{{ onPwTry }}" style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 17px; padding: 11px 24px; border: 3px solid var(--ink); border-radius: 999px; background: var(--sun); color: #221B10; box-shadow: 4px 4px 0 var(--ink); cursor: pointer; transition: translate 0.15s ease" style-hover="translate: -2px -2px">Speak</button>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 12.5px; opacity: 0.75; margin-top: 16px; min-height: 18px">{{ plopMsg }}</div>
+      </div>
+    </section>
+  </sc-if>
+
+  <sc-if value="{{ plopShown }}" hint-placeholder-val="{{ false }}">
+    <section data-screen-label="Plop Pavilion" style="max-width: 1180px; margin: 0 auto; padding: 36px 32px 90px 32px">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap">
+        <a href="#" style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 2px solid var(--ink); border-radius: 999px; padding: 8px 16px; background: var(--card); box-shadow: 3px 3px 0 var(--ink); transition: translate 0.15s ease" style-hover="translate: -2px -2px; color: var(--ink)">← Back to the catalog</a>
+        <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap">
+          <span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--money); font-weight: 700">The Pavilion · the studio's worst-kept secret</span>
+          <button onClick="{{ onRelock }}" title="seal the exhibit again" style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid var(--ink); border-radius: 999px; padding: 7px 14px; background: var(--card); color: var(--ink); box-shadow: 3px 3px 0 var(--ink); cursor: pointer; transition: translate 0.15s ease" style-hover="translate: -2px -2px">🔒 re-seal</button>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 48px; flex-wrap: wrap; align-items: center; margin-top: 48px">
+        <div style="flex: 1 1 460px; min-width: 300px">
+          <div style="display: flex; gap: 10px; flex-wrap: wrap">
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">iOS · social · unfortunately real</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--cone); color: var(--paper); padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(-2deg * var(--wobble)))">In development</span>
+          </div>
+          <h1 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: clamp(52px, 7vw, 92px); line-height: 1; margin: 20px 0 14px 0">Plop<span style="color: var(--cone)">.</span> <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 0.66em; vertical-align: -0.08em; transform: rotate(calc(-6deg * var(--wobble)))"><sc-for list="{{ plops.classic }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></h1>
+          <p style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: clamp(20px, 2.6vw, 27px); color: var(--money); margin: 0 0 18px 0; transform: rotate(calc(-0.5deg * var(--wobble)))">The social network for number two.</p>
+          <p style="font-size: 17.5px; line-height: 1.65; margin: 0; max-width: 560px; text-wrap: pretty">
+            The studio's secret project, no longer secret. Start the throne timer and
+            friends can cheer you on, live. Keep the streak. Earn Plop Points. Let
+            Sage — the AI gut coach — read the data. There are games for while you
+            sit. There's a map. There's ghost mode, because there has to be. Every
+            engineering skill this studio possesses, aimed at the least dignified
+            problem it could find. We are not sorry. We are a little sorry.
+          </p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; font-family: 'Space Mono', monospace; font-size: 12px">
+            <span style="background: var(--ink); color: var(--paper); border-radius: 999px; padding: 8px 14px; font-weight: 700">🔴 on the throne · 2:41</span>
+            <span style="border: 2px solid var(--ink); border-radius: 999px; padding: 8px 14px; font-weight: 700">🪙 340 PP</span>
+            <span style="border: 2px dashed var(--ink); border-radius: 999px; padding: 8px 14px; font-weight: 700; transform: rotate(calc(2deg * var(--wobble)))">🔥 9-day streak</span>
+          </div>
+        </div>
+        <div style="flex: 0 0 auto; margin: 0 auto">
+          <div style="width: 272px; border: 3px solid var(--ink); border-radius: 44px; background: #46291A; padding: 10px; box-shadow: 6px 7px 0 var(--ink); transform: rotate(calc(1.2deg * var(--wobble)))">
+            <div style="width: 54px; height: 6px; border-radius: 999px; background: #EDE1C8; opacity: 0.35; margin: 4px auto 8px auto"></div>
+            <image-slot id="plop-phone" shape="rounded" radius="30" placeholder="Drop a Plop screenshot — the feed, the map, the Wrapped. Dealer's choice." style="width: 100%; height: 520px"></image-slot>
+          </div>
+          <div style="text-align: center; font-family: 'Space Mono', monospace; font-size: 11px; opacity: 0.55; margin-top: 12px">the feed · do not open at dinner</div>
+        </div>
+      </div>
+
+      <h2 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 34px; margin: 60px 0 22px 0">Features nobody asked for. Everybody uses.</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px">
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">The throne timer</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Tap when you sit. Friends see "on the throne · 2:41" and can send a cheer. That's the whole network, and it's beautiful.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Streaks &amp; Plop Points</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Daily streaks, PP for showing up. Spend it in the Arcade. The economy is fake; the discipline is real.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">The map</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Every plop, pinned. Friends see a general area, never your door. Ghost mode included, for business travel.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Sage, the gut coach</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">An AI that reads your logs and says "hydrate" with the confidence of a board-certified nutritionist.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">The Arcade</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Turn-based games played entirely from the throne. GamePigeon energy. "One more game" is a lie.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">The Lab + Wrapped</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Gut Score, Bristol distribution, correlation studies (beer nights: confirmed), and a weekly Wrapped for the group chat.</div></div>
+      </div>
+
+      <h2 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 34px; margin: 60px 0 8px 0">The plopmoji pack</h2>
+      <p style="margin: 0 0 22px 0; font-size: 16px; opacity: 0.75; font-style: italic">Fifty-six moods. These four made it past legal.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: 16px">
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); box-shadow: 4px 4px 0 var(--ink); padding: 20px 12px 14px 12px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; transition: translate 0.15s ease, box-shadow 0.15s ease" style-hover="translate: -2px -2px; box-shadow: 6px 6px 0 var(--ink)">
+          <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 58px"><sc-for list="{{ plops.classic }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span>
+          <span style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 14.5px; line-height: 1.2">The Classic</span>
+        </div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); box-shadow: 4px 4px 0 var(--ink); padding: 20px 12px 14px 12px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; transition: translate 0.15s ease, box-shadow 0.15s ease" style-hover="translate: -2px -2px; box-shadow: 6px 6px 0 var(--ink)">
+          <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 58px"><sc-for list="{{ plops.cool }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span>
+          <span style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 14.5px; line-height: 1.2">Too Cool to Flush</span>
+        </div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); box-shadow: 4px 4px 0 var(--ink); padding: 20px 12px 14px 12px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; transition: translate 0.15s ease, box-shadow 0.15s ease" style-hover="translate: -2px -2px; box-shadow: 6px 6px 0 var(--ink)">
+          <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 58px"><sc-for list="{{ plops.party }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span>
+          <span style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 14.5px; line-height: 1.2">Party Pooper</span>
+        </div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); box-shadow: 4px 4px 0 var(--ink); padding: 20px 12px 14px 12px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; transition: translate 0.15s ease, box-shadow 0.15s ease" style-hover="translate: -2px -2px; box-shadow: 6px 6px 0 var(--ink)">
+          <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 58px"><sc-for list="{{ plops.ninja }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span>
+          <span style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 14.5px; line-height: 1.2">Silent But Deadly</span>
+        </div>
+        <div style="border: 2.5px dashed var(--ink); border-radius: 14px; background: var(--card); padding: 20px 12px 14px 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-align: center">
+          <span style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 34px; color: var(--cone)">+52</span>
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.6">in the app</span>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 28px; flex-wrap: wrap; margin-top: 48px; align-items: stretch">
+        <div style="flex: 1 1 400px; border: 3px solid var(--ink); border-radius: 18px; background: var(--card); box-shadow: 5px 6px 0 var(--ink); padding: 26px 28px">
+          <div style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6; margin-bottom: 14px">Field notes</div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; padding: 8px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Plopmojis in the pack</span><span style="font-weight: 700">56</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; padding: 8px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Bristol types charted</span><span style="font-weight: 700">all 7</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; padding: 8px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Company-time earnings</span><span style="font-weight: 700">$412/yr (per the Lab)</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; padding: 8px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Ghost mode</span><span style="font-weight: 700">obviously</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; padding: 8px 2px; font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">The public repo</span><span style="font-weight: 700; color: var(--money)">still 7 bytes of misdirection</span></div>
+        </div>
+        <div style="flex: 1 1 280px; border: 3px solid var(--ink); border-radius: 18px; background: var(--card); box-shadow: 5px 6px 0 var(--ink); padding: 26px 28px; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 6px">
+          <div style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 46px; color: var(--money)">$0.00</div>
+          <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6">introductory price</div>
+          <div style="font-size: 14px; font-style: italic; opacity: 0.8">Your dignity is the subscription.</div>
+        </div>
+      </div>
+
+      <div style="margin-top: 60px; text-align: center">
+        <button type="button" style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 18px; color: var(--paper); background: var(--money); border: 3px solid var(--ink); border-radius: 12px; padding: 14px 30px; box-shadow: 4px 5px 0 var(--ink); cursor: pointer; transition: translate 0.12s ease, box-shadow 0.12s ease" style-hover="translate: -2px -2px; box-shadow: 6px 7px 0 var(--ink)" style-active="translate: 3px 4px; box-shadow: 1px 1px 0 var(--ink)">Pey $0.00</button>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; opacity: 0.5; margin-top: 12px">(the button does nothing. the app, though — the app is real.)</div>
+      </div>
+
+      <div style="margin-top: 80px; font-family: 'Space Mono', monospace; font-size: 13px; text-align: center">
+        <a href="#speedstream">Start the catalog over: SpeedStream →</a>
+      </div>
+    </section>
+  </sc-if>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;wobble&quot;: {&quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 1, &quot;min&quot;: 0, &quot;max&quot;: 2, &quot;step&quot;: 0.25, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Vibe&quot;, &quot;description&quot;: &quot;How crooked everything sits. 0 = investor meeting, 2 = paddock at 2pm.&quot;},
+  &quot;moneyColor&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#187A4B&quot;, &quot;options&quot;: [&quot;#187A4B&quot;, &quot;#2A5FB0&quot;, &quot;#8A4BA8&quot;, &quot;#B03A3A&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Vibe&quot;, &quot;description&quot;: &quot;The color of money on the home page.&quot;},
+  &quot;showPlopCorner&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Content&quot;, &quot;description&quot;: &quot;The floating plop pavilion sticker on the home page.&quot;}
+}">
+class Component extends DCLogic {
+  state = { page: 'home', plopUnlocked: false, plopOpening: false, plopPw: '', plopTries: 0, plopMsg: 'one word. lowercase. you know it.', plopShake: 0 };
+
+  static THEMES = {
+    home:        { paper: '#FAF4E7', card: '#FFFDF6', ink: '#221B10', money: null,       cone: '#E8722C', sun: '#F5C543' },
+    about:       { paper: '#FAF4E7', card: '#FFFDF6', ink: '#221B10', money: null,       cone: '#E8722C', sun: '#F5C543' },
+    speedstream: { paper: '#14120D', card: '#1E1B13', ink: '#F2E9D6', money: '#45D07E',  cone: '#F08A3C', sun: '#F5C543' },
+    conecanvas:  { paper: '#EEF3F6', card: '#FFFFFF', ink: '#1C2B33', money: '#E8722C',  cone: '#2A6FDB', sun: '#F5C543' },
+    acmaker:     { paper: '#1A1B1E', card: '#242629', ink: '#EDEEF0', money: '#E0483E',  cone: '#F08A3C', sun: '#F2C230' },
+    glovebox:    { paper: '#F2E7D3', card: '#FCF6E9', ink: '#2B2013', money: '#3E6B4F',  cone: '#B4552D', sun: '#E8B54A' },
+    altrove:     { paper: '#E9F1F7', card: '#FFFFFF', ink: '#16324B', money: '#C24848',  cone: '#2A7FB8', sun: '#F0C64F' },
+    plop:        { paper: '#EDE1C8', card: '#FFFDF6', ink: '#46291A', money: '#4A7A42',  cone: '#E2604A', sun: '#E8A33D' }
+  };
+
+  static TICKERS = {
+    home: 'PMM APP STUDIOS — THE OFFICIAL TAPE  ★  BOOTSTRAPPED: 100%  ★  APPS SHIPPED: 5  ★  HEADCOUNT: 1 (THE GUY)  ★  CONES HARMED YTD: [SEALED BY LEGAL]  ★  COSTCO GAS EDGE: $0.95/GAL  ★  AI COACH RATE: $0.004/LECTURE (AT COST)  ★  INVESTOR RELATIONS: 💸💰🤑  ★  ',
+    about: 'FOUNDER: 1  ★  EMPLOYEES: SAME GUY  ★  JOB TITLES: 11  ★  MEETINGS: SHORT  ★  QA DEPARTMENT: THE FAMILY  ★  OFFICE: THE PADDOCK  ★  ',
+    speedstream: 'RUN 07: 44.12 (−0.42 · PB)  ★  CONES: 2 (ALLEGEDLY)  ★  GPS: 25 HZ  ★  PHONE: LOCKED, RECORDING ANYWAY  ★  COACH: "BRAKE LATER INTO 3"  ★  EXCUSES DETECTED: 3 · ACCEPTED: 0  ★  PAYWALL: NONE FOUND  ★  ',
+    conecanvas: 'CONES REQUIRED: 214  ★  SLALOMS: 3  ★  SWEEPER: 90 FT  ★  DOCTOR FINDINGS: 0 CRITICAL  ★  AUTOCAD: UNINSTALLED ($500-ISH — AFRAID TO CHECK)  ★  PARKING SPACES EYEBALLED: 0  ★  IPAD: SOON  ★  ',
+    acmaker: 'MAP→WORLD FIT: 0.60 M MEDIAN  ★  CONES PLACED: 523  ★  CONES UPRIGHT: 523  ★  POINTER TILT: 13.54° (MEASURED)  ★  GRAVITY: RESPECTED SINCE V0.8  ★  COURSE WALKS: OPTIONAL  ★  SOCKS: ON  ★  ',
+    glovebox: 'SPYDER: 16.3 MPG LIFETIME  ★  ALL-IN: $19.84/MI (DO NOT ASK)  ★  COSTCO EDGE: $0.95/GAL  ★  EV: 2.76 MI/KWH  ★  SPREADSHEETS RETIRED: 1  ★  APPLE NOTES OF SHAME: SEVERAL  ★  RECEIPTS: ALL OF THEM  ★  ',
+    altrove: 'NOW BOARDING: THE FAMILY  ★  TRIPS LOGGED: ALL OF THEM  ★  "LANDED?" TEXTS: 0  ★  GROUP CHATS REPLACED: 4  ★  NEXT DESTINATION: ELSEWHERE  ★  STATUS: WORKSHOPPING  ★  ',
+    plop: 'LIVE NOW: 3 FRIENDS ON THE THRONE  ★  STREAK: SAFE  ★  PP BALANCE: 340  ★  PLOPMOJIS: 56  ★  GUT SCORE: 81 (B+)  ★  SAGE SAYS: "HYDRATE"  ★  PUBLIC REPO: STILL 7 BYTES  ★  ',
+    plopLocked: 'EXHIBIT SEALED  ★  CONTENTS: [REDACTED]  ★  SMELL: [REDACTED]  ★  PASSWORD ATTEMPTS TODAY: SEVERAL  ★  HINT: IT IS THE NAME OF THE APP  ★  GATEKEEPER ON DUTY: YES  ★  '
+  };
+
+  static HASH_TO_PAGE = {
+    '#about': 'about',
+    '#speedstream': 'speedstream',
+    '#conecanvas': 'conecanvas',
+    '#ac-maker': 'acmaker',
+    '#glovebox': 'glovebox',
+    '#altrove': 'altrove',
+    '#plop': 'plop'
+  };
+
+  pageFromHash() {
+    const h = window.location.hash;
+    if (Component.HASH_TO_PAGE[h]) return Component.HASH_TO_PAGE[h];
+    if (h === '' || h === '#') return 'home';
+    return this.state.page; // unknown hashes (e.g. placeholder form links) don't navigate
+  }
+
+  PLOP_WRONG = [
+    'the door does not budge.',
+    'wrong. hint: it is the sound the app is named after.',
+    'still no. rhymes with "flop". starts with "p".',
+    'fine. the password is "plop". it is literally "plop".',
+  ];
+  tryPlopPw = () => {
+    if (this.state.plopOpening) return;
+    if (this.state.plopPw.trim().toLowerCase() === 'plop') {
+      this.setState({ plopOpening: true, plopMsg: '…the seal breaks. the doors swing open.' });
+      setTimeout(() => {
+        this.setState({ plopUnlocked: true, plopOpening: false, plopPw: '', plopTries: 0, plopMsg: 'one word. lowercase. you know it.' });
+        try { localStorage.setItem('pmm-plop-unlocked', '1'); } catch (e) {}
+      }, 1750);
+    } else {
+      const n = this.state.plopTries;
+      this.setState({ plopTries: n + 1, plopMsg: this.PLOP_WRONG[Math.min(n, this.PLOP_WRONG.length - 1)], plopShake: 0 });
+      setTimeout(() => this.setState({ plopShake: Date.now() }), 30);
+    }
+  };
+  relockPlop = () => {
+    try { localStorage.setItem('pmm-plop-unlocked', '0'); } catch (e) {}
+    this.setState({ plopUnlocked: false, plopOpening: false, plopPw: '', plopTries: 0, plopMsg: 'sealed again. as if it never opened.' });
+    window.scrollTo({ top: 0 });
+  };
+
+  applyVars() {
+    const t = Component.THEMES[this.state.page] || Component.THEMES.home;
+    const root = document.documentElement.style;
+    root.setProperty('--paper', t.paper);
+    root.setProperty('--card', t.card);
+    root.setProperty('--ink', t.ink);
+    root.setProperty('--money', t.money || (this.props.moneyColor ?? '#187A4B'));
+    root.setProperty('--cone', t.cone);
+    root.setProperty('--sun', t.sun);
+    root.setProperty('--wobble', String(this.props.wobble ?? 1));
+    const page = this.state.page;
+    const money = t.money || (this.props.moneyColor ?? '#187A4B');
+    const setTab = (name, active) => {
+      root.setProperty('--tab-' + name + '-bg', active ? t.ink : 'transparent');
+      root.setProperty('--tab-' + name + '-fg', active ? t.paper : t.ink);
+    };
+    setTab('cat', page !== 'about' && page !== 'plop');
+    setTab('guy', page === 'about');
+    setTab('plop', page === 'plop');
+  }
+
+  componentDidMount() {
+    this.onHash = () => {
+      const page = this.pageFromHash();
+      this.setState({ page }, () => window.scrollTo({ top: 0 }));
+    };
+    window.addEventListener('hashchange', this.onHash);
+    if (this.pageFromHash() !== this.state.page) this.onHash();
+    try { if (localStorage.getItem('pmm-plop-unlocked') === '1') this.setState({ plopUnlocked: true }); } catch (e) {}
+    this.applyVars();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('hashchange', this.onHash);
+  }
+
+  componentDidUpdate() {
+    this.applyVars();
+  }
+
+  // ---------- peymoji suite ----------
+  PT = (o) => ({ l: '', t: '', w: '', h: '', br: '', bg: '', sh: '', tr: 'translate(-50%,-50%)', fs: '', col: '', tx: '', ...o });
+  COIN = () => [
+    this.PT({ l: '50%', t: '50%', w: '.92em', h: '.92em', br: '50%', bg: 'linear-gradient(145deg,#FFD966,#E8A93A 60%,#C8862A)', sh: 'inset 0 0 0 .04em #221B10, .035em .045em 0 #221B10' }),
+    this.PT({ l: '50%', t: '50%', w: '.72em', h: '.72em', br: '50%', sh: 'inset 0 0 0 .017em rgba(140,90,20,.55)' }),
+    this.PT({ l: '31%', t: '21%', w: '.15em', h: '.08em', br: '50%', bg: 'rgba(255,255,255,.72)', tr: 'translate(-50%,-50%) rotate(-32deg)' }),
+  ];
+  CEYES = (kind) => {
+    const L = '37%', R = '63%', T = '42%', dark = '#221B10', white = '#FFFDF6';
+    const dot = (x, w, h) => this.PT({ l: x, t: T, w: w || '.1em', h: h || '.12em', br: '50%', bg: dark });
+    const arc = (x) => this.PT({ l: x, t: T, w: '.16em', h: '.08em', br: '1em 1em 0 0', bg: dark });
+    if (kind === 'happy') return [arc(L), arc(R)];
+    if (kind === 'closed') return [ this.PT({ l: L, t: T, w: '.15em', h: '.045em', br: '1em', bg: dark }), this.PT({ l: R, t: T, w: '.15em', h: '.045em', br: '1em', bg: dark }) ];
+    if (kind === 'wide') return [dot(L, '.13em', '.15em'), dot(R, '.13em', '.15em')];
+    if (kind === 'hearts') return [ this.PT({ l: L, t: T, fs: '.16em', tx: '❤️' }), this.PT({ l: R, t: T, fs: '.16em', tx: '❤️' }) ];
+    if (kind === 'money') return [ this.PT({ l: L, t: T, fs: '.17em', tx: '$', col: '#187A4B' }), this.PT({ l: R, t: T, fs: '.17em', tx: '$', col: '#187A4B' }) ];
+    if (kind === 'spiral') return [ this.PT({ l: L, t: T, fs: '.15em', tx: '🌀' }), this.PT({ l: R, t: T, fs: '.15em', tx: '🌀' }) ];
+    if (kind === 'x') return [ this.PT({ l: L, t: T, fs: '.13em', tx: '✕', col: dark }), this.PT({ l: R, t: T, fs: '.13em', tx: '✕', col: dark }) ];
+    if (kind === 'shifty') return [dot('33%'), dot('59%')];
+    if (kind === 'lidded') return [ dot(L), dot(R), this.PT({ l: L, t: '37%', w: '.17em', h: '.08em', br: '0 0 1em 1em', bg: '#A87420' }), this.PT({ l: R, t: '37%', w: '.17em', h: '.08em', br: '0 0 1em 1em', bg: '#A87420' }) ];
+    if (kind === 'pleading') {
+      const pe = (x) => [
+        this.PT({ l: x, t: T, w: '.18em', h: '.2em', br: '50%', bg: white, sh: 'inset 0 -.02em .03em rgba(34,27,16,.18)' }),
+        this.PT({ l: x, t: '43%', w: '.12em', h: '.14em', br: '50%', bg: '#6B4423' }),
+        this.PT({ l: x, t: '39%', w: '.045em', h: '.045em', br: '50%', bg: '#FFFFFF', tr: 'translate(-130%,-50%)' }),
+      ];
+      return [...pe(L), ...pe(R)];
+    }
+    return [dot(L), dot(R)];
+  };
+  CBROWS = (kind) => {
+    const a = kind === 'angry' ? 1 : -1;
+    return [
+      this.PT({ l: '36%', t: '28%', w: '.15em', h: '.05em', br: '1em', bg: '#221B10', tr: 'translate(-50%,-50%) rotate(' + (16 * a) + 'deg)' }),
+      this.PT({ l: '64%', t: '28%', w: '.15em', h: '.05em', br: '1em', bg: '#221B10', tr: 'translate(-50%,-50%) rotate(' + (-16 * a) + 'deg)' }),
+    ];
+  };
+  CMOUTH = (kind) => {
+    const dark = '#221B10', white = '#FFFDF6';
+    if (kind === 'grin') return [
+      this.PT({ l: '50%', t: '66%', w: '.34em', h: '.17em', br: '.03em .03em 1em 1em', bg: dark }),
+      this.PT({ l: '50%', t: '60.5%', w: '.28em', h: '.05em', br: '.02em', bg: white }),
+    ];
+    if (kind === 'o') return [ this.PT({ l: '50%', t: '65%', w: '.12em', h: '.14em', br: '50%', bg: dark }) ];
+    if (kind === 'flat') return [ this.PT({ l: '50%', t: '65%', w: '.2em', h: '.05em', br: '1em', bg: dark }) ];
+    if (kind === 'frown') return [ this.PT({ l: '50%', t: '68%', w: '.22em', h: '.09em', br: '1em 1em 0 0', bg: dark }) ];
+    if (kind === 'smirk') return [ this.PT({ l: '56%', t: '64%', w: '.18em', h: '.07em', br: '0 0 1em 1em', bg: dark, tr: 'translate(-50%,-50%) rotate(-12deg)' }) ];
+    if (kind === 'grimace') return [
+      this.PT({ l: '50%', t: '65%', w: '.3em', h: '.11em', br: '.04em', bg: white, sh: 'inset 0 0 0 .015em #221B10' }),
+      this.PT({ l: '44%', t: '65%', w: '.015em', h: '.1em', bg: dark }),
+      this.PT({ l: '56%', t: '65%', w: '.015em', h: '.1em', bg: dark }),
+    ];
+    if (kind === 'censor') return [ this.PT({ l: '50%', t: '65%', w: '.4em', h: '.13em', br: '.03em', bg: dark, fs: '.075em', col: white, tx: '&$!#%' }) ];
+    return [ this.PT({ l: '50%', t: '64%', w: '.26em', h: '.11em', br: '.02em .02em 1em 1em', bg: dark }) ];
+  };
+  PCUSTOM = {
+    melting: () => {
+      const gold = 'linear-gradient(145deg,#FFD966,#E8A93A 60%,#C8862A)';
+      const drip = 'linear-gradient(160deg,#F2C14E,#C8862A)';
+      const oline = 'inset 0 0 0 .03em #221B10';
+      return [
+        this.PT({ l: '50%', t: '95%', w: '.86em', h: '.17em', br: '50%', bg: drip, sh: oline }),
+        this.PT({ l: '50%', t: '46%', w: '.92em', h: '.86em', br: '48% 48% 50% 50%', bg: gold, sh: 'inset 0 0 0 .04em #221B10, .03em .045em 0 #221B10' }),
+        this.PT({ l: '50%', t: '45%', w: '.72em', h: '.64em', br: '50%', sh: 'inset 0 0 0 .017em rgba(140,90,20,.55)' }),
+        this.PT({ l: '31%', t: '19%', w: '.15em', h: '.08em', br: '50%', bg: 'rgba(255,255,255,.72)', tr: 'translate(-50%,-50%) rotate(-32deg)' }),
+        this.PT({ l: '27%', t: '84%', w: '.13em', h: '.3em', br: '.03em .03em 1em 1em', bg: drip, sh: oline }),
+        this.PT({ l: '68%', t: '89%', w: '.11em', h: '.22em', br: '.03em .03em 1em 1em', bg: drip, sh: oline }),
+        this.PT({ l: '37%', t: '39%', w: '.1em', h: '.12em', br: '50%', bg: '#221B10' }),
+        this.PT({ l: '63%', t: '46%', w: '.1em', h: '.12em', br: '50%', bg: '#221B10' }),
+        this.PT({ l: '49%', t: '65%', w: '.2em', h: '.05em', br: '1em', bg: '#221B10', tr: 'translate(-50%,-50%) rotate(9deg)' }),
+      ];
+    },
+    clouds: () => {
+      const fog = (l, t, w, h, r) => this.PT({ l, t, w, h, br: '50%', bg: 'linear-gradient(150deg,#F7F4EC,#D8DBE3)', sh: 'inset 0 0 0 .025em rgba(34,27,16,.45)', tr: 'translate(-50%,-50%) rotate(' + (r || 0) + 'deg)' });
+      return [
+        ...this.COIN(),
+        this.PT({ l: '37%', t: '37%', w: '.1em', h: '.12em', br: '50%', bg: '#221B10' }),
+        this.PT({ l: '63%', t: '37%', w: '.1em', h: '.12em', br: '50%', bg: '#221B10' }),
+        fog('12%', '58%', '.3em', '.19em', -8),
+        fog('84%', '64%', '.36em', '.22em', 6),
+        fog('30%', '74%', '.44em', '.26em', -4),
+        fog('62%', '80%', '.5em', '.28em', 5),
+      ];
+    },
+    shell: () => {
+      const faint = 'rgba(34,27,16,.4)';
+      return [
+        this.PT({ l: '50%', t: '50%', w: '.92em', h: '.92em', br: '50%', bg: 'repeating-conic-gradient(rgba(34,27,16,.55) 0deg 10deg, transparent 10deg 26deg)' }),
+        this.PT({ l: '50%', t: '50%', w: '.79em', h: '.79em', br: '50%', bg: '#FFFDF6' }),
+        this.PT({ l: '50%', t: '50%', w: '.79em', h: '.79em', br: '50%', bg: 'rgba(232,169,58,.14)' }),
+        this.PT({ l: '37%', t: '42%', w: '.1em', h: '.12em', br: '50%', bg: faint }),
+        this.PT({ l: '63%', t: '42%', w: '.1em', h: '.12em', br: '50%', bg: faint }),
+        this.PT({ l: '50%', t: '65%', w: '.2em', h: '.05em', br: '1em', bg: faint }),
+      ];
+    },
+    frozen: () => {
+      const ice = 'inset 0 0 0 .022em rgba(34,27,16,.55)';
+      return [
+        this.PT({ l: '50%', t: '50%', w: '.92em', h: '.92em', br: '50%', bg: 'linear-gradient(145deg,#E3F2FC,#A9CFEE 60%,#7FB8E8)', sh: 'inset 0 0 0 .04em #221B10, .035em .045em 0 #221B10' }),
+        this.PT({ l: '50%', t: '50%', w: '.72em', h: '.72em', br: '50%', sh: 'inset 0 0 0 .017em rgba(70,115,160,.55)' }),
+        this.PT({ l: '31%', t: '21%', w: '.15em', h: '.08em', br: '50%', bg: 'rgba(255,255,255,.85)', tr: 'translate(-50%,-50%) rotate(-32deg)' }),
+        this.PT({ l: '33%', t: '93%', w: '.09em', h: '.17em', br: '.02em .02em 1em 1em', bg: '#BFE0F5', sh: ice }),
+        this.PT({ l: '56%', t: '96%', w: '.08em', h: '.13em', br: '.02em .02em 1em 1em', bg: '#BFE0F5', sh: ice }),
+        ...this.CEYES('wide'),
+        ...this.CMOUTH('grimace'),
+        this.PT({ l: '13%', t: '16%', fs: '.2em', tx: '❄️' }),
+        this.PT({ l: '88%', t: '58%', fs: '.15em', tx: '❄️' }),
+      ];
+    },
+    shaking: () => [
+      this.PT({ l: '42%', t: '50%', w: '.92em', h: '.92em', br: '50%', sh: 'inset 0 0 0 .045em rgba(34,27,16,.2)' }),
+      this.PT({ l: '58%', t: '50%', w: '.92em', h: '.92em', br: '50%', sh: 'inset 0 0 0 .045em rgba(34,27,16,.2)' }),
+      ...this.COIN(),
+      ...this.CEYES('wide'),
+      ...this.CMOUTH('o'),
+      this.PT({ l: '2%', t: '36%', w: '.05em', h: '.15em', br: '1em', bg: 'rgba(34,27,16,.5)', tr: 'translate(-50%,-50%) rotate(18deg)' }),
+      this.PT({ l: '98%', t: '36%', w: '.05em', h: '.15em', br: '1em', bg: 'rgba(34,27,16,.5)', tr: 'translate(-50%,-50%) rotate(-18deg)' }),
+      this.PT({ l: '88%', t: '6%', fs: '.24em', tx: '📞', tr: 'translate(-50%,-50%) rotate(12deg)' }),
+    ],
+    tear: () => [
+      ...this.COIN(),
+      ...this.CEYES('open'),
+      ...this.CMOUTH('smile'),
+      this.PT({ l: '72%', t: '54%', w: '.11em', h: '.15em', br: '50% 50% 50% 50% / 42% 42% 58% 58%', bg: 'linear-gradient(160deg,#CFE7F8,#7FB8E8)', sh: 'inset 0 0 0 .022em rgba(34,27,16,.55)' }),
+    ],
+    salute: () => [
+      ...this.COIN(),
+      this.PT({ l: '37%', t: '30%', w: '.15em', h: '.045em', br: '1em', bg: '#221B10' }),
+      this.PT({ l: '37%', t: '42%', w: '.1em', h: '.12em', br: '50%', bg: '#221B10' }),
+      this.PT({ l: '60%', t: '43%', w: '.14em', h: '.045em', br: '1em', bg: '#221B10' }),
+      ...this.CMOUTH('flat'),
+      this.PT({ l: '75%', t: '27%', w: '.28em', h: '.14em', br: '.06em .06em .04em .04em', bg: 'linear-gradient(145deg,#FFD966,#E8A93A)', sh: 'inset 0 0 0 .028em #221B10', tr: 'translate(-50%,-50%) rotate(-35deg)' }),
+    ],
+  };
+  PMOODS = {
+    classic:    { e: 'open',    m: 'smile' },
+    mint:       { e: 'happy',   m: 'grin', x: [['✨', '86%', '14%', '.24em', '0deg']] },
+    rich:       { e: 'money',   m: 'grin', x: [['💸', '88%', '18%', '.26em', '10deg']] },
+    oldmoney:   { m: 'smile',   x: [['🕶️', '50%', '40%', '.46em', '0deg']] },
+    founder:    { e: 'lidded',  m: 'smile', x: [['👑', '50%', '-2%', '.4em', '-8deg']] },
+    flight:     { e: 'open',    m: 'smile', x: [['💨', '7%', '52%', '.24em', '0deg'], ['🪽', '92%', '38%', '.3em', '8deg']] },
+    burn:       { e: 'wide',    m: 'grimace', x: [['🔥', '86%', '10%', '.26em', '8deg']] },
+    budget:     { e: 'open',    b: 'sad', m: 'flat', x: [['💧', '83%', '22%', '.2em', '8deg']] },
+    compound:   { e: 'closed',  m: 'smile', x: [['💤', '88%', '12%', '.28em', '0deg']] },
+    volatile:   { e: 'spiral',  m: 'o', x: [['📉', '13%', '16%', '.22em', '-8deg'], ['📈', '87%', '16%', '.22em', '8deg']] },
+    writeoff:   { e: 'x',       m: 'flat' },
+    taxseason:  { e: 'shifty',  m: 'flat', x: [['🧾', '87%', '62%', '.24em', '10deg']] },
+    nonprofit:  { e: 'happy',   m: 'smile', halo: 1, x: [['✨', '13%', '24%', '.18em', '0deg']] },
+    hiddenfees: { e: 'open',    b: 'angry', m: 'grin', horns: 1 },
+    impulse:    { e: 'hearts',  m: 'grin', x: [['🏷️', '86%', '64%', '.24em', '12deg']] },
+    invoice:    { e: 'wide',    m: 'o', x: [['💥', '50%', '-2%', '.36em', '0deg']] },
+    seed:       { e: 'happy',   m: 'smile', x: [['🌱', '50%', '-2%', '.3em', '-6deg']] },
+    fundraise:  { e: 'pleading', m: 'frown' },
+    passive:    { e: 'lidded',  m: 'smirk', x: [['🛋️', '86%', '64%', '.24em', '0deg']] },
+    payday:     { e: 'happy',   m: 'grin', x: [['🎉', '12%', '12%', '.26em', '-14deg'], ['✨', '88%', '22%', '.18em', '0deg']] },
+    overdraft:  { e: 'open',    b: 'angry', m: 'censor', x: [['💢', '88%', '12%', '.24em', '0deg']] },
+    liquid:     { custom: 'melting' },
+    offshore:   { custom: 'clouds' },
+    shellco:    { custom: 'shell' },
+    frozen:     { custom: 'frozen' },
+    margincall: { custom: 'shaking' },
+    breakeven:  { custom: 'tear' },
+    taxpayer:   { custom: 'salute' },
+  };
+  PEY_LB = {
+    classic: 'The Classic', mint: 'Fresh Mint', rich: 'Filthy Rich', oldmoney: 'Old Money', founder: 'The Founder',
+    flight: 'Flight Risk', burn: 'Burn Rate', budget: 'The Budget', compound: 'Compound Interest', volatile: 'Market Volatility',
+    writeoff: 'The Write-Off', taxseason: 'Tax Season', nonprofit: 'The Non-Profit', hiddenfees: 'Hidden Fees',
+    impulse: 'Impulse Purchase', invoice: 'The Invoice', seed: 'Seed Round', fundraise: 'The Fundraise',
+    passive: 'Passive Income', payday: 'Payday', overdraft: 'Overdraft',
+    liquid: 'Liquid Assets', offshore: 'Offshore Account', shellco: 'The Shell Company', frozen: 'Frozen Assets',
+    margincall: 'The Margin Call', breakeven: 'Break Even', taxpayer: 'The Taxpayer',
+  };
+  peymoji = (mood) => {
+    const c = this.PMOODS[mood] || this.PMOODS.classic;
+    if (c.custom) return this.PCUSTOM[c.custom]();
+    let parts = this.COIN();
+    if (c.halo) parts.push(this.PT({ l: '52%', t: '0%', w: '.34em', h: '.1em', br: '50%', sh: 'inset 0 0 0 .03em #E8C567', tr: 'translate(-50%,-50%) rotate(-5deg)' }));
+    if (c.horns) parts.push(
+      this.PT({ l: '27%', t: '9%', w: '.09em', h: '.13em', br: '50% 50% 30% 30%', bg: '#B03A3A', tr: 'translate(-50%,-50%) rotate(-18deg)' }),
+      this.PT({ l: '73%', t: '9%', w: '.09em', h: '.13em', br: '50% 50% 30% 30%', bg: '#B03A3A', tr: 'translate(-50%,-50%) rotate(18deg)' })
+    );
+    if (c.e) parts = parts.concat(this.CEYES(c.e));
+    if (c.b) parts = parts.concat(this.CBROWS(c.b));
+    parts = parts.concat(this.CMOUTH(c.m || 'smile'));
+    (c.x || []).forEach(([tx, l, t, fs, r]) => parts.push(this.PT({ l, t, fs, tx, tr: 'translate(-50%,-50%) rotate(' + r + ')' })));
+    return parts;
+  };
+
+  // ---------- plopmoji mini-pack (from the Plop app) ----------
+  PLOPBODY = () => {
+    const bg = 'linear-gradient(150deg,#A57545,#6B4423)';
+    const sh = 'inset -.04em -.05em .05em rgba(42,22,8,.32), inset .04em .05em .05em rgba(255,232,200,.2)';
+    return [
+      this.PT({ l: '50%', t: '74%', w: '.96em', h: '.5em', br: '50% 50% 50% 50% / 58% 58% 46% 46%', bg, sh }),
+      this.PT({ l: '50%', t: '46%', w: '.64em', h: '.34em', br: '50% / 60%', bg, sh }),
+      this.PT({ l: '51%', t: '26%', w: '.4em', h: '.24em', br: '50% / 62%', bg, sh }),
+      this.PT({ l: '54%', t: '11%', w: '.15em', h: '.2em', br: '50% 50% 50% 10%', bg, sh, tr: 'translate(-50%,-50%) rotate(40deg)' }),
+    ];
+  };
+  plopmoji = (kind) => {
+    const dark = '#241509', white = '#FFF7EC';
+    const eye = (x) => [
+      this.PT({ l: x, t: '66%', w: '.17em', h: '.2em', br: '50%', bg: white, sh: 'inset 0 -.02em .03em rgba(42,22,8,.15)' }),
+      this.PT({ l: x, t: '67%', w: '.08em', h: '.09em', br: '50%', bg: dark }),
+    ];
+    const arc = (x) => this.PT({ l: x, t: '66%', w: '.18em', h: '.09em', br: '1em 1em 0 0', bg: dark });
+    const smile = this.PT({ l: '50%', t: '81%', w: '.24em', h: '.08em', br: '0 0 1em 1em', bg: dark });
+    const grin = [
+      this.PT({ l: '50%', t: '82%', w: '.32em', h: '.17em', br: '.04em .04em 1em 1em', bg: dark }),
+      this.PT({ l: '50%', t: '76.5%', w: '.28em', h: '.05em', br: '.02em', bg: white }),
+      this.PT({ l: '50%', t: '87%', w: '.13em', h: '.07em', br: '1em 1em .4em .4em', bg: '#C4685E' }),
+    ];
+    let parts = this.PLOPBODY();
+    if (kind === 'cool') {
+      parts.push(this.PT({ l: '50%', t: '64%', fs: '.44em', tx: '🕶️' }), smile);
+    } else if (kind === 'party') {
+      parts = parts.concat([arc('37%'), arc('63%')], grin);
+      parts.push(this.PT({ l: '13%', t: '14%', fs: '.28em', tx: '🎉', tr: 'translate(-50%,-50%) rotate(-16deg)' }));
+      parts.push(this.PT({ l: '89%', t: '20%', fs: '.22em', tx: '✨' }));
+    } else if (kind === 'ninja') {
+      parts.push(
+        this.PT({ l: '50%', t: '65%', w: '.76em', h: '.19em', br: '.1em', bg: dark }),
+        this.PT({ l: '89%', t: '59%', w: '.16em', h: '.045em', br: '1em', bg: dark, tr: 'translate(-50%,-50%) rotate(24deg)' }),
+        this.PT({ l: '37%', t: '65%', w: '.13em', h: '.05em', br: '1em', bg: white }),
+        this.PT({ l: '63%', t: '65%', w: '.13em', h: '.05em', br: '1em', bg: white })
+      );
+    } else {
+      parts = parts.concat(eye('37%'), eye('63%'));
+      parts.push(smile);
+    }
+    return parts;
+  };
+
+  renderVals() {
+    const p = this.state.page;
+    const text = (p === 'plop' && !this.state.plopUnlocked) ? Component.TICKERS.plopLocked : (Component.TICKERS[p] || Component.TICKERS.home);
+    const seg = (key) => React.createElement('span', { key, style: { whiteSpace: 'pre' } }, text);
+    const tickerTrack = React.createElement(
+      'div',
+      { key: 'ticker-' + p + (this.state.plopUnlocked ? '' : '-locked'), style: { display: 'flex', width: 'max-content', animation: 'pmm-marquee 32s linear infinite' } },
+      seg('a'), seg('b')
+    );
+    return {
+      isHome: p === 'home',
+      isSS: p === 'speedstream',
+      isCC: p === 'conecanvas',
+      isAC: p === 'acmaker',
+      isGB: p === 'glovebox',
+      isAL: p === 'altrove',
+      isPlop: p === 'plop',
+      plopShown: p === 'plop' && this.state.plopUnlocked,
+      plopGate: p === 'plop' && !this.state.plopUnlocked,
+      plopTabLock: this.state.plopUnlocked ? '' : '🔒 ',
+      gateAnim: this.state.plopShake ? 'pmm-shake 0.45s ease' : '',
+      doorL: this.state.plopOpening ? 'rotateY(-108deg)' : 'rotateY(0deg)',
+      doorR: this.state.plopOpening ? 'rotateY(108deg)' : 'rotateY(0deg)',
+      lockTr: this.state.plopOpening ? 'translate(-50%, 40%) rotate(26deg)' : 'translate(-50%, -58%)',
+      lockOp: this.state.plopOpening ? 0 : 1,
+      plopPw: this.state.plopPw,
+      plopMsg: this.state.plopMsg,
+      onPwChange: (e) => this.setState({ plopPw: e.target.value }),
+      onPwKey: (e) => { if (e.key === 'Enter') this.tryPlopPw(); },
+      onPwTry: this.tryPlopPw,
+      onRelock: this.relockPlop,
+      isAbout: p === 'about',
+      showPlopCorner: this.props.showPlopCorner ?? true,
+      peymojis: Object.keys(this.PMOODS).map((name) => ({ label: this.PEY_LB[name] || name, parts: this.peymoji(name), isNew: !!this.PMOODS[name].custom })),
+      pm: Object.fromEntries(Object.keys(this.PMOODS).map((k) => [k, this.peymoji(k)])),
+      plops: { classic: this.plopmoji('classic'), cool: this.plopmoji('cool'), party: this.plopmoji('party'), ninja: this.plopmoji('ninja') },
+      tickerTrack
+    };
+  }
+}
+</script>
+</body>
+</html>
