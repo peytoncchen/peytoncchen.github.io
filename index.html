@@ -126,17 +126,17 @@
             </div>
             <h3 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 44px; margin: 18px 0 12px 0"><a href="#speedstream" style="color: inherit; text-decoration: none" style-hover="color: var(--money)">SpeedStream</a> <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 0.82em; vertical-align: -0.12em; transform: rotate(calc(7deg * var(--wobble)))"><sc-for list="{{ pm.volatile }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></h3>
             <p style="font-size: 18px; line-height: 1.6; margin: 0; text-wrap: pretty">
-              Autocross and track-day telemetry with an AI driving coach. Your phone
-              rides along locked in a pocket, records every run — or every lap — at up
-              to 25 Hz, draws your line on a satellite map, and splits it corner by
-              corner so run 4 can be compared — unfavorably — to run 7. Then the coach
-              explains, politely and with evidence, exactly why you were slow. It has
-              diagnosed its own developer as “late on throttle” at every event this
-              season. He built it. It's still right.
+              Autocross telemetry with an AI driving coach — track days next. Your
+              phone rides along locked in a pocket, records every run at up to 25 Hz,
+              draws your line on a satellite map, and splits it corner by corner so
+              run 4 can be compared — unfavorably — to run 7. Then the coach explains,
+              politely and with evidence, exactly why you were slow. It has diagnosed
+              its own developer as “late on throttle” at every event this season.
+              He built it. It's still right.
             </p>
             <ul style="list-style: none; padding: 0; margin: 22px 0 0 0; display: grid; gap: 10px; font-size: 15.5px">
               <li style="display: flex; gap: 10px"><span style="color: var(--cone); font-weight: 700">▸</span><span>Arm it once at the venue. It catches every run — and never the drive home.</span></li>
-              <li style="display: flex; gap: 10px"><span style="color: var(--cone); font-weight: 700">▸</span><span>Cones or circuits: it tells an autocross run from a lapped session on its own.</span></li>
+              <li style="display: flex; gap: 10px"><span style="color: var(--cone); font-weight: 700">▸</span><span>Cones first, circuits next: lapping is already in the engine, the track-day screens are being built.</span></li>
               <li style="display: flex; gap: 10px"><span style="color: var(--cone); font-weight: 700">▸</span><span>RaceBox, OBD, GoPro all optional. Your phone works day one.</span></li>
               <li style="display: flex; gap: 10px"><span style="color: var(--cone); font-weight: 700">▸</span><span>The coach cites its sources and refuses to invent numbers. Unlike everyone in grid.</span></li>
             </ul>
@@ -279,7 +279,7 @@
             <div style="flex: 0 0 auto; margin: 0 auto">
               <div style="width: 216px; border: 3px solid var(--ink); border-radius: 38px; background: #FFFFFF; padding: 8px; box-shadow: 5px 6px 0 var(--ink); transform: rotate(calc(1.4deg * var(--wobble)))">
                 <div style="width: 44px; height: 5px; border-radius: 999px; background: #221B10; opacity: 0.25; margin: 4px auto 7px auto"></div>
-                <image-slot id="al-phone" shape="rounded" radius="26" placeholder="Drop an Altrove screenshot (or a napkin sketch, we're workshopping)" style="width: 100%; height: 416px"></image-slot>
+                <image-slot id="al-phone" src="assets/altrove-passport.png" shape="rounded" radius="26" placeholder="Drop an Altrove screenshot (or a napkin sketch, we're workshopping)" style="width: 100%; height: 416px"></image-slot>
               </div>
             </div>
           </div>
@@ -313,7 +313,7 @@
         <div style="display: flex; gap: 8px 18px; align-items: baseline; flex-wrap: wrap; padding: 15px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 22%, transparent)">
           <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; opacity: 0.55; min-width: 84px">SEP 2026</span>
           <a href="#speedstream" style="font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; min-width: 170px">SpeedStream</a>
-          <span style="font-size: 15px; flex: 1 1 320px">iPhone, iPad and Mac builds are on TestFlight. Circuit mode landed: it now times laps, not just runs.</span>
+          <span style="font-size: 15px; flex: 1 1 320px">iPhone, iPad and Mac builds are on TestFlight. The lapping engine landed; track-day screens are next.</span>
         </div>
         <div style="display: flex; gap: 8px 18px; align-items: baseline; flex-wrap: wrap; padding: 15px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 22%, transparent)">
           <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; opacity: 0.55; min-width: 84px">SEP 2026</span>
@@ -370,7 +370,7 @@
         </details>
         <details style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); box-shadow: 4px 4px 0 var(--ink); padding: 18px 22px">
           <summary style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; cursor: pointer">Is SpeedStream only for autocross?</summary>
-          <p style="font-size: 15px; line-height: 1.65; margin: 12px 0 0 0; opacity: 0.85">Not anymore. Take it to a track day and it figures out on its own that you're lapping, not running cones — laps get timed, corners get named, the coach gets a longer lecture. Cones remain the studio's first love.</p>
+          <p style="font-size: 15px; line-height: 1.65; margin: 12px 0 0 0; opacity: 0.85">For now. The lapping engine is in — laps roll at the finish line, corners get named Turn N — and the track-day screens are next on the bench. Cones remain the studio's first love.</p>
         </details>
         <details style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); box-shadow: 4px 4px 0 var(--ink); padding: 18px 22px">
           <summary style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; cursor: pointer">What is plop?</summary>
@@ -437,12 +437,11 @@
           <p style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: clamp(20px, 2.6vw, 27px); color: var(--money); margin: 0 0 18px 0; transform: rotate(calc(-0.5deg * var(--wobble)))">The coach fits in your pocket. The excuses don't.</p>
           <p style="font-size: 17.5px; line-height: 1.65; margin: 0; max-width: 560px; text-wrap: pretty">
             Arm it once at the venue and put the phone away. SpeedStream catches every
-            run — or every lap, if the venue has a start/finish line instead of a
-            chalk box — never the drive home, then lays your speed-colored line over
+            run — never the drive home — then lays your speed-colored line over
             satellite, syncs GPS, G-forces, and video to one scrubber, and hands you a
             debrief from an AI coach that cites your own data back at you. Its most
             consistent finding to date: the developer brakes too early. Every corner.
-            Every event. Now every track day, too.
+            Every event. Track days are next.
           </p>
           <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 26px">
             <a href="#speedstream" style="display: inline-block; font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 17px; color: #221B10; text-decoration: none; background: var(--sun); border: 3px solid var(--ink); border-radius: 12px; padding: 12px 22px; box-shadow: 4px 5px 0 var(--ink); transition: translate 0.15s ease, box-shadow 0.15s ease" style-hover="translate: -2px -2px; box-shadow: 6px 7px 0 var(--ink); color: #221B10">TestFlight: internal beta →</a>
@@ -469,7 +468,7 @@
 
       <h2 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 34px; margin: 60px 0 22px 0">What it does between your runs</h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px">
-        <div style="grid-column: 1 / -1; border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Cones and circuits</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Autocross runs or lapped sessions at a racetrack — the discipline is auto-detected, laps get timed, corners get named Turn 1 through Turn N. Same coach, longer lecture.</div></div>
+        <div style="grid-column: 1 / -1; border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Cones and circuits</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Autocross first. Circuit lapping is in the engine today — laps roll at the finish line, out-laps and in-laps get tagged, corners get named Turn 1 through Turn N — and the track-day screens are next. Same coach, longer lecture.</div></div>
         <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Arm &amp; forget</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Runs auto-trigger on launch and auto-close on a stop. Biased to never miss a run, even in your pocket, even on a weak GPS fix.</div></div>
         <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Satellite replay</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Speed-colored line on satellite, traction circle, speed / G / Δt traces under one scrubber. Scrub your run like game film.</div></div>
         <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">An honest coach</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Per-run debriefs you can talk back to. Every claim comes with tap-to-see-it evidence from your telemetry, down to “you over-carried into 9 and paid at 10.” It never invents a number.</div></div>
@@ -489,7 +488,7 @@
           <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">GPS rate w/ RaceBox</span><span style="font-weight: 700">25 Hz</span></div>
           <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Coach cost per debrief</span><span style="font-weight: 700">≈ $0.004, on the studio's tab</span></div>
           <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Fabricated numbers</span><span style="font-weight: 700">0 (validator enforced)</span></div>
-          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Disciplines</span><span style="font-weight: 700">autocross · circuit</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Disciplines</span><span style="font-weight: 700">autocross · circuit (next)</span></div>
           <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Paywall</span><span style="font-weight: 700; color: var(--money)">none found</span></div>
         </div>
         <div style="flex: 1 1 280px; border: 3px solid var(--ink); border-radius: 18px; background: var(--card); box-shadow: 5px 6px 0 var(--ink); padding: 26px 28px; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 6px">
@@ -742,7 +741,7 @@
         <div style="flex: 0 0 auto; margin: 0 auto">
           <div style="width: 272px; border: 3px solid var(--ink); border-radius: 44px; background: #FFFFFF; padding: 10px; box-shadow: 6px 7px 0 var(--ink); transform: rotate(calc(1.2deg * var(--wobble)))">
             <div style="width: 54px; height: 6px; border-radius: 999px; background: #221B10; opacity: 0.25; margin: 4px auto 8px auto"></div>
-            <image-slot id="al-phone" shape="rounded" radius="30" placeholder="Drop an Altrove screenshot (or the napkin sketch — we're workshopping)" style="width: 100%; height: 520px"></image-slot>
+            <image-slot id="al-phone" src="assets/altrove-passport.png" shape="rounded" radius="30" placeholder="Drop an Altrove screenshot (or the napkin sketch — we're workshopping)" style="width: 100%; height: 520px"></image-slot>
           </div>
           <div style="text-align: center; font-family: 'Space Mono', monospace; font-size: 11px; opacity: 0.55; margin-top: 12px">the Passport · demo family, real map</div>
         </div>
@@ -972,7 +971,7 @@ class Component extends DCLogic {
 
   static TICKERS = {
     home: 'PMM APP STUDIOS — THE OFFICIAL TAPE  ★  BOOTSTRAPPED: 100%  ★  APPS: 6  ★  ON TESTFLIGHT: 3  ★  HEADCOUNT: 1  ★  CONES HARMED YTD: [SEALED BY LEGAL]  ★  COSTCO GAS EDGE: $0.95/GAL  ★  AI COACH RATE: $0.004/LECTURE (AT COST)  ★  INVESTOR RELATIONS: 💸💰🤑  ★  ',
-    speedstream: 'RUN 07: 44.12 (−0.42 · PB)  ★  CONES: 2 (ALLEGEDLY)  ★  DISCIPLINE: AUTO-DETECTED (CONES OR CIRCUIT)  ★  GPS: 25 HZ  ★  PLATFORMS: IPHONE · IPAD · MAC  ★  PHONE: LOCKED, RECORDING ANYWAY  ★  COACH: "BRAKE LATER INTO 3"  ★  EXCUSES DETECTED: 3 · ACCEPTED: 0  ★  TESTFLIGHT: 0.1.0 (2), INTERNAL  ★  PAYWALL: NONE FOUND  ★  ',
+    speedstream: 'RUN 07: 44.12 (−0.42 · PB)  ★  CONES: 2 (ALLEGEDLY)  ★  TRACK DAYS: IN THE ENGINE, SCREENS NEXT  ★  GPS: 25 HZ  ★  PLATFORMS: IPHONE · IPAD · MAC  ★  PHONE: LOCKED, RECORDING ANYWAY  ★  COACH: "BRAKE LATER INTO 3"  ★  EXCUSES DETECTED: 3 · ACCEPTED: 0  ★  TESTFLIGHT: 0.1.0 (2), INTERNAL  ★  PAYWALL: NONE FOUND  ★  ',
     conecanvas: 'CONES REQUIRED: 72  ★  COURSE: 2,628 FT  ★  WORKER STATIONS: 5  ★  DOCTOR FINDINGS: 0 CRITICAL  ★  TESTS GREEN: 909  ★  AUTOCAD: UNINSTALLED ($500-ISH — AFRAID TO CHECK)  ★  VENUES BUNDLED: 3  ★  IPAD: IN THE FIELD  ★  ',
     acmaker: 'MAP→WORLD FIT: 0.60 M MEDIAN  ★  CONES PLACED: ~350  ★  CONES UPRIGHT: ALL OF THEM  ★  POINTER TILT: 13.54° (MEASURED)  ★  GRAVITY: RESPECTED SINCE V0.8  ★  COURSE WALKS: OPTIONAL  ★  SOCKS: ON  ★  ',
     glovebox: 'SPYDER: 16.3 MPG LIFETIME  ★  ALL-IN: $19.84/MI (DO NOT ASK)  ★  TESTFLIGHT: 1.0 (2)  ★  COSTCO EDGE: $0.95/GAL  ★  EV: 2.76 MI/KWH  ★  SPREADSHEETS RETIRED: 1  ★  APPLE NOTES OF SHAME: SEVERAL  ★  RECEIPTS: ALL OF THEM  ★  ',
