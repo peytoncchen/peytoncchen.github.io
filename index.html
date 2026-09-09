@@ -37,6 +37,17 @@
     @keyframes pmm-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     @keyframes pmm-shake { 0%, 100% { transform: translateX(0) rotate(0deg); } 20% { transform: translateX(-9px) rotate(-1deg); } 40% { transform: translateX(8px) rotate(1deg); } 60% { transform: translateX(-6px) rotate(-0.6deg); } 80% { transform: translateX(5px) rotate(0.6deg); } }
     @keyframes pmm-flicker { from { transform: scale(1) rotate(-3deg); } to { transform: scale(1.14) rotate(4deg); } }
+    /* Device frames: bezel colour is the site ink, screens keep the screenshot's own
+       status bar / Dynamic Island, and every frame is locked to its image's aspect
+       ratio so nothing is cropped. */
+    .pmm-phone { border: 3px solid var(--ink); border-radius: 46px; background: #2A2219; padding: 9px; box-shadow: 6px 7px 0 var(--ink), inset 0 0 0 2px rgba(255,255,255,0.08); position: relative; }
+    .pmm-phone::before, .pmm-phone::after { content: ""; position: absolute; right: -6px; width: 3px; border-radius: 2px; background: var(--ink); }
+    .pmm-phone::before { top: 22%; height: 11%; }
+    .pmm-phone::after { top: 14%; height: 5%; left: -6px; right: auto; }
+    .pmm-screen { aspect-ratio: 414 / 900; border-radius: 34px; overflow: hidden; background: #000; }
+    .pmm-screen image-slot { width: 100% !important; height: 100% !important; display: block; }
+    .pmm-window image-slot { width: 100% !important; height: 100% !important; display: block; }
+    .pmm-window { overflow: hidden; }
   </style>
 </helmet>
 
@@ -147,9 +158,10 @@
             <div style="margin-top: 20px; font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6">TestFlight: internal beta on iPhone, iPad and Mac. The friends group opens when the committee of one finishes the privacy policy.</div>
           </div>
           <div style="flex: 0 0 auto; margin: 0 auto">
-            <div style="width: 272px; border: 3px solid var(--ink); border-radius: 44px; background: #FFFFFF; padding: 10px; box-shadow: 6px 7px 0 var(--ink); transform: rotate(calc(1.2deg * var(--wobble)))">
-              <div style="width: 54px; height: 6px; border-radius: 999px; background: #221B10; opacity: 0.25; margin: 4px auto 8px auto"></div>
-              <image-slot id="ss-phone" src="assets/speedstream-run.png" shape="rounded" radius="30" placeholder="Drop a SpeedStream screenshot (ideally one where the coach is being mean)" style="width: 100%; height: 520px"></image-slot>
+            <div class="pmm-phone" style="width: 272px; transform: rotate(calc(1.2deg * var(--wobble)))">
+              <div class="pmm-screen">
+                <image-slot id="ss-phone" src="assets/speedstream-run.png" shape="rounded" radius="34" placeholder="Drop a SpeedStream screenshot (ideally one where the coach is being mean)"></image-slot>
+              </div>
             </div>
             <div style="text-align: center; font-family: 'Space Mono', monospace; font-size: 11px; opacity: 0.55; margin-top: 12px">actual app · simulated modesty</div>
           </div>
@@ -182,7 +194,7 @@
                 <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--money); border: 1.5px solid var(--ink)"></span>
                 <span style="font-family: 'Space Mono', monospace; font-size: 10px; margin-left: 8px; opacity: 0.5">salinas-aug-23-final-FINAL-v2.acx</span>
               </div>
-              <image-slot id="cc-shot" src="assets/conecanvas-slalom.png" shape="rect" placeholder="Drop a ConeCanvas screenshot (the one with all the cones)" style="width: 100%; height: 280px"></image-slot>
+              <div class="pmm-window" style="aspect-ratio: 1400 / 821"><image-slot id="cc-shot" src="assets/conecanvas-slalom.png" shape="rect" placeholder="Drop a ConeCanvas screenshot (the one with all the cones)"></image-slot></div>
             </div>
             <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-top: auto">
               <span style="font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6">Knows what a slalom is. 909 tests agree.</span>
@@ -207,7 +219,7 @@
               see the flagship app for the receipts.
             </p>
             <div style="border: 3px solid var(--ink); border-radius: 14px; overflow: hidden; background: #FFFFFF">
-              <image-slot id="ac-shot" src="assets/acmaker-course.png" shape="rect" placeholder="Drop an in-game screenshot (cones upright, please)" style="width: 100%; height: 321px"></image-slot>
+              <div class="pmm-window" style="aspect-ratio: 1600 / 666"><image-slot id="ac-shot" src="assets/acmaker-course.png" shape="rect" placeholder="Drop an in-game screenshot (cones upright, please)"></image-slot></div>
             </div>
             <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-top: auto">
               <span style="font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6">v1.0 patch notes: cones no longer lie down on the job.</span>
@@ -249,9 +261,10 @@
               <a href="#glovebox" style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; margin-top: auto">Inspect →</a>
             </div>
             <div style="flex: 0 0 auto; margin: 0 auto">
-              <div style="width: 216px; border: 3px solid var(--ink); border-radius: 38px; background: #FFFFFF; padding: 8px; box-shadow: 5px 6px 0 var(--ink); transform: rotate(calc(-1.4deg * var(--wobble)))">
-                <div style="width: 44px; height: 5px; border-radius: 999px; background: #221B10; opacity: 0.25; margin: 4px auto 7px auto"></div>
-                <image-slot id="gb-phone" src="assets/glovebox-spyder.png" shape="rounded" radius="26" placeholder="Drop a Glovebox screenshot" style="width: 100%; height: 416px"></image-slot>
+              <div class="pmm-phone" style="width: 196px; transform: rotate(calc(-1.4deg * var(--wobble)))">
+              <div class="pmm-screen">
+                <image-slot id="gb-phone" src="assets/glovebox-spyder.png" shape="rounded" radius="34" placeholder="Drop a Glovebox screenshot"></image-slot>
+              </div>
               </div>
             </div>
           </div>
@@ -277,9 +290,10 @@
               <a href="#altrove" style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; margin-top: auto">Inspect →</a>
             </div>
             <div style="flex: 0 0 auto; margin: 0 auto">
-              <div style="width: 216px; border: 3px solid var(--ink); border-radius: 38px; background: #FFFFFF; padding: 8px; box-shadow: 5px 6px 0 var(--ink); transform: rotate(calc(1.4deg * var(--wobble)))">
-                <div style="width: 44px; height: 5px; border-radius: 999px; background: #221B10; opacity: 0.25; margin: 4px auto 7px auto"></div>
-                <image-slot id="al-phone" src="assets/altrove-passport.png" shape="rounded" radius="26" placeholder="Drop an Altrove screenshot" style="width: 100%; height: 416px"></image-slot>
+              <div class="pmm-phone" style="width: 196px; transform: rotate(calc(1.4deg * var(--wobble)))">
+              <div class="pmm-screen">
+                <image-slot id="al-phone" src="assets/altrove-passport.png" shape="rounded" radius="34" placeholder="Drop an Altrove screenshot"></image-slot>
+              </div>
               </div>
             </div>
           </div>
@@ -450,9 +464,10 @@
           <div style="margin-top: 16px; font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6">Internal testing on iPhone, iPad and Mac. Friends group next; the committee of one is on the privacy policy.</div>
         </div>
         <div style="flex: 0 0 auto; margin: 0 auto">
-          <div style="width: 272px; border: 3px solid var(--ink); border-radius: 44px; background: #0B0A07; padding: 10px; box-shadow: 6px 7px 0 var(--ink); transform: rotate(calc(1.2deg * var(--wobble)))">
-            <div style="width: 54px; height: 6px; border-radius: 999px; background: var(--ink); opacity: 0.35; margin: 4px auto 8px auto"></div>
-            <image-slot id="ss-phone" src="assets/speedstream-coach.png" shape="rounded" radius="30" placeholder="Drop a SpeedStream screenshot (ideally one where the coach is being mean)" style="width: 100%; height: 520px"></image-slot>
+          <div class="pmm-phone" style="width: 272px; transform: rotate(calc(1.2deg * var(--wobble)))">
+              <div class="pmm-screen">
+                <image-slot id="ss-phone" src="assets/speedstream-coach.png" shape="rounded" radius="34" placeholder="Drop a SpeedStream screenshot (ideally one where the coach is being mean)"></image-slot>
+              </div>
           </div>
           <div style="text-align: center; font-family: 'Space Mono', monospace; font-size: 11px; opacity: 0.55; margin-top: 12px">the Opportunity Map · the coach, being mean</div>
         </div>
@@ -478,7 +493,7 @@
       </div>
 
       <div style="border: 3px solid var(--ink); border-radius: 14px; overflow: hidden; background: #0B0A07; margin-top: 40px">
-        <image-slot id="ss-run" src="assets/speedstream-mac.jpg" shape="rect" placeholder="Drop a Run Analysis screenshot — satellite map, traces, the works" style="width: 100%; height: 480px"></image-slot>
+        <div class="pmm-window" style="aspect-ratio: 1800 / 763"><image-slot id="ss-run" src="assets/speedstream-mac.jpg" shape="rect" placeholder="Drop a Run Analysis screenshot — satellite map, traces, the works"></image-slot></div>
       </div>
 
       <div style="display: flex; gap: 28px; flex-wrap: wrap; margin-top: 48px">
@@ -538,7 +553,7 @@
             <span style="width: 11px; height: 11px; border-radius: 50%; background: var(--cone); border: 1.5px solid var(--ink)"></span>
             <span style="font-family: 'Space Mono', monospace; font-size: 11px; margin-left: 10px; opacity: 0.55">salinas-aug-23-final-FINAL-v2.acx — 72 cones · 2,628 ft</span>
           </div>
-          <image-slot id="cc-shot" src="assets/conecanvas-satellite.jpg" shape="rect" placeholder="Drop the big ConeCanvas editor screenshot here" style="width: 100%; height: 520px"></image-slot>
+          <div class="pmm-window" style="aspect-ratio: 1800 / 791"><image-slot id="cc-shot" src="assets/conecanvas-satellite.jpg" shape="rect" placeholder="Drop the big ConeCanvas editor screenshot here"></image-slot></div>
         </div>
 
         <h2 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 34px; margin: 60px 0 22px 0">For the designer, and the crew stuck setting it up</h2>
@@ -604,7 +619,7 @@
       </div>
 
       <div style="border: 3px solid var(--ink); border-radius: 16px; overflow: hidden; background: #0E0F11; box-shadow: 7px 8px 0 var(--ink); margin-top: 44px; transform: rotate(calc(0.3deg * var(--wobble)))">
-        <image-slot id="ac-shot" src="assets/acmaker-course.png" shape="rect" placeholder="Drop the in-game screenshot — golden hour at Crows Landing, cones upright" style="width: 100%; height: 460px"></image-slot>
+        <div class="pmm-window" style="aspect-ratio: 1600 / 666"><image-slot id="ac-shot" src="assets/acmaker-course.png" shape="rect" placeholder="Drop the in-game screenshot — golden hour at Crows Landing, cones upright"></image-slot></div>
       </div>
       <div style="text-align: center; font-family: 'Space Mono', monospace; font-size: 11px; opacity: 0.55; margin-top: 12px">NASA Crows Landing · the course.json, rendered by the pipeline · in-game shots live on the Windows box</div>
 
@@ -668,9 +683,10 @@
           </div>
         </div>
         <div style="flex: 0 0 auto; margin: 0 auto">
-          <div style="width: 272px; border: 3px solid var(--ink); border-radius: 44px; background: #FFFFFF; padding: 10px; box-shadow: 6px 7px 0 var(--ink); transform: rotate(calc(-1.2deg * var(--wobble)))">
-            <div style="width: 54px; height: 6px; border-radius: 999px; background: #221B10; opacity: 0.25; margin: 4px auto 8px auto"></div>
-            <image-slot id="gb-phone" src="assets/glovebox-fillup.png" shape="rounded" radius="30" placeholder="Drop a Glovebox screenshot (quick-add at the pump)" style="width: 100%; height: 520px"></image-slot>
+          <div class="pmm-phone" style="width: 272px; transform: rotate(calc(-1.2deg * var(--wobble)))">
+              <div class="pmm-screen">
+                <image-slot id="gb-phone" src="assets/glovebox-fillup.png" shape="rounded" radius="34" placeholder="Drop a Glovebox screenshot (quick-add at the pump)"></image-slot>
+              </div>
           </div>
           <div style="text-align: center; font-family: 'Space Mono', monospace; font-size: 11px; opacity: 0.55; margin-top: 12px">ten seconds, gloves optional</div>
         </div>
@@ -739,9 +755,10 @@
           </div>
         </div>
         <div style="flex: 0 0 auto; margin: 0 auto">
-          <div style="width: 272px; border: 3px solid var(--ink); border-radius: 44px; background: #FFFFFF; padding: 10px; box-shadow: 6px 7px 0 var(--ink); transform: rotate(calc(1.2deg * var(--wobble)))">
-            <div style="width: 54px; height: 6px; border-radius: 999px; background: #221B10; opacity: 0.25; margin: 4px auto 8px auto"></div>
-            <image-slot id="al-phone" src="assets/altrove-passport.png" shape="rounded" radius="30" placeholder="Drop an Altrove screenshot" style="width: 100%; height: 520px"></image-slot>
+          <div class="pmm-phone" style="width: 272px; transform: rotate(calc(1.2deg * var(--wobble)))">
+              <div class="pmm-screen">
+                <image-slot id="al-phone" src="assets/altrove-passport.png" shape="rounded" radius="34" placeholder="Drop an Altrove screenshot"></image-slot>
+              </div>
           </div>
           <div style="text-align: center; font-family: 'Space Mono', monospace; font-size: 11px; opacity: 0.55; margin-top: 12px">the Passport · demo family, real map</div>
         </div>
@@ -879,9 +896,10 @@
           </div>
         </div>
         <div style="flex: 0 0 auto; margin: 0 auto">
-          <div style="width: 272px; border: 3px solid var(--ink); border-radius: 44px; background: #46291A; padding: 10px; box-shadow: 6px 7px 0 var(--ink); transform: rotate(calc(1.2deg * var(--wobble)))">
-            <div style="width: 54px; height: 6px; border-radius: 999px; background: #EDE1C8; opacity: 0.35; margin: 4px auto 8px auto"></div>
-            <image-slot id="plop-phone" src="assets/plop-feed.png" shape="rounded" radius="30" placeholder="Drop a Plop screenshot — the feed, the map, the Wrapped. Dealer's choice." style="width: 100%; height: 520px"></image-slot>
+          <div class="pmm-phone" style="width: 272px; transform: rotate(calc(1.2deg * var(--wobble)))">
+              <div class="pmm-screen">
+                <image-slot id="plop-phone" src="assets/plop-feed.png" shape="rounded" radius="34" placeholder="Drop a Plop screenshot — the feed, the map, the Wrapped. Dealer's choice."></image-slot>
+              </div>
           </div>
           <div style="text-align: center; font-family: 'Space Mono', monospace; font-size: 11px; opacity: 0.55; margin-top: 12px">the feed · do not open at dinner</div>
         </div>
