@@ -26,8 +26,6 @@
       --wobble: 1;
       --tab-cat-bg: #221B10;
       --tab-cat-fg: #FAF4E7;
-      --tab-guy-bg: transparent;
-      --tab-guy-fg: #221B10;
       --tab-plop-bg: transparent;
       --tab-plop-fg: #221B10;
     }
@@ -66,7 +64,6 @@
   <!-- ══════════ TABS ══════════ -->
   <nav data-screen-label="Tabs" style="max-width: 1180px; margin: 0 auto; padding: 18px 32px 0 32px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase">
     <a href="#" style="text-decoration: none; border: 2px solid var(--ink); border-radius: 999px; padding: 8px 18px; background: var(--tab-cat-bg); color: var(--tab-cat-fg); box-shadow: 3px 3px 0 var(--ink); transition: translate 0.15s ease" style-hover="translate: -2px -2px; color: var(--tab-cat-fg)">The Catalog</a>
-    <a href="#about" style="text-decoration: none; border: 2px solid var(--ink); border-radius: 999px; padding: 8px 18px; background: var(--tab-guy-bg); color: var(--tab-guy-fg); box-shadow: 3px 3px 0 var(--ink); transition: translate 0.15s ease" style-hover="translate: -2px -2px; color: var(--tab-guy-fg)">The Guy</a>
     <a href="#plop" style="text-decoration: none; border: 2px solid var(--ink); border-radius: 999px; padding: 8px 18px; background: var(--tab-plop-bg); color: var(--tab-plop-fg); box-shadow: 3px 3px 0 var(--ink); transition: translate 0.15s ease" style-hover="translate: -2px -2px; color: var(--tab-plop-fg)"><span>{{ plopTabLock }}</span>The Plop Pavilion</a>
   </nav>
 
@@ -82,7 +79,7 @@
       <div aria-hidden="true" style="position: absolute; left: 9%; bottom: 74px; font-size: 36px; transform: rotate(calc(-10deg * var(--wobble)))">🪙</div>
       <div aria-hidden="true" style="position: absolute; right: 3%; top: 44px; font-size: 26px; transform: rotate(calc(14deg * var(--wobble)))">🤑</div>
 
-      <div style="display: inline-block; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border: 2px solid var(--ink); border-radius: 999px; padding: 6px 16px; background: var(--card); box-shadow: 3px 3px 0 var(--ink); transform: rotate(calc(-1deg * var(--wobble)))">Catalog № 001 — Summer 2026</div>
+      <div style="display: inline-block; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border: 2px solid var(--ink); border-radius: 999px; padding: 6px 16px; background: var(--card); box-shadow: 3px 3px 0 var(--ink); transform: rotate(calc(-1deg * var(--wobble)))">Catalog № 002 — Fall 2026</div>
 
       <h1 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: clamp(58px, 9.5vw, 132px); line-height: 0.98; margin: 28px 0 0 0; letter-spacing: -0.01em">
         <span style="display: block; transform: rotate(calc(-1.2deg * var(--wobble)))">Pey Me</span>
@@ -93,12 +90,14 @@
 
       <p style="max-width: 620px; margin: 30px auto 0 auto; font-size: 18px; line-height: 1.6; text-wrap: pretty">
         A one-guy app studio making software for people who like cars, cones,
-        and keeping the family posted. The name is a business plan.
-        The apps are free — for now. <em>One day, you will pey.</em>
+        and keeping the family posted. Three apps are on TestFlight, two are
+        in the archive queue, and one is a racing sim you drive in socks.
+        The name is a business plan. The apps are free — for now.
+        <em>One day, you will pey.</em>
       </p>
 
       <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 36px">
-        <div style="border: 2.5px solid var(--ink); background: var(--card); border-radius: 12px; padding: 10px 18px; box-shadow: 4px 4px 0 var(--ink); transform: rotate(calc(-1.5deg * var(--wobble)))"><div style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 26px">5</div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase">apps</div></div>
+        <div style="border: 2.5px solid var(--ink); background: var(--card); border-radius: 12px; padding: 10px 18px; box-shadow: 4px 4px 0 var(--ink); transform: rotate(calc(-1.5deg * var(--wobble)))"><div style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 26px">6</div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase">apps</div></div>
         <div style="border: 2.5px solid var(--ink); background: var(--card); border-radius: 12px; padding: 10px 18px; box-shadow: 4px 4px 0 var(--ink); transform: rotate(calc(1deg * var(--wobble)))"><div style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 26px; color: var(--money)">100%</div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase">bootstrapped</div></div>
         <div style="border: 2.5px solid var(--ink); background: var(--card); border-radius: 12px; padding: 10px 18px; box-shadow: 4px 4px 0 var(--ink); transform: rotate(calc(-0.7deg * var(--wobble)))"><div style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 26px">1</div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase">employee*</div></div>
         <div style="border: 2.5px solid var(--ink); background: var(--sun); border-radius: 12px; padding: 10px 18px; box-shadow: 4px 4px 0 var(--ink); transform: rotate(calc(1.4deg * var(--wobble)))"><div style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 26px; color: var(--cone)">∞</div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #221B10">cones</div></div>
@@ -122,20 +121,22 @@
         <div style="border: 3px solid var(--ink); border-radius: 22px; background: var(--card); box-shadow: 7px 8px 0 var(--ink); padding: 40px; display: flex; gap: 44px; flex-wrap: wrap; align-items: center; transition: translate 0.18s ease, box-shadow 0.18s ease" style-hover="translate: -3px -3px; box-shadow: 11px 12px 0 var(--ink)">
           <div style="flex: 1 1 420px; min-width: 300px">
             <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center">
-              <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">Flagship · iOS</span>
+              <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">Flagship · iPhone + iPad + Mac</span>
               <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--money); color: var(--paper); padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(-2deg * var(--wobble)))">On TestFlight</span>
             </div>
             <h3 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 44px; margin: 18px 0 12px 0"><a href="#speedstream" style="color: inherit; text-decoration: none" style-hover="color: var(--money)">SpeedStream</a> <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 0.82em; vertical-align: -0.12em; transform: rotate(calc(7deg * var(--wobble)))"><sc-for list="{{ pm.volatile }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></h3>
             <p style="font-size: 18px; line-height: 1.6; margin: 0; text-wrap: pretty">
-              Autocross telemetry with an AI driving coach. Your phone rides along
-              locked in a pocket, records every run at 25 Hz, draws your line on a
-              satellite map, and splits it corner by corner so run 4 can be compared —
-              unfavorably — to run 7. Then the coach explains, politely and with
-              evidence, exactly why you were slow. It has diagnosed its own developer
-              as “late on throttle” at every event this season. He built it. It's still right.
+              Autocross and track-day telemetry with an AI driving coach. Your phone
+              rides along locked in a pocket, records every run — or every lap — at up
+              to 25 Hz, draws your line on a satellite map, and splits it corner by
+              corner so run 4 can be compared — unfavorably — to run 7. Then the coach
+              explains, politely and with evidence, exactly why you were slow. It has
+              diagnosed its own developer as “late on throttle” at every event this
+              season. He built it. It's still right.
             </p>
             <ul style="list-style: none; padding: 0; margin: 22px 0 0 0; display: grid; gap: 10px; font-size: 15.5px">
               <li style="display: flex; gap: 10px"><span style="color: var(--cone); font-weight: 700">▸</span><span>Arm it once at the venue. It catches every run — and never the drive home.</span></li>
+              <li style="display: flex; gap: 10px"><span style="color: var(--cone); font-weight: 700">▸</span><span>Cones or circuits: it tells an autocross run from a lapped session on its own.</span></li>
               <li style="display: flex; gap: 10px"><span style="color: var(--cone); font-weight: 700">▸</span><span>RaceBox, OBD, GoPro all optional. Your phone works day one.</span></li>
               <li style="display: flex; gap: 10px"><span style="color: var(--cone); font-weight: 700">▸</span><span>The coach cites its sources and refuses to invent numbers. Unlike everyone in grid.</span></li>
             </ul>
@@ -143,7 +144,7 @@
               <a href="#speedstream" style="display: inline-block; font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 17px; color: #221B10; text-decoration: none; background: var(--sun); border: 3px solid var(--ink); border-radius: 12px; padding: 12px 22px; box-shadow: 4px 5px 0 var(--ink); transition: translate 0.15s ease, box-shadow 0.15s ease" style-hover="translate: -2px -2px; box-shadow: 6px 7px 0 var(--ink); color: #221B10">Inspect the flagship →</a>
               <span style="font-family: 'Space Mono', monospace; font-size: 12px; border: 2px dashed var(--ink); border-radius: 8px; padding: 7px 12px; transform: rotate(calc(2deg * var(--wobble)))">$0.00 · introductory price</span>
             </div>
-            <div style="margin-top: 20px; font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6">TestFlight: apply by form, reviewed case-by-case by a committee of one. Coaching billed at cost — $0.004 a lecture.</div>
+            <div style="margin-top: 20px; font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6">TestFlight: internal beta on iPhone, iPad and Mac. The friends group opens when the committee of one finishes the privacy policy.</div>
           </div>
           <div style="flex: 0 0 auto; margin: 0 auto">
             <div style="width: 272px; border: 3px solid var(--ink); border-radius: 44px; background: #FFFFFF; padding: 10px; box-shadow: 6px 7px 0 var(--ink); transform: rotate(calc(1.2deg * var(--wobble)))">
@@ -161,15 +162,16 @@
         <article style="transform: rotate(calc(0.5deg * var(--wobble)))">
           <div style="height: 100%; box-sizing: border-box; border: 3px solid var(--ink); border-radius: 22px; background: var(--card); box-shadow: 6px 7px 0 var(--ink); padding: 32px; display: flex; flex-direction: column; gap: 16px; transition: translate 0.18s ease, box-shadow 0.18s ease" style-hover="translate: -3px -3px; box-shadow: 9px 10px 0 var(--ink)">
             <div style="display: flex; gap: 10px; flex-wrap: wrap">
-              <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">macOS + iPhone</span>
-              <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--cone); color: var(--paper); padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(2deg * var(--wobble)))">In the lab</span>
+              <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">Mac editor · iPhone + iPad field app</span>
+              <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--cone); color: var(--paper); padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(2deg * var(--wobble)))">Built · archive queue</span>
             </div>
             <h3 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 34px; margin: 0"><a href="#conecanvas" style="color: inherit; text-decoration: none" style-hover="color: var(--cone)">ConeCanvas</a> <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 0.82em; vertical-align: -0.12em; transform: rotate(calc(-6deg * var(--wobble)))"><sc-for list="{{ pm.mint }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></h3>
             <p style="font-size: 16.5px; line-height: 1.6; margin: 0; text-wrap: pretty">
-              Autocross course design without booting actual AutoCAD. Trace your
-              lot to scale from satellite, drag on slaloms, sweepers, and Chicago
-              boxes that know the rulebook, and watch it count cones and course-feet
-              live while you draw — then print a setup map the crew can read at 7 a.m.
+              Autocross course design without booting actual AutoCAD. Pick a venue
+              (three ship pre-traced from public satellite imagery), drag on slaloms,
+              sweepers, and boxes that know the rulebook, and watch it count cones and
+              course-feet live while you draw — then print a setup map the crew can
+              read at 7 a.m. and walk it on the iPhone with GPS to check their work.
               Replaces roughly $500 of professional CAD — nobody has been brave enough
               to confirm the number — that never knew what a slalom was.
             </p>
@@ -178,12 +180,12 @@
                 <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--cone); border: 1.5px solid var(--ink)"></span>
                 <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--sun); border: 1.5px solid var(--ink)"></span>
                 <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--money); border: 1.5px solid var(--ink)"></span>
-                <span style="font-family: 'Space Mono', monospace; font-size: 10px; margin-left: 8px; opacity: 0.5">untitled-course-final-FINAL-v2.acx</span>
+                <span style="font-family: 'Space Mono', monospace; font-size: 10px; margin-left: 8px; opacity: 0.5">salinas-aug-23-final-FINAL-v2.acx</span>
               </div>
               <image-slot id="cc-shot" shape="rect" placeholder="Drop a ConeCanvas screenshot (the one with all the cones)" style="width: 100%; height: 280px"></image-slot>
             </div>
             <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-top: auto">
-              <span style="font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6">Knows what a slalom is. 256 tests agree.</span>
+              <span style="font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6">Knows what a slalom is. 909 tests agree.</span>
               <a href="#conecanvas" style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700">Inspect →</a>
             </div>
           </div>
@@ -231,16 +233,17 @@
           <div style="height: 100%; box-sizing: border-box; border: 3px solid var(--ink); border-radius: 22px; background: var(--card); box-shadow: 6px 7px 0 var(--ink); padding: 32px; display: flex; gap: 26px; flex-wrap: wrap; transition: translate 0.18s ease, box-shadow 0.18s ease" style-hover="translate: -3px -3px; box-shadow: 9px 10px 0 var(--ink)">
             <div style="flex: 1 1 240px; min-width: 220px; display: flex; flex-direction: column; gap: 14px">
               <div style="display: flex; gap: 10px; flex-wrap: wrap">
-                <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">iOS · family fleet</span>
+                <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">iPhone · family fleet</span>
+                <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--money); color: var(--paper); padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(-2deg * var(--wobble)))">On TestFlight</span>
               </div>
               <h3 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 34px; margin: 0"><a href="#glovebox" style="color: inherit; text-decoration: none" style-hover="color: var(--money)">Glovebox</a> <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 0.82em; vertical-align: -0.12em; transform: rotate(calc(-7deg * var(--wobble)))"><sc-for list="{{ pm.invoice }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></h3>
               <p style="font-size: 16px; line-height: 1.6; margin: 0; text-wrap: pretty">
                 A logbook for every car the family drives. Ten-second fill-up logging
-                at the pump, MPG math you can't lie to, service reminders you'll ignore
-                exactly twice, and a shared cost ledger for the whole fleet — gas, EV
-                charging, insurance, regret. Commissioned to prove the sports car was a
-                sensible purchase; it calculated <strong>$19.84 a mile</strong> and
-                simply will not let it go.
+                at the pump, MPG math you can't lie to, a photo of each car so the
+                list looks like a garage, and one ledger for the whole fleet — gas, EV
+                charging, leases, insurance, regret. Commissioned to prove the sports
+                car was a sensible purchase; it calculated <strong>$19.84 a mile</strong>
+                and simply will not let it go.
               </p>
               <div style="font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6">Replaces one spreadsheet and several Apple Notes of shame.</div>
               <a href="#glovebox" style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; margin-top: auto">Inspect →</a>
@@ -258,16 +261,17 @@
           <div style="height: 100%; box-sizing: border-box; border: 3px solid var(--ink); border-radius: 22px; background: var(--card); box-shadow: 6px 7px 0 var(--ink); padding: 32px; display: flex; gap: 26px; flex-wrap: wrap; transition: translate 0.18s ease, box-shadow 0.18s ease" style-hover="translate: -3px -3px; box-shadow: 9px 10px 0 var(--ink)">
             <div style="flex: 1 1 240px; min-width: 220px; display: flex; flex-direction: column; gap: 14px">
               <div style="display: flex; gap: 10px; flex-wrap: wrap">
-                <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">iOS · travel</span>
-                <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--sun); color: #221B10; padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(2deg * var(--wobble)))">Workshopping</span>
+                <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">iPhone · iPad · Mac</span>
+                <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--sun); color: #221B10; padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(2deg * var(--wobble)))">Built · archive queue</span>
               </div>
               <h3 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 34px; margin: 0"><a href="#altrove" style="color: inherit; text-decoration: none" style-hover="color: var(--money)">Altrove</a> <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 0.82em; vertical-align: -0.12em; transform: rotate(calc(7deg * var(--wobble)))"><sc-for list="{{ pm.flight }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></h3>
               <p style="font-size: 16px; line-height: 1.6; margin: 0; text-wrap: pretty">
                 Like a flight tracker, but for the whole trip: a shared map of
                 everywhere the family has been, live legs so nobody has to text
                 “landed?”, and a board for planning wherever we're all going next —
-                one place instead of four group chats. Currently in the
-                confident-sketches phase, which is studio-speak for “not built yet.”
+                one place instead of four group chats. Seventy pull requests after
+                the napkin sketch it runs on iPhone, iPad and Mac, with widgets,
+                a Live Activity, and 38,037 family miles on the map.
               </p>
               <div style="font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6">Named after the Italian for "elsewhere," which is where we'd all rather be.</div>
               <a href="#altrove" style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; margin-top: auto">Inspect →</a>
@@ -307,34 +311,34 @@
       <p style="margin: 0 0 28px 0; font-size: 16px; opacity: 0.75; font-style: italic">One line per app. The changelog, on a diet.</p>
       <div style="border: 3px solid var(--ink); border-radius: 18px; background: var(--card); box-shadow: 6px 7px 0 var(--ink); padding: 8px 26px; transform: rotate(calc(-0.3deg * var(--wobble)))">
         <div style="display: flex; gap: 8px 18px; align-items: baseline; flex-wrap: wrap; padding: 15px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 22%, transparent)">
-          <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; opacity: 0.55; min-width: 84px">JUL 2026</span>
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; opacity: 0.55; min-width: 84px">SEP 2026</span>
           <a href="#speedstream" style="font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; min-width: 170px">SpeedStream</a>
-          <span style="font-size: 15px; flex: 1 1 320px">TestFlight applications are open — reviewed case-by-case by a committee of one.</span>
+          <span style="font-size: 15px; flex: 1 1 320px">iPhone, iPad and Mac builds are on TestFlight. Circuit mode landed: it now times laps, not just runs.</span>
         </div>
         <div style="display: flex; gap: 8px 18px; align-items: baseline; flex-wrap: wrap; padding: 15px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 22%, transparent)">
-          <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; opacity: 0.55; min-width: 84px">JUL 2026</span>
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; opacity: 0.55; min-width: 84px">SEP 2026</span>
           <a href="#conecanvas" style="font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; min-width: 170px">ConeCanvas</a>
-          <span style="font-size: 15px; flex: 1 1 320px">Design workshop wrapped: 13 documents, 2 prototypes, 1 strong opinion about AutoCAD.</span>
+          <span style="font-size: 15px; flex: 1 1 320px">Converted the club's August Salinas courses straight from the PDF map. TestFlight is one red test away.</span>
         </div>
         <div style="display: flex; gap: 8px 18px; align-items: baseline; flex-wrap: wrap; padding: 15px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 22%, transparent)">
           <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; opacity: 0.55; min-width: 84px">JUL 2026</span>
           <a href="#ac-maker" style="font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; min-width: 170px">AC Autocross Maker</a>
-          <span style="font-size: 15px; flex: 1 1 320px">v1.1: removed a 147-meter row of canopies that was parked on the racing line.</span>
+          <span style="font-size: 15px; flex: 1 1 320px">v1.1: removed a 147-meter row of canopies that was parked on the racing line. v1.2 is in a branch, measuring cones.</span>
         </div>
         <div style="display: flex; gap: 8px 18px; align-items: baseline; flex-wrap: wrap; padding: 15px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 22%, transparent)">
-          <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; opacity: 0.55; min-width: 84px">JUN 2026</span>
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; opacity: 0.55; min-width: 84px">SEP 2026</span>
           <a href="#glovebox" style="font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; min-width: 170px">Glovebox</a>
-          <span style="font-size: 15px; flex: 1 1 320px">The importer now survives a year of pasted Apple Notes, including the one that just says "23.5ish".</span>
+          <span style="font-size: 15px; flex: 1 1 320px">1.0 (2) on TestFlight. Vehicle photos, lease math, and an offline outbox that refuses to lose a fill-up.</span>
         </div>
         <div style="display: flex; gap: 8px 18px; align-items: baseline; flex-wrap: wrap; padding: 15px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 22%, transparent)">
-          <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; opacity: 0.55; min-width: 84px">JUL 2026</span>
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; opacity: 0.55; min-width: 84px">SEP 2026</span>
           <a href="#altrove" style="font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; min-width: 170px">Altrove</a>
-          <span style="font-size: 15px; flex: 1 1 320px">The Mode Wing was ratified, decisions #31–#37. The family was not consulted.</span>
+          <span style="font-size: 15px; flex: 1 1 320px">It's an app now. iPhone, iPad and Mac share one layout model. 70 pull requests in; the family was still not consulted.</span>
         </div>
         <div style="display: flex; gap: 8px 18px; align-items: baseline; flex-wrap: wrap; padding: 15px 2px">
-          <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; opacity: 0.55; min-width: 84px">JUL 2026</span>
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; opacity: 0.55; min-width: 84px">SEP 2026</span>
           <a href="#plop" style="font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; min-width: 170px">plop</a>
-          <span style="font-size: 15px; flex: 1 1 320px">Exhibit replaced: it's an app now. The public repo stays 7 bytes of misdirection.</span>
+          <span style="font-size: 15px; flex: 1 1 320px">1.0 (2) on TestFlight. Sage runs on-device now. Eleven arcade games, one hidden cabinet, forty easter eggs.</span>
         </div>
       </div>
     </section>
@@ -346,7 +350,7 @@
       <div style="display: grid; gap: 14px">
         <details style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); box-shadow: 4px 4px 0 var(--ink); padding: 18px 22px">
           <summary style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; cursor: pointer">How do I get on the SpeedStream TestFlight?</summary>
-          <p style="font-size: 15px; line-height: 1.65; margin: 12px 0 0 0; opacity: 0.85">You fill out <a href="#testflight-form" title="swap in the real form link">the application form</a>. Every application is reviewed case-by-case by the admissions committee, which is one guy. Fair warning: while on the TestFlight, your AI coaching usage is billed to you at cost — about $0.004 a lecture. The studio has a name to live up to.</p>
+          <p style="font-size: 15px; line-height: 1.65; margin: 12px 0 0 0; opacity: 0.85">Right now you don't: it's in internal testing on iPhone, iPad and Mac. The friends group opens once the admissions committee, which is one guy, writes a privacy policy. Coaching is on the studio's tab — about $0.004 a debrief, which is the only thing here that costs money and you're not the one paying it.
         </details>
         <details style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); box-shadow: 4px 4px 0 var(--ink); padding: 18px 22px">
           <summary style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; cursor: pointer">Is everything really $0.00?</summary>
@@ -365,8 +369,12 @@
           <p style="font-size: 15px; line-height: 1.65; margin: 12px 0 0 0; opacity: 0.85">It cites your own telemetry and is contractually forbidden from inventing numbers. It is, statistically, more honest than your co-driver.</p>
         </details>
         <details style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); box-shadow: 4px 4px 0 var(--ink); padding: 18px 22px">
+          <summary style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; cursor: pointer">Is SpeedStream only for autocross?</summary>
+          <p style="font-size: 15px; line-height: 1.65; margin: 12px 0 0 0; opacity: 0.85">Not anymore. Take it to a track day and it figures out on its own that you're lapping, not running cones — laps get timed, corners get named, the coach gets a longer lecture. Cones remain the studio's first love.</p>
+        </details>
+        <details style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); box-shadow: 4px 4px 0 var(--ink); padding: 18px 22px">
           <summary style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; cursor: pointer">What is plop?</summary>
-          <p style="font-size: 15px; line-height: 1.65; margin: 12px 0 0 0; opacity: 0.85">A social app for number two — the studio's worst-kept secret, in active development. <a href="#plop">The pavilion</a> has the full exhibit. Admission free, obviously.</p>
+          <p style="font-size: 15px; line-height: 1.65; margin: 12px 0 0 0; opacity: 0.85">A social app for number two — the studio's worst-kept secret, now on TestFlight. <a href="#plop">The pavilion</a> has the full exhibit. Admission free, obviously.</p>
         </details>
       </div>
     </section>
@@ -392,7 +400,6 @@
         <a href="#ac-maker">AC Autocross Maker</a>
         <a href="#glovebox">Glovebox</a>
         <a href="#altrove">Altrove</a>
-        <a href="#about">The Guy</a>
         <a href="#plop" style="opacity: 0.7">plop.</a>
       </div>
       <p style="font-family: 'Space Mono', monospace; font-size: 12px; line-height: 2; opacity: 0.6; max-width: 640px; margin: 0 auto">
@@ -423,24 +430,25 @@
       <div style="display: flex; gap: 48px; flex-wrap: wrap; align-items: center; margin-top: 48px">
         <div style="flex: 1 1 460px; min-width: 300px">
           <div style="display: flex; gap: 10px; flex-wrap: wrap">
-            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">iOS 18 · portrait · dark</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">iPhone · iPad · Mac · dark</span>
             <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--money); color: var(--paper); padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(-2deg * var(--wobble)))">On TestFlight</span>
           </div>
           <h1 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: clamp(52px, 7vw, 92px); line-height: 1; margin: 20px 0 14px 0">SpeedStream <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 0.55em; vertical-align: -0.06em; transform: rotate(calc(8deg * var(--wobble)))"><sc-for list="{{ pm.volatile }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></h1>
           <p style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: clamp(20px, 2.6vw, 27px); color: var(--money); margin: 0 0 18px 0; transform: rotate(calc(-0.5deg * var(--wobble)))">The coach fits in your pocket. The excuses don't.</p>
           <p style="font-size: 17.5px; line-height: 1.65; margin: 0; max-width: 560px; text-wrap: pretty">
             Arm it once at the venue and put the phone away. SpeedStream catches every
-            run — never the drive home — then lays your speed-colored line over
+            run — or every lap, if the venue has a start/finish line instead of a
+            chalk box — never the drive home, then lays your speed-colored line over
             satellite, syncs GPS, G-forces, and video to one scrubber, and hands you a
             debrief from an AI coach that cites your own data back at you. Its most
             consistent finding to date: the developer brakes too early. Every corner.
-            Every event.
+            Every event. Now every track day, too.
           </p>
           <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 26px">
-            <a href="#testflight-form" title="swap in the real form link" style="display: inline-block; font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 17px; color: #221B10; text-decoration: none; background: var(--sun); border: 3px solid var(--ink); border-radius: 12px; padding: 12px 22px; box-shadow: 4px 5px 0 var(--ink); transition: translate 0.15s ease, box-shadow 0.15s ease" style-hover="translate: -2px -2px; box-shadow: 6px 7px 0 var(--ink); color: #221B10">Apply for the TestFlight →</a>
+            <a href="#speedstream" style="display: inline-block; font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 17px; color: #221B10; text-decoration: none; background: var(--sun); border: 3px solid var(--ink); border-radius: 12px; padding: 12px 22px; box-shadow: 4px 5px 0 var(--ink); transition: translate 0.15s ease, box-shadow 0.15s ease" style-hover="translate: -2px -2px; box-shadow: 6px 7px 0 var(--ink); color: #221B10">TestFlight: internal beta →</a>
             <span style="font-family: 'Space Mono', monospace; font-size: 12px; border: 2px dashed var(--ink); border-radius: 8px; padding: 7px 12px; transform: rotate(calc(2deg * var(--wobble)))">$0.00 · introductory price</span>
           </div>
-          <div style="margin-top: 16px; font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6">Applications reviewed case-by-case by a committee of one. AI coaching usage billed to you, at cost.</div>
+          <div style="margin-top: 16px; font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6">Internal testing on iPhone, iPad and Mac. Friends group next; the committee of one is on the privacy policy.</div>
         </div>
         <div style="flex: 0 0 auto; margin: 0 auto">
           <div style="width: 272px; border: 3px solid var(--ink); border-radius: 44px; background: #0B0A07; padding: 10px; box-shadow: 6px 7px 0 var(--ink); transform: rotate(calc(1.2deg * var(--wobble)))">
@@ -461,11 +469,12 @@
 
       <h2 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 34px; margin: 60px 0 22px 0">What it does between your runs</h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px">
+        <div style="grid-column: 1 / -1; border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Cones and circuits</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Autocross runs or lapped sessions at a racetrack — the discipline is auto-detected, laps get timed, corners get named Turn 1 through Turn N. Same coach, longer lecture.</div></div>
         <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Arm &amp; forget</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Runs auto-trigger on launch and auto-close on a stop. Biased to never miss a run, even in your pocket, even on a weak GPS fix.</div></div>
         <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Satellite replay</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Speed-colored line on satellite, traction circle, speed / G / Δt traces under one scrubber. Scrub your run like game film.</div></div>
-        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">An honest coach</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Per-run debriefs you can talk back to. Every claim comes with tap-to-see-it evidence from your telemetry. It never invents a number.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">An honest coach</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Per-run debriefs you can talk back to. Every claim comes with tap-to-see-it evidence from your telemetry, down to “you over-carried into 9 and paid at 10.” It never invents a number.</div></div>
         <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Hardware optional</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Phone GPS works day one. Pair a RaceBox Mini for 25 Hz, an OBD dongle for RPM and throttle, a GoPro for synced video. All optional.</div></div>
-        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Your data, your iCloud</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Everything syncs through your own private iCloud database. Share a course to friends by link or QR — their runs stay theirs.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Your data, your iCloud</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Everything syncs through your own private iCloud database to the iPad and Mac companions. Share a course by link or QR — their runs stay theirs.</div></div>
         <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Video Studio</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Auto-anchors your clips to the telemetry timeline and exports burned-in overlays — speed, Δ, Gs — so your claims become verifiable.</div></div>
       </div>
 
@@ -478,8 +487,9 @@
           <div style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6; margin-bottom: 14px">Spec sheet</div>
           <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Missed runs</span><span style="font-weight: 700">0, by design</span></div>
           <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">GPS rate w/ RaceBox</span><span style="font-weight: 700">25 Hz</span></div>
-          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Coach rate per lecture</span><span style="font-weight: 700">$0.004, billed at cost</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Coach cost per debrief</span><span style="font-weight: 700">≈ $0.004, on the studio's tab</span></div>
           <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Fabricated numbers</span><span style="font-weight: 700">0 (validator enforced)</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Disciplines</span><span style="font-weight: 700">autocross · circuit</span></div>
           <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Paywall</span><span style="font-weight: 700; color: var(--money)">none found</span></div>
         </div>
         <div style="flex: 1 1 280px; border: 3px solid var(--ink); border-radius: 18px; background: var(--card); box-shadow: 5px 6px 0 var(--ink); padding: 26px 28px; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 6px">
@@ -506,8 +516,8 @@
 
         <div style="margin-top: 48px; max-width: 720px">
           <div style="display: flex; gap: 10px; flex-wrap: wrap">
-            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">macOS + iPhone · iPad next</span>
-            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--money); color: var(--paper); padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(2deg * var(--wobble)))">In the lab · 256 tests green</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">Mac editor · iPhone + iPad in the field</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--money); color: var(--paper); padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(2deg * var(--wobble)))">Built · 909 tests green</span>
           </div>
           <h1 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: clamp(52px, 7vw, 92px); line-height: 1; margin: 20px 0 14px 0">ConeCanvas <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 0.55em; vertical-align: -0.06em; transform: rotate(calc(-7deg * var(--wobble)))"><sc-for list="{{ pm.mint }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></h1>
           <p style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: clamp(20px, 2.6vw, 27px); color: var(--money); margin: 0 0 18px 0; transform: rotate(calc(-0.5deg * var(--wobble)))">Draw the course. It counts the cones.</p>
@@ -515,9 +525,10 @@
             Before this, course design meant CorelDRAW or honest-to-goodness AutoCAD —
             somewhere north of $500 of professional CAD, we've been afraid to check —
             aimed at a parking lot. None of it knows what a slalom is. ConeCanvas does:
-            trace your lot to scale from satellite, snap on parametric slaloms,
-            sweepers, and gates, let the 42-check Course Doctor nag you about escape
-            routes, and print both maps while it keeps the cone count honest.
+            pick a to-scale venue (or drop in your own satellite screenshot), snap on
+            parametric slaloms, sweepers, and gates, let the 42-check Course Doctor
+            nag you about escape routes, print both maps while it keeps the cone count
+            honest — then hand the crew the iPhone and walk it.
           </p>
         </div>
 
@@ -526,29 +537,31 @@
             <span style="width: 11px; height: 11px; border-radius: 50%; background: var(--money); border: 1.5px solid var(--ink)"></span>
             <span style="width: 11px; height: 11px; border-radius: 50%; background: var(--sun); border: 1.5px solid var(--ink)"></span>
             <span style="width: 11px; height: 11px; border-radius: 50%; background: var(--cone); border: 1.5px solid var(--ink)"></span>
-            <span style="font-family: 'Space Mono', monospace; font-size: 11px; margin-left: 10px; opacity: 0.55">sunday-course-final-FINAL-v2.acx — 214 cones</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; margin-left: 10px; opacity: 0.55">salinas-aug-23-final-FINAL-v2.acx — 72 cones · 2,628 ft</span>
           </div>
           <image-slot id="cc-shot" shape="rect" placeholder="Drop the big ConeCanvas editor screenshot here" style="width: 100%; height: 460px"></image-slot>
         </div>
 
         <h2 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 34px; margin: 60px 0 22px 0">For the designer, and the crew stuck setting it up</h2>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px">
-          <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">To-scale satellite tracing</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Calibrate the lot from a satellite view instead of eyeballing parking spaces. Save the venue once, design there forever.</div></div>
-          <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Elements that know themselves</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Slaloms, sweepers, gates, Chicago boxes — parametric, draggable, and aware of the rulebook. Not twelve anonymous circles.</div></div>
+          <div style="grid-column: 1 / -1; border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Field mode</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">The iPhone and iPad open the same course on setup morning: GPS walk-and-verify, as-built revisions when the lot disagrees with the drawing, and a steward sign-off. Paper or satellite, your call.</div></div>
+          <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">To-scale satellite tracing</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Crows Landing, Salinas and Alameda Point ship pre-traced from public-domain imagery. Or drop in a satellite screenshot of your own lot, calibrate once, design there forever. The app never fetches a tile.</div></div>
+          <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Elements that know themselves</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Slaloms, sweepers, gates, offsets, lane changes, boxes, walls — parametric, draggable, and aware of the rulebook. Not twelve anonymous circles.</div></div>
           <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Live cone count</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">The setup crew knows exactly how many cones to load before you've finished drawing. They will still forget the timing lights.</div></div>
           <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Course Doctor</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">42 checks against SCCA rules and design guidance — speeds, spacing, escape routes — so tech inspection is pleasantly boring.</div></div>
           <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Print-ready PDF, twice</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">One map for the drivers' meeting, one for the crew with counts and measurements. No CAD, no subscriptions, no eyeballing.</div></div>
-          <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Plays with the family</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Exports to SpeedStream for timing and to Assetto Corsa for pre-driving. The three racing products are, in fact, one scheme.</div></div>
+          <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Plays with the family</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Exports to SpeedStream for timing, to Assetto Corsa for pre-driving, and to KMZ for Google Earth. The three racing products are, in fact, one scheme.</div></div>
         </div>
 
         <div style="display: flex; gap: 28px; flex-wrap: wrap; margin-top: 48px; align-items: stretch">
           <div style="flex: 1 1 400px; border: 3px solid var(--ink); border-radius: 18px; background: var(--card); box-shadow: 5px 6px 0 var(--ink); padding: 26px 28px">
             <div style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6; margin-bottom: 14px">Spec sheet</div>
-            <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Engine tests green</span><span style="font-weight: 700">256</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Tests green</span><span style="font-weight: 700">909</span></div>
             <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Doctor checks</span><span style="font-weight: 700">42</span></div>
-            <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">CAD required</span><span style="font-weight: 700">none</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Venues bundled, to scale</span><span style="font-weight: 700">3</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">CAD required</span><span style="font-weight: 700">none</span></div>
             <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Cones counted</span><span style="font-weight: 700">all of them, live</span></div>
-            <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">"Is it iPad yet?"</span><span style="font-weight: 700; color: var(--money)">soon.</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">"Is it iPad yet?"</span><span style="font-weight: 700; color: var(--money)">the field app, yes. the editor, soon.</span></div>
           </div>
           <div style="flex: 1 1 280px; border: 3px solid var(--ink); border-radius: 18px; background: var(--card); box-shadow: 5px 6px 0 var(--ink); padding: 26px 28px; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 6px">
             <div style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 46px; color: var(--money)">$0.00</div>
@@ -583,7 +596,7 @@
         <p style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: clamp(20px, 2.6vw, 27px); color: var(--money); margin: 0 0 18px 0; transform: rotate(calc(-0.5deg * var(--wobble)))">Walk the course Sunday. Drive it Wednesday.</p>
         <p style="font-size: 17.5px; line-height: 1.65; margin: 0; text-wrap: pretty">
           A pipeline that reads the club's official course-map PDF and rebuilds the
-          event inside Assetto Corsa — real venue, real layout, 523 knockable cones,
+          event inside Assetto Corsa — real venue, real layout, 350-odd knockable cones,
           every one within 0.6 meters of where the chalk says. By the time everyone
           else gets their course walk, you've had thirty runs. Results so far: perfect
           knowledge of the course, same mid-pack finish. The bottleneck has been
@@ -600,7 +613,7 @@
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px">
         <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Reads the official map</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Vector cone data extracted straight from the event PDF, fitted to the venue with 0.60 m median error. No tracing, no guessing.</div></div>
         <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">No Blender required</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">A pure-Python kn5 writer places every cone directly into the game's format. One editable course.json is the whole source of truth.</div></div>
-        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Knockable cones</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">All 523 of them, physically movable, emotionally significant. Point-to-point timing gates, just like the real Sunday.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Knockable cones</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">All 350-odd of them, physically movable, emotionally significant. Point-to-point timing gates, just like the real Sunday.</div></div>
         <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Hard-won physics</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Pointer cones rest at exactly 13.54° — we measured 68 real ones to get it right. Yes, there was a version where they all fell over.</div></div>
       </div>
 
@@ -610,6 +623,7 @@
           <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">v0.8</span><span style="font-weight: 700">cars no longer fall through the earth</span></div>
           <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">v1.0</span><span style="font-weight: 700">cones stopped lying down on the job</span></div>
           <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">v1.1</span><span style="font-weight: 700">removed a 147 m row of canopies</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">v1.2</span><span style="font-weight: 700">in a branch: cones now lie exactly like the contractor's</span></div>
           <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">gravity</span><span style="font-weight: 700; color: var(--money)">respected since v0.8</span></div>
         </div>
         <div style="flex: 1 1 280px; border: 3px solid var(--ink); border-radius: 18px; background: var(--card); box-shadow: 5px 6px 0 var(--ink); padding: 26px 28px; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 6px">
@@ -636,22 +650,22 @@
       <div style="display: flex; gap: 48px; flex-wrap: wrap; align-items: center; margin-top: 48px">
         <div style="flex: 1 1 460px; min-width: 300px">
           <div style="display: flex; gap: 10px; flex-wrap: wrap">
-            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">iOS · offline-first</span>
-            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--money); color: var(--paper); padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(-2deg * var(--wobble)))">Replaces a spreadsheet</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">iPhone · offline-first</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--money); color: var(--paper); padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(-2deg * var(--wobble)))">On TestFlight · 1.0 (2)</span>
           </div>
           <h1 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: clamp(52px, 7vw, 92px); line-height: 1; margin: 20px 0 14px 0">Glovebox <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 0.55em; vertical-align: -0.06em; transform: rotate(calc(-6deg * var(--wobble)))"><sc-for list="{{ pm.invoice }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></h1>
           <p style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: clamp(20px, 2.6vw, 27px); color: var(--money); margin: 0 0 18px 0; transform: rotate(calc(-0.5deg * var(--wobble)))">Every fill-up. Every dollar. Every regret.</p>
           <p style="font-size: 17.5px; line-height: 1.65; margin: 0; max-width: 560px; text-wrap: pretty">
             A logbook for every car the family drives — owned, loaned, or rented.
             Logging a fill-up takes ten seconds at the pump, works offline, and syncs
-            to the whole household; charge sessions, repairs, and insurance go in the
-            same ledger. Then the insights engine does the math you were avoiding.
+            through your own iCloud; charge sessions, repairs, leases, and insurance go
+            in the same ledger. Then the insights engine does the math you were avoiding.
             It was commissioned to defend the sports car. It is now the prosecution's
             best witness.
           </p>
           <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 26px">
             <span style="font-family: 'Space Mono', monospace; font-size: 12px; border: 2px dashed var(--ink); border-radius: 8px; padding: 7px 12px; transform: rotate(calc(2deg * var(--wobble)))">$0.00 · introductory price</span>
-            <span style="font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6">household plan: also $0.00</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6">household sharing: next, also $0.00</span>
           </div>
         </div>
         <div style="flex: 0 0 auto; margin: 0 auto">
@@ -667,10 +681,10 @@
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px">
         <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">MPG you can't lie to</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Full-fill-to-full-fill windows only. A partial fill extends the window instead of inventing a heroic 43 MPG tank.</div></div>
         <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Gas and electrons</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Fuel logs and charge sessions side by side — $/mile for the Spyder vs the EV, settled with data instead of vibes.</div></div>
-        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Tag your shame</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Tag entries track, road trip, canyon — and stats segment by them. The racing tank stops being an outlier once it's labeled.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Leases, first-class</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">A leased car is not an owned car with a monthly payment. Buy-out math, return-date status, and the equity question, answered before the dealer asks.</div></div>
         <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">The ownership ledger</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Money in, minus money out, divided by miles owned. The only equation that matters at exit, kept current while you hold.</div></div>
         <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">The whole fleet</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Owned, loaners, rentals — rentals spin up for a trip and roll into family totals without polluting any car's stats.</div></div>
-        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Own your data</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">CSV in, CSV out, losslessly. It replaces your spreadsheet without holding it hostage. Paste a year of Apple Notes; it copes.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Own your data</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">CSV in, CSV out, losslessly. It replaces your spreadsheet without holding it hostage. The migration script survived a year of Apple Notes, including the one that just says "23.5ish".</div></div>
       </div>
 
       <div style="display: flex; gap: 28px; flex-wrap: wrap; margin-top: 48px; align-items: stretch">
@@ -705,8 +719,8 @@
       <div style="display: flex; gap: 48px; flex-wrap: wrap; align-items: center; margin-top: 48px">
         <div style="flex: 1 1 460px; min-width: 300px">
           <div style="display: flex; gap: 10px; flex-wrap: wrap">
-            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">iOS · family shared</span>
-            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--sun); color: #221B10; padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(2deg * var(--wobble)))">Workshopping</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">iPhone · iPad · Mac · family shared</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--sun); color: #221B10; padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(2deg * var(--wobble)))">Built · archive queue</span>
           </div>
           <h1 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: clamp(52px, 7vw, 92px); line-height: 1; margin: 20px 0 14px 0">Altrove <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 0.55em; vertical-align: -0.06em; transform: rotate(calc(7deg * var(--wobble)))"><sc-for list="{{ pm.flight }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></h1>
           <p style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: clamp(20px, 2.6vw, 27px); color: var(--money); margin: 0 0 18px 0; transform: rotate(calc(-0.5deg * var(--wobble)))">The family map of everywhere.</p>
@@ -714,8 +728,10 @@
             Like a flight tracker, but for the whole trip — hotels, drives, days out,
             not just the takeoffs. Log where the family has been, follow trips live so
             nobody has to text “landed?”, and plan the next one together, in one place
-            instead of four group chats and a shared album nobody opens. Currently
-            being designed by everyone at the dinner table, which explains the pace.
+            instead of four group chats and a shared album nobody opens. Designed by
+            everyone at the dinner table, then built anyway: iPhone, iPad and Mac
+            share one layout, the Guide runs on your device, and location is armed
+            per leg, default off, because the family read the privacy screen.
           </p>
           <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px">
             <span style="font-family: 'Space Mono', monospace; font-size: 12px; border: 2.5px solid var(--money); color: var(--money); border-radius: 10px; padding: 8px 14px; font-weight: 700; letter-spacing: 0.06em; transform: rotate(calc(-3deg * var(--wobble)))">BEEN ✓</span>
@@ -728,22 +744,25 @@
             <div style="width: 54px; height: 6px; border-radius: 999px; background: #221B10; opacity: 0.25; margin: 4px auto 8px auto"></div>
             <image-slot id="al-phone" shape="rounded" radius="30" placeholder="Drop an Altrove screenshot (or the napkin sketch — we're workshopping)" style="width: 100%; height: 520px"></image-slot>
           </div>
-          <div style="text-align: center; font-family: 'Space Mono', monospace; font-size: 11px; opacity: 0.55; margin-top: 12px">design subject to family vote</div>
+          <div style="text-align: center; font-family: 'Space Mono', monospace; font-size: 11px; opacity: 0.55; margin-top: 12px">the Passport · demo family, real map</div>
         </div>
       </div>
 
       <h2 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 34px; margin: 60px 0 22px 0">One trip, every layer of it</h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px">
         <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Whole trips, not flights</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">The full itinerary in one timeline — flights, hotels, drives, that one museum day. The flight is an event, not the story.</div></div>
-        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Follow along live</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">See the family's trip as it unfolds, without sending "landed?" into the void. The void never answered anyway.</div></div>
-        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">The been-map</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Every place you've all been, filling in slowly over the years. Objectively useless. Deeply satisfying.</div></div>
-        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Plan the next one</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">An AI guide proposes; the family disposes. Currently in the workshop, where all family decisions are made.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Follow along live</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">See the family's trip as it unfolds, without sending "landed?" into the void. Location is armed per leg with a tap, default off, and disarms itself. The void never answered anyway.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">The been-map</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Every place you've all been, on one map, with the receipts: miles together, countries, cities, days away. Objectively useless. Deeply satisfying.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Plan the next one</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">The Guide proposes, running on your device; the family disposes, running on The Table, a split-flap scoreboard for settling it. Widgets and a Live Activity for the day of.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">The Garage</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Road trips count. Every vehicle gets its own drive passport, and the miles roll into the family total. The Spyder is, once again, a witness.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Year in Travel</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">A recap for the group chat: miles, countries, the day everyone was in three time zones. Named metrics include "Are We There Yet."</div></div>
       </div>
 
       <div style="display: flex; gap: 28px; flex-wrap: wrap; margin-top: 48px; align-items: stretch">
         <div style="flex: 1 1 400px; border: 3px solid var(--ink); border-radius: 18px; background: var(--card); box-shadow: 5px 6px 0 var(--ink); padding: 26px 28px">
           <div style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6; margin-bottom: 14px">Boarding pass</div>
-          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Status</span><span style="font-weight: 700">workshopping, happily</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Status</span><span style="font-weight: 700">built · boarding soon</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Platforms</span><span style="font-weight: 700">iPhone · iPad · Mac</span></div>
           <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Group chats replaced</span><span style="font-weight: 700">4</span></div>
           <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">"Landed?" texts</span><span style="font-weight: 700">0, finally</span></div>
           <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Etymology</span><span style="font-weight: 700; color: var(--money)">Italian for "elsewhere"</span></div>
@@ -757,72 +776,6 @@
 
       <div style="text-align: center; margin-top: 52px; font-family: 'Space Mono', monospace; font-size: 13px">
         <a href="#plop">Next in the catalog: the Plop Pavilion →</a>
-      </div>
-    </section>
-  </sc-if>
-
-  <!-- ════════════════════════ THE GUY (ABOUT) ════════════════════════ -->
-  <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
-    <section data-screen-label="About Page" style="max-width: 1180px; margin: 0 auto; padding: 36px 32px 90px 32px">
-      <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap">
-        <a href="#" style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 2px solid var(--ink); border-radius: 999px; padding: 8px 16px; background: var(--card); box-shadow: 3px 3px 0 var(--ink); transition: translate 0.15s ease" style-hover="translate: -2px -2px; color: var(--ink)">← Back to the catalog</a>
-        <span style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.5">Studio directory · headcount: 1</span>
-      </div>
-
-      <div style="margin-top: 48px; max-width: 720px">
-        <div style="font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--money); font-weight: 700">The Studio 💼</div>
-        <h1 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: clamp(52px, 7vw, 92px); line-height: 1; margin: 14px 0 14px 0">The Guy <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 0.55em; vertical-align: -0.06em; transform: rotate(calc(8deg * var(--wobble)))"><sc-for list="{{ pm.founder }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></h1>
-        <p style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: clamp(20px, 2.6vw, 27px); color: var(--money); margin: 0 0 18px 0; transform: rotate(calc(-0.5deg * var(--wobble)))">Founder. CEO. CFO. Setup crew.</p>
-        <p style="font-size: 17.5px; line-height: 1.65; margin: 0; text-wrap: pretty">
-          Peyton — the entire staff of Pey Me Money App Studios. Computer-science
-          degree, garage full of cones, family full of beta testers. Every product
-          on this site exists because something finally gave out: a spreadsheet, an
-          Adobe subscription, a group chat. Races on Sundays. Ships on Wednesdays.
-          Invoices no one.
-        </p>
-      </div>
-
-      <div style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6; margin: 54px 0 20px 0">Exhibits</div>
-      <div style="display: flex; gap: 34px; flex-wrap: wrap; align-items: flex-end">
-        <figure style="margin: 0; text-align: center">
-          <div style="width: 226px; height: 226px; border: 3px solid var(--ink); border-radius: 50%; background: #FFFFFF; padding: 8px; box-sizing: border-box; box-shadow: 5px 6px 0 var(--ink); transform: rotate(calc(-2deg * var(--wobble)))">
-            <image-slot id="guy-face" shape="circle" placeholder="Drop a headshot (helmet optional)" style="width: 100%; height: 100%"></image-slot>
-          </div>
-          <figcaption style="font-family: 'Space Mono', monospace; font-size: 11px; opacity: 0.55; margin-top: 14px">fig. 1 — the guy</figcaption>
-        </figure>
-        <figure style="margin: 0; flex: 1 1 380px; min-width: 320px; text-align: center">
-          <div style="border: 3px solid var(--ink); background: #FFFFFF; padding: 10px; box-shadow: 6px 7px 0 var(--ink); transform: rotate(calc(0.6deg * var(--wobble)))">
-            <image-slot id="guy-machine" shape="rect" placeholder="Drop the car (or the EV, no judgment)" style="width: 100%; height: 280px"></image-slot>
-          </div>
-          <figcaption style="font-family: 'Space Mono', monospace; font-size: 11px; opacity: 0.55; margin-top: 14px">fig. 2 — the machine · 16.3 MPG lifetime · worth it</figcaption>
-        </figure>
-        <figure style="margin: 0; text-align: center">
-          <div style="width: 270px; border: 3px solid var(--ink); background: #FFFFFF; padding: 10px; box-sizing: border-box; box-shadow: 5px 6px 0 var(--ink); transform: rotate(calc(-1deg * var(--wobble)))">
-            <image-slot id="guy-office" shape="rect" placeholder="Drop a paddock or trip photo" style="width: 100%; height: 250px"></image-slot>
-          </div>
-          <figcaption style="font-family: 'Space Mono', monospace; font-size: 11px; opacity: 0.55; margin-top: 14px">fig. 3 — the field office</figcaption>
-        </figure>
-      </div>
-
-      <div style="display: flex; gap: 28px; flex-wrap: wrap; margin-top: 54px; align-items: stretch">
-        <div style="flex: 1 1 400px; border: 3px solid var(--ink); border-radius: 18px; background: var(--card); box-shadow: 5px 6px 0 var(--ink); padding: 26px 28px">
-          <div style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6; margin-bottom: 14px">Org chart</div>
-          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Founder &amp; CEO</span><span style="font-weight: 700">him</span></div>
-          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Engineering</span><span style="font-weight: 700">him</span></div>
-          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Design</span><span style="font-weight: 700">him, under protest</span></div>
-          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">QA</span><span style="font-weight: 700">the family (unpaid, thorough)</span></div>
-          <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding: 9px 2px; font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Setup crew</span><span style="font-weight: 700">also him (see: cones)</span></div>
-        </div>
-        <div style="flex: 1 1 280px; border: 3px solid var(--ink); border-radius: 18px; background: var(--card); box-shadow: 5px 6px 0 var(--ink); padding: 26px 28px; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 8px">
-          <div><span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 56px"><sc-for list="{{ pm.fundraise }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></div>
-          <div style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 26px">Want to pey us money?</div>
-          <div style="font-size: 14.5px; line-height: 1.6; opacity: 0.85">You currently can't. This is a known issue, and a fix is planned for a future release.</div>
-          <a href="#" style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; margin-top: 6px">Browse the catalog →</a>
-        </div>
-      </div>
-
-      <div style="text-align: center; margin-top: 52px; font-family: 'Space Mono', monospace; font-size: 13px">
-        <a href="#plop">Continue the tour: the Plop Pavilion →</a>
       </div>
     </section>
   </sc-if>
@@ -907,15 +860,16 @@
         <div style="flex: 1 1 460px; min-width: 300px">
           <div style="display: flex; gap: 10px; flex-wrap: wrap">
             <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">iOS · social · unfortunately real</span>
-            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--cone); color: var(--paper); padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(-2deg * var(--wobble)))">In development</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--cone); color: var(--paper); padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(-2deg * var(--wobble)))">On TestFlight · 1.0 (2)</span>
           </div>
           <h1 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: clamp(52px, 7vw, 92px); line-height: 1; margin: 20px 0 14px 0">Plop<span style="color: var(--cone)">.</span> <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 0.66em; vertical-align: -0.08em; transform: rotate(calc(-6deg * var(--wobble)))"><sc-for list="{{ plops.classic }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></h1>
           <p style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: clamp(20px, 2.6vw, 27px); color: var(--money); margin: 0 0 18px 0; transform: rotate(calc(-0.5deg * var(--wobble)))">The social network for number two.</p>
           <p style="font-size: 17.5px; line-height: 1.65; margin: 0; max-width: 560px; text-wrap: pretty">
             The studio's secret project, no longer secret. Start the throne timer and
             friends can cheer you on, live. Keep the streak. Earn Plop Points. Let
-            Sage — the AI gut coach — read the data. There are games for while you
-            sit. There's a map. There's ghost mode, because there has to be. Every
+            Sage — the on-device AI gut coach — read the data. There are eleven games
+            for while you sit. There's a map. There's ghost mode, because there has
+            to be. There's a garden, and we won't explain the garden. Every
             engineering skill this studio possesses, aimed at the least dignified
             problem it could find. We are not sorry. We are a little sorry.
           </p>
@@ -939,13 +893,13 @@
         <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">The throne timer</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Tap when you sit. Friends see "on the throne · 2:41" and can send a cheer. That's the whole network, and it's beautiful.</div></div>
         <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Streaks &amp; Plop Points</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Daily streaks, PP for showing up. Spend it in the Arcade. The economy is fake; the discipline is real.</div></div>
         <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">The map</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Every plop, pinned. Friends see a general area, never your door. Ghost mode included, for business travel.</div></div>
-        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Sage, the gut coach</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">An AI that reads your logs and says "hydrate" with the confidence of a board-certified nutritionist.</div></div>
-        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">The Arcade</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Turn-based games played entirely from the throne. GamePigeon energy. "One more game" is a lie.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Sage, the gut coach</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">An on-device model (Apple's, iOS 26) that reads your logs and roasts your week with the confidence of a board-certified nutritionist. Nothing leaves the phone.</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">The Arcade</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Eleven games played entirely from the throne — Turd Tower, Porcelain Putt, Bowl Pong — plus async duels, a HEAT meter, and a hidden twelfth cabinet. "One more game" is a lie.</div></div>
         <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">The Lab + Wrapped</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Gut Score, Bristol distribution, correlation studies (beer nights: confirmed), and a weekly Wrapped for the group chat.</div></div>
       </div>
 
       <h2 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 34px; margin: 60px 0 8px 0">The plopmoji pack</h2>
-      <p style="margin: 0 0 22px 0; font-size: 16px; opacity: 0.75; font-style: italic">Fifty-six moods. These four made it past legal.</p>
+      <p style="margin: 0 0 22px 0; font-size: 16px; opacity: 0.75; font-style: italic">Fifty-eight moods. These four made it past legal.</p>
       <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: 16px">
         <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); box-shadow: 4px 4px 0 var(--ink); padding: 20px 12px 14px 12px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; transition: translate 0.15s ease, box-shadow 0.15s ease" style-hover="translate: -2px -2px; box-shadow: 6px 6px 0 var(--ink)">
           <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 58px"><sc-for list="{{ plops.classic }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span>
@@ -964,7 +918,7 @@
           <span style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 14.5px; line-height: 1.2">Silent But Deadly</span>
         </div>
         <div style="border: 2.5px dashed var(--ink); border-radius: 14px; background: var(--card); padding: 20px 12px 14px 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-align: center">
-          <span style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 34px; color: var(--cone)">+52</span>
+          <span style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 34px; color: var(--cone)">+54</span>
           <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.6">in the app</span>
         </div>
       </div>
@@ -972,11 +926,11 @@
       <div style="display: flex; gap: 28px; flex-wrap: wrap; margin-top: 48px; align-items: stretch">
         <div style="flex: 1 1 400px; border: 3px solid var(--ink); border-radius: 18px; background: var(--card); box-shadow: 5px 6px 0 var(--ink); padding: 26px 28px">
           <div style="font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6; margin-bottom: 14px">Field notes</div>
-          <div style="display: flex; justify-content: space-between; gap: 16px; padding: 8px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Plopmojis in the pack</span><span style="font-weight: 700">56</span></div>
-          <div style="display: flex; justify-content: space-between; gap: 16px; padding: 8px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Bristol types charted</span><span style="font-weight: 700">all 7</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; padding: 8px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Plopmojis in the pack</span><span style="font-weight: 700">58</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; padding: 8px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Bristol types charted</span><span style="font-weight: 700">all 7 (and one that doesn't exist)</span></div>
           <div style="display: flex; justify-content: space-between; gap: 16px; padding: 8px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Company-time earnings</span><span style="font-weight: 700">$412/yr (per the Lab)</span></div>
           <div style="display: flex; justify-content: space-between; gap: 16px; padding: 8px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 28%, transparent); font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Ghost mode</span><span style="font-weight: 700">obviously</span></div>
-          <div style="display: flex; justify-content: space-between; gap: 16px; padding: 8px 2px; font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">The public repo</span><span style="font-weight: 700; color: var(--money)">still 7 bytes of misdirection</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 16px; padding: 8px 2px; font-family: 'Space Mono', monospace; font-size: 13px"><span style="opacity: 0.65">Easter eggs</span><span style="font-weight: 700; color: var(--money)">40, allegedly</span></div>
         </div>
         <div style="flex: 1 1 280px; border: 3px solid var(--ink); border-radius: 18px; background: var(--card); box-shadow: 5px 6px 0 var(--ink); padding: 26px 28px; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: 6px">
           <div style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: 46px; color: var(--money)">$0.00</div>
@@ -1008,7 +962,6 @@ class Component extends DCLogic {
 
   static THEMES = {
     home:        { paper: '#FAF4E7', card: '#FFFDF6', ink: '#221B10', money: null,       cone: '#E8722C', sun: '#F5C543' },
-    about:       { paper: '#FAF4E7', card: '#FFFDF6', ink: '#221B10', money: null,       cone: '#E8722C', sun: '#F5C543' },
     speedstream: { paper: '#14120D', card: '#1E1B13', ink: '#F2E9D6', money: '#45D07E',  cone: '#F08A3C', sun: '#F5C543' },
     conecanvas:  { paper: '#EEF3F6', card: '#FFFFFF', ink: '#1C2B33', money: '#E8722C',  cone: '#2A6FDB', sun: '#F5C543' },
     acmaker:     { paper: '#1A1B1E', card: '#242629', ink: '#EDEEF0', money: '#E0483E',  cone: '#F08A3C', sun: '#F2C230' },
@@ -1018,19 +971,17 @@ class Component extends DCLogic {
   };
 
   static TICKERS = {
-    home: 'PMM APP STUDIOS — THE OFFICIAL TAPE  ★  BOOTSTRAPPED: 100%  ★  APPS SHIPPED: 5  ★  HEADCOUNT: 1 (THE GUY)  ★  CONES HARMED YTD: [SEALED BY LEGAL]  ★  COSTCO GAS EDGE: $0.95/GAL  ★  AI COACH RATE: $0.004/LECTURE (AT COST)  ★  INVESTOR RELATIONS: 💸💰🤑  ★  ',
-    about: 'FOUNDER: 1  ★  EMPLOYEES: SAME GUY  ★  JOB TITLES: 11  ★  MEETINGS: SHORT  ★  QA DEPARTMENT: THE FAMILY  ★  OFFICE: THE PADDOCK  ★  ',
-    speedstream: 'RUN 07: 44.12 (−0.42 · PB)  ★  CONES: 2 (ALLEGEDLY)  ★  GPS: 25 HZ  ★  PHONE: LOCKED, RECORDING ANYWAY  ★  COACH: "BRAKE LATER INTO 3"  ★  EXCUSES DETECTED: 3 · ACCEPTED: 0  ★  PAYWALL: NONE FOUND  ★  ',
-    conecanvas: 'CONES REQUIRED: 214  ★  SLALOMS: 3  ★  SWEEPER: 90 FT  ★  DOCTOR FINDINGS: 0 CRITICAL  ★  AUTOCAD: UNINSTALLED ($500-ISH — AFRAID TO CHECK)  ★  PARKING SPACES EYEBALLED: 0  ★  IPAD: SOON  ★  ',
-    acmaker: 'MAP→WORLD FIT: 0.60 M MEDIAN  ★  CONES PLACED: 523  ★  CONES UPRIGHT: 523  ★  POINTER TILT: 13.54° (MEASURED)  ★  GRAVITY: RESPECTED SINCE V0.8  ★  COURSE WALKS: OPTIONAL  ★  SOCKS: ON  ★  ',
-    glovebox: 'SPYDER: 16.3 MPG LIFETIME  ★  ALL-IN: $19.84/MI (DO NOT ASK)  ★  COSTCO EDGE: $0.95/GAL  ★  EV: 2.76 MI/KWH  ★  SPREADSHEETS RETIRED: 1  ★  APPLE NOTES OF SHAME: SEVERAL  ★  RECEIPTS: ALL OF THEM  ★  ',
-    altrove: 'NOW BOARDING: THE FAMILY  ★  TRIPS LOGGED: ALL OF THEM  ★  "LANDED?" TEXTS: 0  ★  GROUP CHATS REPLACED: 4  ★  NEXT DESTINATION: ELSEWHERE  ★  STATUS: WORKSHOPPING  ★  ',
-    plop: 'LIVE NOW: 3 FRIENDS ON THE THRONE  ★  STREAK: SAFE  ★  PP BALANCE: 340  ★  PLOPMOJIS: 56  ★  GUT SCORE: 81 (B+)  ★  SAGE SAYS: "HYDRATE"  ★  PUBLIC REPO: STILL 7 BYTES  ★  ',
+    home: 'PMM APP STUDIOS — THE OFFICIAL TAPE  ★  BOOTSTRAPPED: 100%  ★  APPS: 6  ★  ON TESTFLIGHT: 3  ★  HEADCOUNT: 1  ★  CONES HARMED YTD: [SEALED BY LEGAL]  ★  COSTCO GAS EDGE: $0.95/GAL  ★  AI COACH RATE: $0.004/LECTURE (AT COST)  ★  INVESTOR RELATIONS: 💸💰🤑  ★  ',
+    speedstream: 'RUN 07: 44.12 (−0.42 · PB)  ★  CONES: 2 (ALLEGEDLY)  ★  DISCIPLINE: AUTO-DETECTED (CONES OR CIRCUIT)  ★  GPS: 25 HZ  ★  PLATFORMS: IPHONE · IPAD · MAC  ★  PHONE: LOCKED, RECORDING ANYWAY  ★  COACH: "BRAKE LATER INTO 3"  ★  EXCUSES DETECTED: 3 · ACCEPTED: 0  ★  TESTFLIGHT: 0.1.0 (2), INTERNAL  ★  PAYWALL: NONE FOUND  ★  ',
+    conecanvas: 'CONES REQUIRED: 72  ★  COURSE: 2,628 FT  ★  WORKER STATIONS: 5  ★  DOCTOR FINDINGS: 0 CRITICAL  ★  TESTS GREEN: 909  ★  AUTOCAD: UNINSTALLED ($500-ISH — AFRAID TO CHECK)  ★  VENUES BUNDLED: 3  ★  IPAD: IN THE FIELD  ★  ',
+    acmaker: 'MAP→WORLD FIT: 0.60 M MEDIAN  ★  CONES PLACED: ~350  ★  CONES UPRIGHT: ALL OF THEM  ★  POINTER TILT: 13.54° (MEASURED)  ★  GRAVITY: RESPECTED SINCE V0.8  ★  COURSE WALKS: OPTIONAL  ★  SOCKS: ON  ★  ',
+    glovebox: 'SPYDER: 16.3 MPG LIFETIME  ★  ALL-IN: $19.84/MI (DO NOT ASK)  ★  TESTFLIGHT: 1.0 (2)  ★  COSTCO EDGE: $0.95/GAL  ★  EV: 2.76 MI/KWH  ★  SPREADSHEETS RETIRED: 1  ★  APPLE NOTES OF SHAME: SEVERAL  ★  RECEIPTS: ALL OF THEM  ★  ',
+    altrove: 'NOW BOARDING: THE FAMILY  ★  MILES TOGETHER: 38,037 (1.5× AROUND THE EARTH)  ★  COUNTRIES: 14  ★  "LANDED?" TEXTS: 0  ★  LOCATION: ARMED PER LEG, DEFAULT OFF  ★  PLATFORMS: 3  ★  STATUS: BUILT, BOARDING SOON  ★  ',
+    plop: 'LIVE NOW: 3 FRIENDS ON THE THRONE  ★  STREAK: SAFE  ★  PP BALANCE: 340  ★  PLOPMOJIS: 58  ★  ARCADE CABINETS: 11 (+1 OUT OF ORDER)  ★  GUT SCORE: 81 (B+)  ★  SAGE SAYS: "HYDRATE" (ON-DEVICE)  ★  TESTFLIGHT: 1.0 (2)  ★  ',
     plopLocked: 'EXHIBIT SEALED  ★  CONTENTS: [REDACTED]  ★  SMELL: [REDACTED]  ★  PASSWORD ATTEMPTS TODAY: SEVERAL  ★  HINT: IT IS THE NAME OF THE APP  ★  GATEKEEPER ON DUTY: YES  ★  '
   };
 
   static HASH_TO_PAGE = {
-    '#about': 'about',
     '#speedstream': 'speedstream',
     '#conecanvas': 'conecanvas',
     '#ac-maker': 'acmaker',
@@ -1088,8 +1039,7 @@ class Component extends DCLogic {
       root.setProperty('--tab-' + name + '-bg', active ? t.ink : 'transparent');
       root.setProperty('--tab-' + name + '-fg', active ? t.paper : t.ink);
     };
-    setTab('cat', page !== 'about' && page !== 'plop');
-    setTab('guy', page === 'about');
+    setTab('cat', page !== 'plop');
     setTab('plop', page === 'plop');
   }
 
@@ -1377,7 +1327,6 @@ class Component extends DCLogic {
       onPwKey: (e) => { if (e.key === 'Enter') this.tryPlopPw(); },
       onPwTry: this.tryPlopPw,
       onRelock: this.relockPlop,
-      isAbout: p === 'about',
       showPlopCorner: this.props.showPlopCorner ?? true,
       peymojis: Object.keys(this.PMOODS).map((name) => ({ label: this.PEY_LB[name] || name, parts: this.peymoji(name), isNew: !!this.PMOODS[name].custom })),
       pm: Object.fromEntries(Object.keys(this.PMOODS).map((k) => [k, this.peymoji(k)])),
