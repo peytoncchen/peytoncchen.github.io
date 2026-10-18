@@ -340,9 +340,9 @@
           <span style="font-size: 15px; flex: 1 1 320px">v1.1: removed a 147-meter row of canopies that was parked on the racing line. v1.2 is in a branch, measuring cones.</span>
         </div>
         <div style="display: flex; gap: 8px 18px; align-items: baseline; flex-wrap: wrap; padding: 15px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 22%, transparent)">
-          <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; opacity: 0.55; min-width: 84px">SEP 2026</span>
+          <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; opacity: 0.55; min-width: 84px">OCT 2026</span>
           <a href="#glovebox" style="font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; min-width: 170px">Glovebox</a>
-          <span style="font-size: 15px; flex: 1 1 320px">1.0 (2) on TestFlight. Vehicle photos, lease math, and an offline outbox that refuses to lose a fill-up.</span>
+          <span style="font-size: 15px; flex: 1 1 320px">1.0 (6) on TestFlight. Family-sharing fixes and a CSV mirror for the spreadsheet loyalists. Family beta submitted for review.</span>
         </div>
         <div style="display: flex; gap: 8px 18px; align-items: baseline; flex-wrap: wrap; padding: 15px 2px; border-bottom: 2px dotted color-mix(in srgb, var(--ink) 22%, transparent)">
           <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; opacity: 0.55; min-width: 84px">SEP 2026</span>
@@ -416,6 +416,7 @@
         <a href="#altrove">Altrove</a>
         <a href="#plop" style="opacity: 0.7">plop.</a>
       </div>
+      <div style="margin: 0 0 22px; font-family: 'Space Mono', monospace; font-size: 12px"><a href="/support/" style="display: inline-flex; align-items: center; min-height: 44px">Support &amp; privacy →</a></div>
       <p style="font-family: 'Space Mono', monospace; font-size: 12px; line-height: 2; opacity: 0.6; max-width: 640px; margin: 0 auto">
         © 2026 Pey Me Money App Studios, LLC (formation status: aspirational).
         100% bootstrapped. The business model is patience.<br />
@@ -665,7 +666,7 @@
         <div style="flex: 1 1 460px; min-width: 300px">
           <div style="display: flex; gap: 10px; flex-wrap: wrap">
             <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 5px 12px; border-radius: 999px">iPhone · offline-first</span>
-            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--money); color: var(--paper); padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(-2deg * var(--wobble)))">On TestFlight · 1.0 (2)</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--money); color: var(--paper); padding: 5px 12px; border-radius: 999px; border: 2px solid var(--ink); transform: rotate(calc(-2deg * var(--wobble)))">On TestFlight · 1.0 (6)</span>
           </div>
           <h1 style="font-family: 'Shantell Sans', cursive; font-weight: 800; font-size: clamp(52px, 7vw, 92px); line-height: 1; margin: 20px 0 14px 0">Glovebox <span style="position: relative; display: inline-block; width: 1em; height: 1em; font-size: 0.55em; vertical-align: -0.06em; transform: rotate(calc(-6deg * var(--wobble)))"><sc-for list="{{ pm.invoice }}" as="pt" hint-placeholder-count="0"><span style="position: absolute; left: {{ pt.l }}; top: {{ pt.t }}; width: {{ pt.w }}; height: {{ pt.h }}; border-radius: {{ pt.br }}; background: {{ pt.bg }}; box-shadow: {{ pt.sh }}; transform: {{ pt.tr }}; font-size: {{ pt.fs }}; color: {{ pt.col }}; line-height: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; pointer-events: none; white-space: nowrap">{{ pt.tx }}</span></sc-for></span></h1>
           <p style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: clamp(20px, 2.6vw, 27px); color: var(--money); margin: 0 0 18px 0; transform: rotate(calc(-0.5deg * var(--wobble)))">Every fill-up. Every dollar. Every regret.</p>
@@ -679,7 +680,7 @@
           </p>
           <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 26px">
             <span style="font-family: 'Space Mono', monospace; font-size: 12px; border: 2px dashed var(--ink); border-radius: 8px; padding: 7px 12px; transform: rotate(calc(2deg * var(--wobble)))">$0.00 · introductory price</span>
-            <span style="font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6">household sharing: next, also $0.00</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 12px; opacity: 0.6">family beta: awaiting Apple review</span>
           </div>
         </div>
         <div style="flex: 0 0 auto; margin: 0 auto">
@@ -699,7 +700,7 @@
         <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Leases, first-class</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">A leased car is not an owned car with a monthly payment. Buy-out math, return-date status, and the equity question, answered before the dealer asks.</div></div>
         <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">The ownership ledger</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Money in, minus money out, divided by miles owned. The only equation that matters at exit, kept current while you hold.</div></div>
         <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">The whole fleet</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">Owned, loaners, rentals — rentals spin up for a trip and roll into family totals without polluting any car's stats.</div></div>
-        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Own your data</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">CSV in, CSV out, losslessly. It replaces your spreadsheet without holding it hostage. The migration script survived a year of Apple Notes, including the one that just says "23.5ish".</div></div>
+        <div style="border: 2.5px solid var(--ink); border-radius: 14px; background: var(--card); padding: 20px 22px; box-shadow: 4px 4px 0 var(--ink)"><div style="font-family: 'Shantell Sans', cursive; font-weight: 700; font-size: 19px; margin-bottom: 6px">Own your data</div><div style="font-size: 14.5px; line-height: 1.55; opacity: 0.85">CSV in, CSV out. An optional iCloud Drive mirror keeps a readable ledger alongside the app. The spreadsheet gets to stay; it just has less typing to do.</div></div>
       </div>
 
       <div style="display: flex; gap: 28px; flex-wrap: wrap; margin-top: 48px; align-items: stretch">
@@ -716,6 +717,11 @@
           <div style="font-size: 14px; font-style: italic; opacity: 0.8">That's $19.84/mi cheaper than the Spyder.</div>
         </div>
       </div>
+
+      <aside aria-label="Glovebox support" style="margin-top: 40px; border: 2px solid var(--ink); border-radius: 14px; background: var(--card); padding: 22px 26px; display: flex; align-items: center; justify-content: space-between; gap: 12px 28px; flex-wrap: wrap">
+        <div><h2 style="font-family: 'Shantell Sans', cursive; font-size: 23px; margin: 0 0 5px">The glove compartment</h2><p style="font-size: 14px; line-height: 1.6; margin: 0">Sharing help, spreadsheet how-tos, and the useful paperwork.</p></div>
+        <nav aria-label="Glovebox help" style="display: flex; gap: 12px 24px; flex-wrap: wrap; font-family: 'Space Mono', monospace; font-size: 12px"><a href="/support/glovebox/" style="display: inline-flex; align-items: center; min-height: 44px">Support →</a><a href="/support/glovebox/privacy/" style="display: inline-flex; align-items: center; min-height: 44px">Privacy policy</a></nav>
+      </aside>
 
       <div style="text-align: center; margin-top: 52px; font-family: 'Space Mono', monospace; font-size: 13px">
         <a href="#altrove">Next in the catalog: Altrove →</a>
@@ -992,7 +998,7 @@ class Component extends DCLogic {
     speedstream: 'RUN 07: 44.12 (−0.42 · PB)  ★  CONES: 2 (ALLEGEDLY)  ★  TRACK DAYS: IN THE ENGINE, SCREENS NEXT  ★  GPS: 25 HZ  ★  PLATFORMS: IPHONE · IPAD · MAC  ★  PHONE: LOCKED, RECORDING ANYWAY  ★  COACH: "BRAKE LATER INTO 3"  ★  EXCUSES DETECTED: 3 · ACCEPTED: 0  ★  TESTFLIGHT: 0.1.0 (2), INTERNAL  ★  PAYWALL: NONE FOUND  ★  ',
     conecanvas: 'CONES REQUIRED: 72  ★  COURSE: 2,628 FT  ★  WORKER STATIONS: 5  ★  DOCTOR FINDINGS: 0 CRITICAL  ★  TESTS GREEN: 909  ★  AUTOCAD: UNINSTALLED ($500-ISH — AFRAID TO CHECK)  ★  VENUES BUNDLED: 3  ★  IPAD: IN THE FIELD  ★  ',
     acmaker: 'MAP→WORLD FIT: 0.60 M MEDIAN  ★  CONES PLACED: ~350  ★  CONES UPRIGHT: ALL OF THEM  ★  POINTER TILT: 13.54° (MEASURED)  ★  GRAVITY: RESPECTED SINCE V0.8  ★  COURSE WALKS: OPTIONAL  ★  SOCKS: ON  ★  ',
-    glovebox: 'SPYDER: 16.3 MPG LIFETIME  ★  ALL-IN: $19.84/MI (DO NOT ASK)  ★  TESTFLIGHT: 1.0 (2)  ★  COSTCO EDGE: $0.95/GAL  ★  EV: 2.76 MI/KWH  ★  SPREADSHEETS RETIRED: 1  ★  APPLE NOTES OF SHAME: SEVERAL  ★  RECEIPTS: ALL OF THEM  ★  ',
+    glovebox: 'SPYDER: 16.3 MPG LIFETIME  ★  ALL-IN: $19.84/MI (DO NOT ASK)  ★  TESTFLIGHT: 1.0 (6)  ★  COSTCO EDGE: $0.95/GAL  ★  EV: 2.76 MI/KWH  ★  SPREADSHEETS: STILL INVITED  ★  APPLE NOTES OF SHAME: SEVERAL  ★  RECEIPTS: ALL OF THEM  ★  ',
     altrove: 'NOW BOARDING: THE FAMILY  ★  MILES TOGETHER: 38,037 (1.5× AROUND THE EARTH)  ★  COUNTRIES: 14  ★  "LANDED?" TEXTS: 0  ★  LOCATION: ARMED PER LEG, DEFAULT OFF  ★  PLATFORMS: 3  ★  STATUS: BUILT, BOARDING SOON  ★  ',
     plop: 'LIVE NOW: 3 FRIENDS ON THE THRONE  ★  STREAK: SAFE  ★  PP BALANCE: 1,240  ★  PLOPMOJIS: 58  ★  ARCADE CABINETS: 11 (+1 OUT OF ORDER)  ★  GUT SCORE: 81 (B+)  ★  SAGE SAYS: "HYDRATE" (ON-DEVICE)  ★  TESTFLIGHT: 1.0 (2)  ★  ',
     plopLocked: 'EXHIBIT SEALED  ★  CONTENTS: [REDACTED]  ★  SMELL: [REDACTED]  ★  PASSWORD ATTEMPTS TODAY: SEVERAL  ★  HINT: IT IS THE NAME OF THE APP  ★  GATEKEEPER ON DUTY: YES  ★  '
