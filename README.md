@@ -14,6 +14,15 @@ python3 -m http.server 8000
 # open http://localhost:8000
 ```
 
+## Verification
+
+`make verify` checks published HTML, local assets/links/fragments and static
+metadata offline. `make hooks` installs the shared strict local push gate after
+`autonomous-dev-setup`. Preview changed routes for rendering and accessibility;
+external URLs, generated dynamic-route fragments and Glovebox privacy-policy
+meaning remain separate checks. Duplicate IDs inside conditional generated
+views require rendered inspection; ordinary static pages retain ID/fragment checks.
+
 ## Refreshing screenshots
 
 Each `<image-slot>` in `index.html` has a `src` pointing into `assets/`. Replace the file (keep the name) or point `src` at a new one. Phone shots are full simulator captures (status bar and Dynamic Island included) resized to 414×900 with `sips -Z`; the `.pmm-screen` frame is locked to that ratio. Wide shots are resized to at most 1800 px, and their `.pmm-window` wrapper carries an `aspect-ratio` matching the image, so update it if the new capture has different proportions. Sources: SpeedStream, Glovebox and plop from the iOS simulator (each repo's `docs/TESTFLIGHT-AGENT.md` or `docs/testing-and-device-loop.md` lists the launch flags for demo data); ConeCanvas from the Mac editor; Altrove from `docs/verification/screenshots`; AC Autocross Maker from a matplotlib render of `course.json`.

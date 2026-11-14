@@ -1,0 +1,4 @@
+#!/bin/sh
+helper="$HOME/.claude/bin/gate-hook"
+[ -x "$helper" ] || { echo 'Install autonomous-dev-setup gate-hook before pushing.' >&2; exit 1; }
+exec "$helper" -- make verify
