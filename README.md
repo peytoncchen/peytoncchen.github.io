@@ -16,12 +16,15 @@ python3 -m http.server 8000
 
 ## Verification
 
-`make verify` checks published HTML, local assets/links/fragments and static
-metadata offline. `make hooks` installs the shared strict local push gate after
-`autonomous-dev-setup`. Preview changed routes for rendering and accessibility;
-external URLs, generated dynamic-route fragments and Glovebox privacy-policy
-meaning remain separate checks. Duplicate IDs inside conditional generated
-views require rendered inspection; ordinary static pages retain ID/fragment checks.
+With Python 3 and uv installed, run `make smoke-setup` once to install the
+matching Chromium. `make check` validates HTML and local references.
+`make verify` also opens the local support desk, clicks through Glovebox help
+and verifies the privacy page URL and heading. The local browser blocks
+off-site requests. `make hooks` wires this gate to the shared push guard.
+
+After Pages publishes, `make smoke-live` follows the same links starting at the
+rendered public catalog. This also exercises the catalog's CDN-backed runtime.
+Inspect changed layouts, accessibility, and privacy wording as appropriate.
 
 ## Refreshing screenshots
 
